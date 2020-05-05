@@ -1,0 +1,10 @@
+<!DOCTYPE RCC><RCC version="1.0">
+
+<!-- Note that the listed resource files must be located in the same directory
+as the .qrc file, or one of its subdirectories -->
+
+<!-- Info about QT Resource system: https://doc.qt.io/qt-5/resources.html -->
+<qresource>
+    <file alias="map.jpg">images/map.jpg</file>
+</qresource>
+</RCC>
