@@ -43,4 +43,5 @@ RESOURCES += \
   baseball_gui.qrc
 
 DISTFILES += \
-  images/map.jpg
+  images/map.jpg \
+    Images/Stadiums.png
