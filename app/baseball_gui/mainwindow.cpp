@@ -16,7 +16,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_Map_clicked()
+void MainWindow::on_pushButton_clicked()
 {
     QPixmap m (":/Images/Stadiums.png");
 
@@ -26,12 +26,10 @@ void MainWindow::on_Map_clicked()
     ui->graphicsView->setScene(scene);
 }
 
-void MainWindow::on_Trip_clicked()
+void MainWindow::on_pushButton_2_clicked()
 {
     QLine l;
     l.setLine(150,160,300, 300);
     scene->addLine(l);
     ui->graphicsView->setScene(scene);
 }
-
-
