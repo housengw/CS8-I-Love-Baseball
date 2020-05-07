@@ -31,7 +31,7 @@ int main()
     cout << endl << " National Teams " << endl;
     cout <<endl<< "---------------------------------------" <<endl;
     vector<Stadium> NTsortName;
-    add_stadiums_in_vector(NationalTeams, NTsortName);
+    NTsortName = vectorize(NationalTeams);
     sort_by_team_name (NTsortName);
     print (NTsortName);
 
@@ -39,7 +39,7 @@ int main()
     cout << endl << " American Teams " << endl;
     cout <<endl<< "---------------------------------------" <<endl;
     vector<Stadium> ATsortName;
-    add_stadiums_in_vector(AmericanTeams, ATsortName);
+    ATsortName = vectorize(AmericanTeams);
     sort_by_stadium_name(ATsortName);
     print (ATsortName);
 
@@ -50,15 +50,14 @@ int main()
     cout <<endl<< "---------------------------------------" <<endl;
     cout << endl << " National Teams " << endl;
     cout <<endl<< "---------------------------------------" <<endl;
-
-    add_stadiums_in_vector(NationalTeams.stadiums_grassSurface(), NTsortName);
+    NTsortName = vectorize(NationalTeams.stadiums_grass_surface());
     sort_by_team_name (NTsortName);
     print (NTsortName);
 
     cout <<endl<< "---------------------------------------" <<endl;
     cout << endl << " American Teams " << endl;
     cout <<endl<< "---------------------------------------" <<endl;
-    add_stadiums_in_vector(AmericanTeams.stadiums_grassSurface(), ATsortName);
+    ATsortName = vectorize(AmericanTeams.stadiums_grass_surface());
     sort_by_stadium_name(ATsortName);
     print (ATsortName);
 

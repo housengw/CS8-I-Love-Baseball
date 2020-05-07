@@ -17,9 +17,18 @@ void sort_by_opened_date (vector <Stadium>& stadiums)
 //    std::sort (stadiums.begin(), stadiums.end());
 }
 
-void add_stadiums_in_vector (StadiumContainer s, vector<Stadium> & dest)
+
+vector<Stadium> vectorize(const StadiumContainer& s){
+    vector<Stadium> temp;
+    for (size_t i=0; i<s.size(); i++){
+        temp.push_back(s[i]);
+    }
+    return temp;
+}
+
+void add_stadiums_in_vector (const StadiumContainer& s, vector<Stadium> & dest)
 {
-    for (size_t i = 0; i < s.size(); ++i) {
+    for (size_t i = 0; i < s.size(); i++) {
         dest.push_back(s[i]);
     }
 }

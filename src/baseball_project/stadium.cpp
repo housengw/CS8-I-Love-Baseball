@@ -3,13 +3,11 @@
 Stadium::Stadium():
     _stadium_name(""),
     _team_name(""),
-//    _address(Address()),
     _address(""),
-
     _phone_number(""),
     _date_opened(Date()),
     _capacity(0),
-    _surface ("Grass")
+    _surface (GRASS_SURFACE_NAME)
 {
     //intentionally left empty
 }

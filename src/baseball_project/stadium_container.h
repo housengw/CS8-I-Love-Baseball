@@ -26,24 +26,16 @@ public:
     StadiumContainer& operator = (const StadiumContainer& RHS); //assginment operator
     StadiumContainer (const StadiumContainer &copyThis);        //copy constructor
 
-    StadiumContainer stadiums_grassSurface( );
+    StadiumContainer stadiums_grass_surface( );
 
     bool add(const Stadium & stadium);
     bool remove(size_t index);
     void reserve(size_t n);
     size_t size() const{return _size;}
     bool empty() const{return _size == 0;}
-//    const Stadium& operator[](size_t index) const;
+    const Stadium& operator[](size_t index) const;
     Stadium& operator[](size_t index) ;
-
     void print();
-
-//    //compare team names
-//    bool compare_team_name ( Stadium i,  Stadium j) { return (i.compare_teamName(j)); }
-
-//    //compare stadium names
-//    bool compare_stadium_name ( Stadium i, Stadium j) { return (i.compare_StadiumName(j)); }
-
 
 private:
     Stadium* _stadium_list;

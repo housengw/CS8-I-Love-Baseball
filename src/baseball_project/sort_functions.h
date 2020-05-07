@@ -12,8 +12,11 @@ bool compare_stadium_name ( Stadium i, Stadium j);
 
 //need a function to compare dates
 
+
+vector<Stadium> vectorize(const StadiumContainer& s);
+
 //push stadiums into vector
-void add_stadiums_in_vector(StadiumContainer s, vector<Stadium> &dest);
+void add_stadiums_in_vector(const StadiumContainer& s, vector<Stadium> &dest);
 
 //sort the stadiums by team name
 void sort_by_team_name (vector <Stadium>& stadiums);
