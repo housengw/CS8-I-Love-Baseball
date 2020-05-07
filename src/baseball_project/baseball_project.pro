@@ -10,7 +10,8 @@ SOURCES += \
     helpers.cpp \
     address.cpp \
     stadium_container.cpp \
-    stadiums_list.cpp
+    save_load.cpp \
+    sort_functions.cpp
 
 HEADERS += \
     constants.h \
@@ -19,4 +20,5 @@ HEADERS += \
     date.h \
     helpers.h \
     stadium_container.h \
-    stadiums_list.h
+    save_load.h \
+    sort_functions.h

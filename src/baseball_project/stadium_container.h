@@ -38,6 +38,13 @@ public:
 
     void print();
 
+//    //compare team names
+//    bool compare_team_name ( Stadium i,  Stadium j) { return (i.compare_teamName(j)); }
+
+//    //compare stadium names
+//    bool compare_stadium_name ( Stadium i, Stadium j) { return (i.compare_StadiumName(j)); }
+
+
 private:
     Stadium* _stadium_list;
     size_t _allocated;

@@ -65,6 +65,16 @@ void  Stadium::set_surface(const string& surface)
     _surface = surface;
 }
 
+bool Stadium::operator< (const Stadium& s)
+{
+    return ( _team_name  < s.get_team_name());
+}
+
+bool Stadium::operator > (const Stadium& s)
+{
+    return ( _stadium_name  < s.get_stadium_name());
+}
+
 void Stadium::print_info ()
 {
     cout << "Stadium : " << get_stadium_name() << endl;

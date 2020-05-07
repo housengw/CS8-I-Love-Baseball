@@ -32,6 +32,11 @@ public:
     void set_surface(const string& capacity);
     void print_info ();
 
+    //compare team name
+    bool operator < (const Stadium& s);
+    //compare stadium name
+    bool operator >  (const Stadium& s);
+
 private:
     string _stadium_name;
     string _team_name;
