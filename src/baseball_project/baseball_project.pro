@@ -9,7 +9,8 @@ SOURCES += \
     date.cpp \
     helpers.cpp \
     address.cpp \
-    stadium_container.cpp
+    stadium_container.cpp \
+    stadiums_list.cpp
 
 HEADERS += \
     constants.h \
@@ -17,4 +18,5 @@ HEADERS += \
     address.h \
     date.h \
     helpers.h \
-    stadium_container.h
+    stadium_container.h \
+    stadiums_list.h
