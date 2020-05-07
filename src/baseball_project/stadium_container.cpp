@@ -8,7 +8,49 @@ StadiumContainer::StadiumContainer()
 }
 
 
-bool StadiumContainer::add(Stadium stadium){
+StadiumContainer::~StadiumContainer ()
+{
+    delete [] _stadium_list;
+} //destructor
+
+
+StadiumContainer& StadiumContainer::operator = (const StadiumContainer& rhs)
+{
+    if (this == &rhs) return *this;
+    if (_stadium_list != nullptr) delete [] _stadium_list;
+    _size = rhs._size;
+    _allocated = rhs._allocated;
+    _stadium_list = new value_type [rhs._allocated];
+    std::copy(rhs._stadium_list, rhs._stadium_list + rhs._size, _stadium_list);
+    return *this;
+} //assginment operator
+
+
+StadiumContainer::StadiumContainer(const StadiumContainer &source)
+{
+    _size = source._size;
+    _allocated = 2*source._size;
+    _stadium_list = new value_type [_allocated];
+    std::copy(source._stadium_list, source._stadium_list + source._size, _stadium_list);
+} //copy constructor
+
+
+StadiumContainer StadiumContainer::stadiums_grass_surface ( )
+{
+    StadiumContainer temp;
+    string surface;
+    for(size_t i = 0; i < _size; i++){
+        surface = _stadium_list[i].get_surface() ;
+        surface.pop_back();
+        if (surface == GRASS_SURFACE_NAME){
+            temp.add(_stadium_list[i]);
+        }
+    }
+    return temp;
+}
+
+
+bool StadiumContainer::add(const Stadium &stadium){
     // some condition: return false;
     if (size() == _allocated){
         reserve(size()*2);
@@ -33,9 +75,7 @@ void StadiumContainer::reserve(size_t n){
     Stadium* temp = _stadium_list;
     _allocated = n;
     _stadium_list = new Stadium [_allocated];
-    for (size_t i=0; i<size(); i++){
-        _stadium_list[i] = temp[i];
-    }
+    std::copy(temp, temp+size(), _stadium_list);
     delete[] temp;
 }
 
@@ -45,9 +85,16 @@ const Stadium& StadiumContainer::operator[](size_t index) const{
     return _stadium_list[index];
 }
 
+
+Stadium& StadiumContainer::operator[](size_t index){
+    assert(index < size() && index >= 0);
+    return _stadium_list[index];
+}
+
 void StadiumContainer::print(){
     for (size_t i=0; i<size(); i++){
-        cout<<_stadium_list[i].get_stadium_name()<<" ";
+        _stadium_list[i].print_info();
+        cout<<endl;
     }
     cout<<endl;
 }
