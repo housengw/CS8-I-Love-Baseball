@@ -15,8 +15,6 @@ public:
     const string& get_stadium_name() const{return _stadium_name;}
     const string& get_team_name() const{return _team_name;}
     const string& get_address() const{return _address;}
-
-//    const Address& get_address() const{return _address;}
     const string& get_surface() const{return _surface;}
     const string& get_phone_number() const{return _phone_number;}
     const Date& get_date_opened() const{return _date_opened;}
@@ -24,7 +22,6 @@ public:
 
     void set_stadium_name(const string& stadium_name);
     void set_team_name(const string& team_name);
-//    void set_address(const Address& address);
     void set_address(const string& address);
     void set_phone_number(const string& phone_number);
     void set_date_opened(const Date& date_opened);
@@ -42,9 +39,6 @@ private:
     string _team_name;
     string _address;
     string _phone_number;
-
-//    Address _address;
-//    int _phone_number;
     Date _date_opened;
     int _capacity;
     string _surface;

@@ -10,11 +10,6 @@ class StadiumContainer
 {
 public:
     /****************************************
-    **  TYPEDEFS  **
-    *****************************************/
-    typedef Stadium value_type;
-
-    /****************************************
     **  CONSTRUCTORS  **
     *****************************************/
     StadiumContainer();
@@ -26,9 +21,9 @@ public:
     StadiumContainer& operator = (const StadiumContainer& RHS); //assginment operator
     StadiumContainer (const StadiumContainer &copyThis);        //copy constructor
 
-    StadiumContainer stadiums_grass_surface( );
+    StadiumContainer stadiums_grass_surface();
 
-    bool add(const Stadium & stadium);
+    bool add(const Stadium& stadium);
     bool remove(size_t index);
     void reserve(size_t n);
     size_t size() const{return _size;}
