@@ -5,7 +5,7 @@ void save_stadiums (string file_name, StadiumContainer scontainer){
 
 }
 
-void load_stadiums (string file_name, StadiumContainer &mcontainer)
+void load_stadiums (string file_name, string league, StadiumContainer &mcontainer)
 {
     ifstream file;
     StadiumContainer s_temp;
@@ -46,8 +46,9 @@ void load_stadiums (string file_name, StadiumContainer &mcontainer)
             Date date;
             date.set_whole(date_str);
             address1 += address2;
-            Stadium _stadium (stadium, team, address1, phone, date, stoi(capacity), surface);
-            s_temp.add(_stadium);
+            Stadium s(stadium, team, address1, phone, date, stoi(capacity), surface);
+            s.set_league(league);
+            s_temp.add(s);
         }
     }
 

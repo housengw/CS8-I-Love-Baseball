@@ -11,6 +11,7 @@ class Map
 public:
     Map();
 private:
+    void _initialize_stadiums();
     StadiumContainer _stadiums;
     EdgeContainer _edges;
     int** _adjacency_matrix;
