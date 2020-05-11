@@ -11,7 +11,10 @@ SOURCES += \
     address.cpp \
     stadium_container.cpp \
     save_load.cpp \
-    sort_functions.cpp
+    sort_functions.cpp \
+    map.cpp \
+    edge.cpp \
+    edge_container.cpp
 
 HEADERS += \
     constants.h \
@@ -21,4 +24,7 @@ HEADERS += \
     helpers.h \
     stadium_container.h \
     save_load.h \
-    sort_functions.h
+    sort_functions.h \
+    map.h \
+    edge.h \
+    edge_container.h

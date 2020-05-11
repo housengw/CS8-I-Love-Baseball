@@ -14,14 +14,14 @@ int main()
     StadiumContainer NationalTeams;
     StadiumContainer AmericanTeams;
 
-    load_stadiums ("../files/NationalTeams.txt",NationalTeams);
+    load_stadiums (NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, NationalTeams);
     NationalTeams.print();
 
     cout <<endl<< "=============================================" <<endl;
     cout << endl << "  Reading from file American Teams" <<endl;
     cout <<endl<< "=============================================" <<endl;
 
-    load_stadiums ("../files/AmericanTeams.txt",AmericanTeams);
+    load_stadiums (AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME, AmericanTeams);
     AmericanTeams.print();
 
     cout <<endl<< "=============================================" <<endl;

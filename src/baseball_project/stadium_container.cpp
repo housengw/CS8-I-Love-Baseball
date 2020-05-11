@@ -20,7 +20,7 @@ StadiumContainer& StadiumContainer::operator = (const StadiumContainer& rhs)
     if (_stadium_list != nullptr) delete [] _stadium_list;
     _size = rhs._size;
     _allocated = rhs._allocated;
-    _stadium_list = new value_type [rhs._allocated];
+    _stadium_list = new Stadium [rhs._allocated];
     std::copy(rhs._stadium_list, rhs._stadium_list + rhs._size, _stadium_list);
     return *this;
 } //assginment operator
@@ -30,7 +30,7 @@ StadiumContainer::StadiumContainer(const StadiumContainer &source)
 {
     _size = source._size;
     _allocated = 2*source._size;
-    _stadium_list = new value_type [_allocated];
+    _stadium_list = new Stadium [_allocated];
     std::copy(source._stadium_list, source._stadium_list + source._size, _stadium_list);
 } //copy constructor
 
@@ -66,6 +66,17 @@ bool StadiumContainer::remove(size_t index){
     }
     _size--;
     return true;
+}
+
+
+int StadiumContainer::find(string stadium_name){
+    int index = -1;
+    for (size_t i=0; i<size(); i++){
+        if (_stadium_list[i].get_stadium_name() == stadium_name){
+            index = i;
+        }
+    }
+    return index;
 }
 
 
