@@ -75,15 +75,14 @@ bool Stadium::operator > (const Stadium& s)
 
 void Stadium::print_info ()
 {
-    cout << "Stadium : " << get_stadium_name() << endl;
-    cout << "Team Name: " << get_team_name() << endl;
-    cout << "Address: " <<endl<< get_address() << endl;
-    cout << "Opened Date: " << _date_opened.get_month() << "/" << _date_opened.get_day ()
-                     << "/" << _date_opened.get_year() << endl;
-    cout << "Phone: " << get_phone_number() << endl;
+    cout << "Stadium : '" << get_stadium_name() << "'" << endl;
+    cout << "Team Name: '" << get_team_name() << "'" << endl;
+    cout << "Address: '" << get_address() << "'" << endl;
+    cout << "Opened Date: '" << _date_opened.get_date()<< "'" << endl;
+    cout << "Phone: '" << get_phone_number() << "'" << endl;
 
-    cout << "Capacity:" << get_capacity () << endl;
-    cout << "Surface: " << get_surface() << endl;
+    cout << "Capacity: '" << get_capacity () << "'" << endl;
+    cout << "Surface: '" << get_surface() << "'" << endl;
 
 }
 

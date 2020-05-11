@@ -41,7 +41,6 @@ StadiumContainer StadiumContainer::stadiums_grass_surface ( )
     string surface;
     for(size_t i = 0; i < _size; i++){
         surface = _stadium_list[i].get_surface() ;
-        surface.pop_back();
         if (surface == GRASS_SURFACE_NAME){
             temp.add(_stadium_list[i]);
         }
