@@ -49,6 +49,11 @@ void Stadium::set_phone_number(const string& phone_number){
 }
 
 
+void Stadium::set_league(const string& league){
+    _league = league;
+}
+
+
 void Stadium::set_date_opened(const Date& date_opened){
     _date_opened = date_opened;
 }

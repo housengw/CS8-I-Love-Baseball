@@ -2,12 +2,21 @@
 #include "sort_functions.h"
 #include "save_load.h"
 
+using namespace std;
 
 void print (vector<Stadium> source);
-using namespace std;
+void test_load_stadiums();
+void test_load_edges();
+
 
 int main()
 {
+//    test_load_edges();
+    return 0;
+}
+
+
+void test_load_stadiums(){
     cout <<endl<< "=============================================" <<endl;
     cout << endl << "  Reading from file National Teams" <<endl;
     cout <<endl<< "=============================================" <<endl;
@@ -62,8 +71,23 @@ int main()
     print (ATsortName);
 
     cout << endl << "===================END================" <<endl;
-    return 0;
 }
+
+
+void test_load_edges(){
+    StadiumContainer national_stadiums, american_stadiums, all_stadiums;
+    EdgeContainer edge_list;
+    load_stadiums(NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, national_stadiums);
+    load_stadiums(AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME,american_stadiums);
+    for (size_t i=0; i<national_stadiums.size(); i++){
+        all_stadiums.add(national_stadiums[i]);
+    }
+    for (size_t i=0; i<american_stadiums.size(); i++){
+        all_stadiums.add(american_stadiums[i]);
+    }
+    edge_list = load_edges(EDGES_FILE_PATH, all_stadiums);
+}
+
 
 void print (vector<Stadium> source)
 {

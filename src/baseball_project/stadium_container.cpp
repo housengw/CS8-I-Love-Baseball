@@ -69,7 +69,7 @@ bool StadiumContainer::remove(size_t index){
 }
 
 
-int StadiumContainer::find(string stadium_name){
+int StadiumContainer::find(string stadium_name) const{
     int index = -1;
     for (size_t i=0; i<size(); i++){
         if (_stadium_list[i].get_stadium_name() == stadium_name){
