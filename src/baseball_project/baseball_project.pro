@@ -13,7 +13,9 @@ SOURCES += \
     sort_functions.cpp \
     map.cpp \
     edge.cpp \
-    edge_container.cpp
+    edge_container.cpp \
+    point.cpp \
+    point_container.cpp
 
 HEADERS += \
     constants.h \
@@ -25,4 +27,7 @@ HEADERS += \
     sort_functions.h \
     map.h \
     edge.h \
-    edge_container.h
+    edge_container.h \
+    point.h \
+    point_container.h \
+    container.h

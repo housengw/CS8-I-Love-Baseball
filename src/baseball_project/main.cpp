@@ -12,6 +12,7 @@ void test_load_edges();
 int main()
 {
 //    test_load_edges();
+//    test_load_stadiums();
     return 0;
 }
 
