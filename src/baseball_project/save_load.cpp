@@ -1,15 +1,15 @@
 #include "save_load.h"
 
 
-void save_stadiums (string file_name, StadiumContainer scontainer);
+void save_stadiums (string file_name, StadiumContainer scontainer){
+
+}
 
 void load_stadiums (string file_name, StadiumContainer &mcontainer)
 {
     ifstream file;
     StadiumContainer s_temp;
-    string stadium,team, adress1, adress2 ,phone,surface, line;
-    int capacity,m,d,y;
-    char slash;
+    string stadium, team, address1, address2, phone, capacity, surface, line, date_str;
 
     file.open(file_name);
     if (file.fail()){            //message for failure to open the file
@@ -18,21 +18,35 @@ void load_stadiums (string file_name, StadiumContainer &mcontainer)
     cout << "  Reading file " <<endl;
     if (file.is_open()){
         while (getline (file, stadium, '\n')){
+            rstrip_newline(stadium);
+//            cout<<"'"<<stadium<<"'"<<endl;
             getline (file, team, '\n');
-            getline (file, adress1, '\n');
-            getline (file, adress2, '\n');
+            rstrip_newline(team);
+//            cout<<"'"<<team<<"'"<<endl;
+            getline (file, address1, '\n');
+            rstrip_newline(address1);
+//            cout<<"'"<<address1<<"'"<<endl;
+            getline (file, address2, '\n');
+            rstrip_newline(address2);
+//            cout<<"'"<<address2<<"'"<<endl;
             getline (file, phone, '\n');
+            rstrip_newline(phone);
+//            cout<<"'"<<phone<<"'"<<endl;
 
-            file >> m >> slash >> d >> slash >> y >> capacity ;
-
-            getline (file, line, '\n');
+            getline(file, date_str, '\n');
+            rstrip_newline(date_str);
+            getline(file, capacity, '\n');
+            rstrip_newline(capacity);
             getline (file, surface, '\n');
+            rstrip_newline(surface);
+//            cout<<"'"<<surface<<"'"<<endl;
             getline (file, line, '\n');
+//            cout<<"'"<<line<<"'"<<endl;
 
-            Date date (m,d,y);
-            adress1 += adress2;
-
-            Stadium _stadium (stadium, team, adress1, phone, date,capacity, surface);
+            Date date;
+            date.set_whole(date_str);
+            address1 += address2;
+            Stadium _stadium (stadium, team, address1, phone, date, stoi(capacity), surface);
             s_temp.add(_stadium);
         }
     }
