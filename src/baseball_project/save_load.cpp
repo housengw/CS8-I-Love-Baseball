@@ -1,7 +1,8 @@
 #include "save_load.h"
 
 
-void save_stadiums (string file_name, StadiumContainer scontainer){
+void save_stadiums (string file_name,
+                    const StadiumContainer& scontainer){
 
 }
 
@@ -55,4 +56,32 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
     file.close();                //close the file
     cout <<"-----------Stadiums loaded-----------"<<endl;
     mcontainer = s_temp;
+}
+
+
+EdgeContainer load_edges(string file_name,
+                         const StadiumContainer& reference){
+    ifstream fin;
+    string line;
+    EdgeContainer edge_list;
+    vector<string> line_fragments;
+    fin.open(file_name);
+    while (!fin.eof()){
+        getline(fin, line);
+        rstrip_newline(line);
+        line_fragments = split(line, ',');
+        int index_a = reference.find(line_fragments[0]);
+        int index_b = reference.find(line_fragments[1]);
+//        assert(index_a >= 0 && index_b >= 0);
+        if (index_a == -1 || index_b == -1){
+//            cout<<"line_fragments[0]: "<<line_fragments[0]<<endl;
+//            cout<<"line_fragments[1]: "<<line_fragments[1]<<endl;
+        }
+        else{
+            edge_list.add(Edge(reference[index_a],
+                               reference[index_b],
+                               stoi(line_fragments[2])));
+        }
+    }
+    return edge_list;
 }

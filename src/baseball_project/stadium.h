@@ -1,7 +1,6 @@
 #ifndef STADIUM_H
 #define STADIUM_H
 #include <string>
-#include "address.h"
 #include "date.h"
 
 using namespace std;

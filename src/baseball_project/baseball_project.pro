@@ -8,18 +8,18 @@ SOURCES += \
     stadium.cpp \
     date.cpp \
     helpers.cpp \
-    address.cpp \
     stadium_container.cpp \
     save_load.cpp \
     sort_functions.cpp \
     map.cpp \
     edge.cpp \
-    edge_container.cpp
+    edge_container.cpp \
+    point.cpp \
+    point_container.cpp
 
 HEADERS += \
     constants.h \
     stadium.h \
-    address.h \
     date.h \
     helpers.h \
     stadium_container.h \
@@ -27,4 +27,7 @@ HEADERS += \
     sort_functions.h \
     map.h \
     edge.h \
-    edge_container.h
+    edge_container.h \
+    point.h \
+    point_container.h \
+    container.h

@@ -8,6 +8,7 @@ const std::string GRASS_SURFACE_NAME = "Grass";
 const std::string TURF_SURFACE_NAME = "Artificial Turf";
 const std::string NATIONAL_FILE_PATH = "../files/NationalTeams.txt";
 const std::string AMERICAN_FILE_PATH = "../files/AmericanTeams.txt";
+const std::string EDGES_FILE_PATH = "../files/edges.csv";
 
 
 #endif // CONSTANTS_H
