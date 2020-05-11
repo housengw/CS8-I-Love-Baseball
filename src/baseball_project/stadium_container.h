@@ -25,6 +25,7 @@ public:
 
     bool add(const Stadium& stadium);
     bool remove(size_t index);
+    int find(string stadium_name);
     void reserve(size_t n);
     size_t size() const{return _size;}
     bool empty() const{return _size == 0;}

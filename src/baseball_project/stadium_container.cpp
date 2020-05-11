@@ -69,6 +69,17 @@ bool StadiumContainer::remove(size_t index){
 }
 
 
+int StadiumContainer::find(string stadium_name){
+    int index = -1;
+    for (size_t i=0; i<size(); i++){
+        if (_stadium_list[i].get_stadium_name() == stadium_name){
+            index = i;
+        }
+    }
+    return index;
+}
+
+
 void StadiumContainer::reserve(size_t n){
     assert(n > _allocated);
     Stadium* temp = _stadium_list;

@@ -17,3 +17,8 @@ void Map::_initialize_stadiums(){
         _stadiums.add(american_stadiums[i]);
     }
 }
+
+
+void Map::_initialize_edges(){
+
+}
