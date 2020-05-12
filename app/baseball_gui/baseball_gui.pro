@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    mouse_event.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    mouse_event.h
 
 FORMS += \
         mainwindow.ui
