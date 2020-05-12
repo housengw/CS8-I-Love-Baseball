@@ -9,9 +9,9 @@ void test_load_stadiums();
 void test_load_edges();
 
 
-const std::string SRC_NATIONAL_FILE_PATH = "../files/NationalTeams.txt";
-const std::string SRC_AMERICAN_FILE_PATH = "../files/AmericanTeams.txt";
-const std::string SRC_EDGES_FILE_PATH = "../files/edges.csv";
+const std::string SRC_NATIONAL_FILE_PATH = "../../app/files/NationalTeams.txt";
+const std::string SRC_AMERICAN_FILE_PATH = "../../app/files/AmericanTeams.txt";
+const std::string SRC_EDGES_FILE_PATH = "../../app/files/edges.csv";
 
 
 int main()
