@@ -21,6 +21,9 @@ private slots:
 
     void on_Trip_clicked();
 
+    void Mouse_current_pos ();
+    void Mouse_release ();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
