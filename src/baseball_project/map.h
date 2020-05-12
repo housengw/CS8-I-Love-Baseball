@@ -15,7 +15,6 @@ private:
     void _initialize_edges();
     StadiumContainer _stadiums;
     EdgeContainer _edges;
-    int** _adjacency_matrix;
 };
 
 #endif // MAP_H

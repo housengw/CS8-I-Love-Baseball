@@ -9,10 +9,15 @@ void test_load_stadiums();
 void test_load_edges();
 
 
+const std::string SRC_NATIONAL_FILE_PATH = "../../app/files/NationalTeams.txt";
+const std::string SRC_AMERICAN_FILE_PATH = "../../app/files/AmericanTeams.txt";
+const std::string SRC_EDGES_FILE_PATH = "../../app/files/edges.csv";
+
+
 int main()
 {
-//    test_load_edges();
-//    test_load_stadiums();
+    test_load_edges();
+    test_load_stadiums();
     return 0;
 }
 
@@ -24,14 +29,14 @@ void test_load_stadiums(){
     StadiumContainer NationalTeams;
     StadiumContainer AmericanTeams;
 
-    load_stadiums (NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, NationalTeams);
+    load_stadiums (SRC_NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, NationalTeams);
     NationalTeams.print();
 
     cout <<endl<< "=============================================" <<endl;
     cout << endl << "  Reading from file American Teams" <<endl;
     cout <<endl<< "=============================================" <<endl;
 
-    load_stadiums (AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME, AmericanTeams);
+    load_stadiums (SRC_AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME, AmericanTeams);
     AmericanTeams.print();
 
     cout <<endl<< "=============================================" <<endl;
@@ -78,15 +83,15 @@ void test_load_stadiums(){
 void test_load_edges(){
     StadiumContainer national_stadiums, american_stadiums, all_stadiums;
     EdgeContainer edge_list;
-    load_stadiums(NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, national_stadiums);
-    load_stadiums(AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME,american_stadiums);
+    load_stadiums(SRC_NATIONAL_FILE_PATH, NATIONAL_LEAGUE_NAME, national_stadiums);
+    load_stadiums(SRC_AMERICAN_FILE_PATH, AMERICAN_LEAGUE_NAME,american_stadiums);
     for (size_t i=0; i<national_stadiums.size(); i++){
         all_stadiums.add(national_stadiums[i]);
     }
     for (size_t i=0; i<american_stadiums.size(); i++){
         all_stadiums.add(american_stadiums[i]);
     }
-    edge_list = load_edges(EDGES_FILE_PATH, all_stadiums);
+    edge_list = load_edges(SRC_EDGES_FILE_PATH, all_stadiums);
 }
 
 

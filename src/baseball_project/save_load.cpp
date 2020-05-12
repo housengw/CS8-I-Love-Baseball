@@ -16,7 +16,6 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
     if (file.fail()){            //message for failure to open the file
         cout <<" File failed to open..."<<endl;
     }
-    cout << "  Reading file " <<endl;
     if (file.is_open()){
         while (getline (file, stadium, '\n')){
             rstrip_newline(stadium);
@@ -52,9 +51,7 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
             s_temp.add(s);
         }
     }
-
     file.close();                //close the file
-    cout <<"-----------Stadiums loaded-----------"<<endl;
     mcontainer = s_temp;
 }
 
