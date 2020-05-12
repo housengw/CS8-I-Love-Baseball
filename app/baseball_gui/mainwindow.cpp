@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    _map = new Map;
     ui->setupUi(this);
     scene = new QGraphicsScene();
 

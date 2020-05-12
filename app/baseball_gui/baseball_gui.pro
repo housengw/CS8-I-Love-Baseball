@@ -27,11 +27,35 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    mouse_event.cpp
+    mouse_event.cpp \
+    ../../src/baseball_project/date.cpp \
+    ../../src/baseball_project/edge_container.cpp \
+    ../../src/baseball_project/edge.cpp \
+    ../../src/baseball_project/helpers.cpp \
+    ../../src/baseball_project/map.cpp \
+    ../../src/baseball_project/point_container.cpp \
+    ../../src/baseball_project/point.cpp \
+    ../../src/baseball_project/save_load.cpp \
+    ../../src/baseball_project/sort_functions.cpp \
+    ../../src/baseball_project/stadium_container.cpp \
+    ../../src/baseball_project/stadium.cpp
 
 HEADERS += \
         mainwindow.h \
-    mouse_event.h
+    mouse_event.h \
+    ../../src/baseball_project/constants.h \
+    ../../src/baseball_project/container.h \
+    ../../src/baseball_project/date.h \
+    ../../src/baseball_project/edge_container.h \
+    ../../src/baseball_project/edge.h \
+    ../../src/baseball_project/helpers.h \
+    ../../src/baseball_project/map.h \
+    ../../src/baseball_project/point_container.h \
+    ../../src/baseball_project/point.h \
+    ../../src/baseball_project/save_load.h \
+    ../../src/baseball_project/sort_functions.h \
+    ../../src/baseball_project/stadium_container.h \
+    ../../src/baseball_project/stadium.h
 
 FORMS += \
         mainwindow.ui
@@ -46,4 +70,5 @@ RESOURCES += \
 
 DISTFILES += \
   images/map.jpg \
-    Images/Stadiums.png
+    Images/Stadiums.png \
+    ../../src/baseball_project/baseball_project.pro.user

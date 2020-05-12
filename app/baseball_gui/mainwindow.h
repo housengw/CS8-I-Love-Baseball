@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "../../src/baseball_project/map.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
 
@@ -27,7 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
-
+    Map* _map;
 };
 
 #endif // MAINWINDOW_H
