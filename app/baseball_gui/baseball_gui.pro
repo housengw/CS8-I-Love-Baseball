@@ -39,7 +39,8 @@ SOURCES += \
     ../../src/baseball_project/sort_functions.cpp \
     ../../src/baseball_project/stadium_container.cpp \
     ../../src/baseball_project/stadium.cpp \
-    view_distances.cpp
+    view_distances.cpp \
+    list_of_stadiums.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -57,11 +58,13 @@ HEADERS += \
     ../../src/baseball_project/sort_functions.h \
     ../../src/baseball_project/stadium_container.h \
     ../../src/baseball_project/stadium.h \
-    view_distances.h
+    view_distances.h \
+    list_of_stadiums.h
 
 FORMS += \
         mainwindow.ui \
-    view_distances.ui
+    view_distances.ui \
+    list_of_stadiums.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

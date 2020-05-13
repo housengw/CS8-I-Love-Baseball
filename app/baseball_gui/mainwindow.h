@@ -28,6 +28,8 @@ private slots:
 
     void on_view_distances_button_clicked();
 
+    void on_display_list_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

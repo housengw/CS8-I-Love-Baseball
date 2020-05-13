@@ -14,6 +14,7 @@ public:
     *****************************************/
     StadiumContainer();
     StadiumContainer stadiums_grass_surface();
+    StadiumContainer stadiums_turf_surface();
     int find(string stadium_name) const;
     bool contains(string stadium_name) const;
     void print() const;

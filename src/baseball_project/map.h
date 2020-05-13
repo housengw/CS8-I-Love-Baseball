@@ -5,7 +5,7 @@
 #include "point_container.h"
 #include "save_load.h"
 #include "constants.h"
-
+#include "sort_functions.h"
 
 class Map
 {
@@ -18,6 +18,13 @@ public:
     const StadiumContainer& get_stadiums() const{return _stadiums;}
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
+
+
+    void _update_list (const bool &american, const bool &national, const bool &grass, const bool &turf);
+    vector<Stadium> sorted_TeamName ();
+    vector<Stadium> sorted_StadiumName ();
+    vector<Stadium> sorted_DateOpened ();
+
 private:
     void _initialize_stadiums();
     void _initialize_edges();
@@ -25,6 +32,10 @@ private:
     StadiumContainer _stadiums;
     EdgeContainer _edges;
     PointContainer _points;
+
+    StadiumContainer _AmeStadiums;
+    StadiumContainer _NatStadiums;
+    vector<Stadium> _list;
 };
 
 #endif // MAP_H

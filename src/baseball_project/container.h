@@ -27,6 +27,8 @@ public:
     bool empty() const{return _size == 0;}
     const T& operator[](size_t index) const;
     T& operator[](size_t index) ;
+
+    void operator += (const Container &add);
 protected:
     T* _list;
     size_t _allocated;
@@ -115,6 +117,17 @@ T& Container<T>::operator[](size_t index){
     return _list[index];
 }
 
+
+template <class T>
+void Container<T>::operator += (const Container &add)
+{
+    if (size() + add.size() >= _allocated){
+        reserve (size() + add.size());
+    }
+
+    std::copy(add._list, add._list + add.size(), _list + size());
+    _size += add.size();
+}
 
 
 
