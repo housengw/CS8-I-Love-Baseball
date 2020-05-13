@@ -69,16 +69,27 @@ EdgeContainer load_edges(string file_name,
         line_fragments = split(line, ',');
         int index_a = reference.find(line_fragments[0]);
         int index_b = reference.find(line_fragments[1]);
-//        assert(index_a >= 0 && index_b >= 0);
-        if (index_a == -1 || index_b == -1){
-//            cout<<"line_fragments[0]: "<<line_fragments[0]<<endl;
-//            cout<<"line_fragments[1]: "<<line_fragments[1]<<endl;
-        }
-        else{
-            edge_list.add(Edge(reference[index_a],
-                               reference[index_b],
-                               stoi(line_fragments[2])));
-        }
+        assert(index_a >= 0 && index_b >= 0);
+        edge_list.add(Edge(reference[index_a],
+                           reference[index_b],
+                           stoi(line_fragments[2])));
     }
     return edge_list;
+}
+
+PointContainer load_points(string file_name){
+    ifstream fin;
+    string line;
+    PointContainer point_list;
+    vector<string> line_fragments;
+    fin.open(file_name);
+    while (!fin.eof()){
+        getline(fin, line);
+        rstrip_newline(line);
+        line_fragments = split(line, ',');
+        point_list.add(Point(line_fragments[0],
+                             stoi(line_fragments[1]),
+                             stoi(line_fragments[2])));
+    }
+    return point_list;
 }

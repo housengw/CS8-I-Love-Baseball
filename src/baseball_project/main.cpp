@@ -7,17 +7,20 @@ using namespace std;
 void print (vector<Stadium> source);
 void test_load_stadiums();
 void test_load_edges();
+void test_load_points();
 
 
 const std::string SRC_NATIONAL_FILE_PATH = "../../app/files/NationalTeams.txt";
 const std::string SRC_AMERICAN_FILE_PATH = "../../app/files/AmericanTeams.txt";
 const std::string SRC_EDGES_FILE_PATH = "../../app/files/edges.csv";
+const std::string SRC_POINTS_FILE_PATH = "../../app/files/coordinates.csv";
 
 
 int main()
 {
-    test_load_edges();
-    test_load_stadiums();
+//    test_load_edges();
+//    test_load_stadiums();
+    test_load_points();
     return 0;
 }
 
@@ -92,6 +95,14 @@ void test_load_edges(){
         all_stadiums.add(american_stadiums[i]);
     }
     edge_list = load_edges(SRC_EDGES_FILE_PATH, all_stadiums);
+}
+
+
+void test_load_points(){
+    PointContainer p = load_points(SRC_POINTS_FILE_PATH);
+    for (size_t i=0; i<p.size(); i++){
+        cout<<"'"<<p[i].get_name()<<"' x: '"<<p[i].get_x()<<"' y: '"<<p[i].get_y()<<"'"<<endl;
+    }
 }
 
 
