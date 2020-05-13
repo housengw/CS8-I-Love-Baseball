@@ -2,7 +2,9 @@
 #include "ui_mainwindow.h"
 #include "mouse_event.h"
 #include "view_distances.h"
+#include "administrator_login.h"
 #include <QPixmap>      // header for images in GUI
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,10 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_Map_clicked()
 {
@@ -32,16 +36,19 @@ void MainWindow::on_Map_clicked()
     ui->graphicsView->setScene(scene);
 }
 
+
 void MainWindow::on_Trip_clicked()
 {
     plot_connections();
 }
+
 
 void MainWindow::Mouse_current_pos()
 {
     ui->current_pos->setText(
                 QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
 }
+
 
 void MainWindow::Mouse_release()
 {
@@ -63,9 +70,18 @@ void MainWindow::plot_connections(){
     ui->graphicsView->setScene(scene);
 }
 
+
 void MainWindow::on_view_distances_button_clicked()
 {
     ViewDistances vd(_map);
     vd.setModal(true);
     vd.exec();
+}
+
+
+void MainWindow::on_administrator_button_clicked()
+{
+    AdministratorLogin al(_map);
+    al.setModal(true);
+    al.exec();
 }
