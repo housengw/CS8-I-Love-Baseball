@@ -6,6 +6,12 @@ void save_stadiums (string file_name,
 
 }
 
+
+void save_password(string file_name, string password){
+
+}
+
+
 void load_stadiums (string file_name, string league, StadiumContainer &mcontainer)
 {
     ifstream file;
@@ -91,4 +97,13 @@ PointContainer load_points(string file_name){
                              stoi(line_fragments[2])));
     }
     return point_list;
+}
+
+string load_password(string file_name){
+    ifstream fin;
+    fin.open(file_name);
+    if (!fin.is_open()){
+        return "";
+    }
+    return "";
 }

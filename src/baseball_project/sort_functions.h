@@ -24,6 +24,8 @@ void sort_by_team_name (vector <Stadium>& stadiums);
 //sort the stadiums by stadium name
 void sort_by_stadium_name (vector <Stadium>& stadiums);
 
+vector<Stadium> sorted_by_stadium_name(const StadiumContainer& stadiums);
+
 //sort the stadiums by opened date
 void sort_by_opened_date (vector <Stadium>& stadiums);
 
