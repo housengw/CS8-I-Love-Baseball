@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     _map = new Map;
     ui->setupUi(this);
     scene = new QGraphicsScene();
-
+    on_Map_clicked();
     connect(ui->mouse_area, SIGNAL (Mouse_Pos()), this, SLOT (Mouse_current_pos ()));
     connect(ui->mouse_area, SIGNAL (Mouse_Release()), this, SLOT (Mouse_release ()));
 
@@ -34,14 +34,7 @@ void MainWindow::on_Map_clicked()
 
 void MainWindow::on_Trip_clicked()
 {
-    QLine l,l1,l2;
-    l.setLine(273,209,412, 225);
-    scene->addLine(l);
-    l1.setLine(95,57,273,209);
-    scene->addLine(l1);
-    l2.setLine(273,209,381, 328);
-    scene->addLine(l2);
-    ui->graphicsView->setScene(scene);
+    plot_connections();
 }
 
 void MainWindow::Mouse_current_pos()
@@ -55,3 +48,17 @@ void MainWindow::Mouse_release()
     ui->location_pressed->setText(QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
 }
 
+
+void MainWindow::plot_connections(){
+    vector<Plottable> plottables;
+    Point p1, p2;
+    QLine l;
+    plottables = _map->get_plottables();
+    for (size_t i=0; i<plottables.size(); i++){
+        p1 = plottables[i].p1;
+        p2 = plottables[i].p2;
+        l.setLine(p1.get_x(), p1.get_y(), p2.get_x(), p2.get_y());
+        scene->addLine(l);
+    }
+    ui->graphicsView->setScene(scene);
+}

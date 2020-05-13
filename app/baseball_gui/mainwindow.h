@@ -24,6 +24,8 @@ private slots:
     void Mouse_current_pos ();
     void Mouse_release ();
 
+    void plot_connections();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

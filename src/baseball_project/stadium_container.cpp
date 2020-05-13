@@ -30,6 +30,11 @@ int StadiumContainer::find(string stadium_name) const{
 }
 
 
+bool StadiumContainer::contains(string stadium_name) const{
+    return (find(stadium_name) >= 0);
+}
+
+
 void StadiumContainer::print(){
     for (size_t i=0; i<size(); i++){
         _list[i].print_info();

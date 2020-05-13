@@ -13,6 +13,8 @@ public:
     *****************************************/
     PointContainer();
     int find(string point_name) const;
+    bool contains(string point_name) const;
+    Point get_coordinates(string point_name) const;
     void print();
 };
 

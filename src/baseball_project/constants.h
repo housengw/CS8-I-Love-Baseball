@@ -9,6 +9,7 @@ const std::string TURF_SURFACE_NAME = "Artificial Turf";
 const std::string APP_NATIONAL_FILE_PATH = "../../../../files/NationalTeams.txt";
 const std::string APP_AMERICAN_FILE_PATH = "../../../../files/AmericanTeams.txt";
 const std::string APP_EDGES_FILE_PATH = "../../../../files/edges.csv";
+const std::string APP_POINTS_FILE_PATH = "../../../../files/coordinates.csv";
 
 
 #endif // CONSTANTS_H

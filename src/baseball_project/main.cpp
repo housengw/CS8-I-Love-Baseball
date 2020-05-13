@@ -7,17 +7,20 @@ using namespace std;
 void print (vector<Stadium> source);
 void test_load_stadiums();
 void test_load_edges();
+void test_load_points();
 
 
 const std::string SRC_NATIONAL_FILE_PATH = "../../app/files/NationalTeams.txt";
 const std::string SRC_AMERICAN_FILE_PATH = "../../app/files/AmericanTeams.txt";
 const std::string SRC_EDGES_FILE_PATH = "../../app/files/edges.csv";
+const std::string SRC_POINTS_FILE_PATH = "../../app/files/coordinates.csv";
 
 
 int main()
 {
-    test_load_edges();
-    test_load_stadiums();
+//    test_load_edges();
+//    test_load_stadiums();
+    test_load_points();
     return 0;
 }
 
@@ -92,6 +95,17 @@ void test_load_edges(){
         all_stadiums.add(american_stadiums[i]);
     }
     edge_list = load_edges(SRC_EDGES_FILE_PATH, all_stadiums);
+}
+
+
+void test_load_points(){
+    PointContainer pc = load_points(SRC_POINTS_FILE_PATH);
+    for (size_t i=0; i<pc.size(); i++){
+        cout<<"'"<<pc[i].get_name()<<"' x: '"<<pc[i].get_x()<<"' y: '"<<pc[i].get_y()<<"'"<<endl;
+    }
+
+    Point p = pc.get_coordinates("Oriole Park at Camden Yards");
+    cout<<"'"<<p.get_name()<<"' x: '"<<p.get_x()<<"' y: '"<<p.get_y()<<"'"<<endl;
 }
 
 
