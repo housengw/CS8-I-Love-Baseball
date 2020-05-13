@@ -3,6 +3,8 @@
 #include <string>
 #include "date.h"
 
+#include "souvenirs_container.h"
+
 using namespace std;
 
 class Stadium
@@ -19,6 +21,8 @@ public:
     const string& get_league() const{return _league;}
     const Date& get_date_opened() const{return _date_opened;}
     const int& get_capacity() const{return _capacity;}
+    const souvenir& get_souvenir (string souvenir_name) const;
+    souvenir& get_souvenir (string souvenir_name);
 
     void set_stadium_name(const string& stadium_name);
     void set_team_name(const string& team_name);
@@ -29,6 +33,13 @@ public:
     void set_capacity(const int& capacity);
     void set_surface(const string& capacity);
     void print_info ();
+    void print_souvenir_list() const {souvenirs.print();}
+
+    // Modify souvenir list (return ture when modified
+    // false when item not in the list)
+    bool add_souvenir(string name, double price);
+    bool modify_souvenir_name(string name, string newName);
+    bool modify_souvenir_price(string name, double newPrice);
 
     //compare team name
     bool operator < (const Stadium& s);
@@ -44,6 +55,8 @@ private:
     Date _date_opened;
     int _capacity;
     string _surface;
+
+    SouvenirsContainer souvenirs;
 };
 
 #endif // STADIUM_H

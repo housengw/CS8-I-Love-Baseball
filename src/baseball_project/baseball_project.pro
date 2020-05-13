@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
+    souvenirs_container.cpp \
     stadium.cpp \
     date.cpp \
     helpers.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     constants.h \
+    souvenirs_container.h \
     stadium.h \
     date.h \
     helpers.h \
