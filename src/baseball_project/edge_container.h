@@ -8,9 +8,10 @@ class EdgeContainer: public Container<Edge>
 {
 public:
     EdgeContainer();
-    int find_connection(string stadium_a, string stadium_b);
-    bool connected(string stadium_a, string stadium_b);
-    void print();
+    int find_connection(string stadium_a, string stadium_b) const;
+    int get_cost(string stadium_a, string stadium_b) const;
+    bool connected(string stadium_a, string stadium_b) const;
+    void print() const;
 };
 
 #endif // EDGE_CONTAINER_H

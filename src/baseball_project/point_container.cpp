@@ -33,7 +33,7 @@ Point PointContainer::get_coordinates(string point_name) const{
 }
 
 
-void PointContainer::print(){
+void PointContainer::print() const{
     for (size_t i=0; i<size(); i++){
         cout<<"("<<_list[i].get_x()<<", "
             <<_list[i].get_y()<<") "

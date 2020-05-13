@@ -35,7 +35,7 @@ bool StadiumContainer::contains(string stadium_name) const{
 }
 
 
-void StadiumContainer::print(){
+void StadiumContainer::print() const{
     for (size_t i=0; i<size(); i++){
         _list[i].print_info();
         cout<<endl;

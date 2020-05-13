@@ -16,7 +16,7 @@ public:
     StadiumContainer stadiums_grass_surface();
     int find(string stadium_name) const;
     bool contains(string stadium_name) const;
-    void print();
+    void print() const;
 };
 
 #endif // STADIUMCONTAINER_H
