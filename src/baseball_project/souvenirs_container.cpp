@@ -55,3 +55,5 @@ const souvenir& SouvenirsContainer::get (string souvenir_name) const
     return _list[find(souvenir_name)];
 }
 
+bool SouvenirsContainer::contains(string souvenir_name) const
+{return (find(souvenir_name) >= 0);}

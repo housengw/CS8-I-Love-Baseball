@@ -5,6 +5,7 @@
 #include "container.h"
 using namespace std;
 
+
 struct souvenir
 {
     string _name;
@@ -23,6 +24,7 @@ struct souvenir
     }
 };
 
+
 class SouvenirsContainer: public Container<souvenir>
 {
 public:
@@ -37,8 +39,7 @@ public:
 
     void print() const;
 
-    bool contains(string souvenir_name) const
-    {return (find(souvenir_name) >= 0);}
+    bool contains(string souvenir_name) const;
 
 
 

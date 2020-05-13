@@ -33,7 +33,7 @@ public:
     void set_capacity(const int& capacity);
     void set_surface(const string& capacity);
     void print_info ();
-    void print_souvenir_list() const {souvenirs.print();}
+    void print_souvenir_list() const;
 
     // Modify souvenir list (return ture when modified
     // false when item not in the list)

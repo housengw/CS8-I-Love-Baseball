@@ -101,6 +101,9 @@ void Stadium::print_info ()
 
 }
 
+void Stadium::print_souvenir_list() const
+{souvenirs.print();}
+
 bool Stadium::add_souvenir(string name, double price)
 {
     return souvenirs.add(souvenir(name, price));
