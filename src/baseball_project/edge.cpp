@@ -8,15 +8,21 @@ Edge::Edge():
 }
 
 
-Edge::Edge(Stadium stadium_a, Stadium stadium_b, int cost):
+Edge::Edge(string stadium_a, string stadium_b, int cost):
     _stadium_a(stadium_a), _stadium_b(stadium_b), _cost(cost)
 {
     //intentionally left empty
 }
 
 
+bool Edge::match(string stadium_a, string stadium_b) const{
+    return ((stadium_a == _stadium_a && stadium_b == _stadium_b) ||
+            (stadium_a == _stadium_b && stadium_b == _stadium_a));
+}
+
+
 void Edge::print_info(){
-    cout<<_stadium_a.get_stadium_name()
+    cout<<_stadium_a
         <<" <--> "
-        <<_stadium_b.get_stadium_name();
+        <<_stadium_b;
 }

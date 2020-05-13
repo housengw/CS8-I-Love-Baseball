@@ -3,6 +3,7 @@
 Map::Map()
 {
     _initialize_stadiums();
+    _initialize_points();
     _initialize_edges();
 }
 
@@ -22,4 +23,24 @@ void Map::_initialize_stadiums(){
 
 void Map::_initialize_edges(){
     _edges = load_edges(APP_EDGES_FILE_PATH, _stadiums);
+}
+
+
+void Map::_initialize_points(){
+    _points = load_points(APP_POINTS_FILE_PATH);
+}
+
+
+vector<Plottable> Map::get_plottables(bool national_league,
+                                      bool american_league,
+                                      bool grass_surface,
+                                      bool artificial_surface){
+    vector<Plottable> plottables;
+    Point p1, p2;
+    for (size_t i=0; i<_edges.size(); i++){
+        p1 = _points.get_coordinates(_edges[i].get_left_node());
+        p2 = _points.get_coordinates(_edges[i].get_right_node());
+        plottables.insert(plottables.end(), Plottable(p1, p2));
+    }
+    return plottables;
 }

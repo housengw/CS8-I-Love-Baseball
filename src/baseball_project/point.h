@@ -24,4 +24,12 @@ private:
 };
 
 
+struct Plottable
+{
+    Plottable(Point p1, Point p2): p1(p1), p2(p2){}
+    Point p1;
+    Point p2;
+};
+
+
 #endif // POINT_H

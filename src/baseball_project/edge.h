@@ -7,11 +7,14 @@ class Edge
 {
 public:
     Edge();
-    Edge(Stadium stadium_a, Stadium stadium_b, int cost);
+    Edge(string stadium_a, string stadium_b, int cost);
+    bool match(string stadium_a, string stadium_b) const;
+    string get_left_node() const{return _stadium_a;}
+    string get_right_node() const{return _stadium_b;}
     void print_info();
 private:
-    Stadium _stadium_a;
-    Stadium _stadium_b;
+    string _stadium_a;
+    string _stadium_b;
     int _cost;
 };
 

@@ -99,10 +99,13 @@ void test_load_edges(){
 
 
 void test_load_points(){
-    PointContainer p = load_points(SRC_POINTS_FILE_PATH);
-    for (size_t i=0; i<p.size(); i++){
-        cout<<"'"<<p[i].get_name()<<"' x: '"<<p[i].get_x()<<"' y: '"<<p[i].get_y()<<"'"<<endl;
+    PointContainer pc = load_points(SRC_POINTS_FILE_PATH);
+    for (size_t i=0; i<pc.size(); i++){
+        cout<<"'"<<pc[i].get_name()<<"' x: '"<<pc[i].get_x()<<"' y: '"<<pc[i].get_y()<<"'"<<endl;
     }
+
+    Point p = pc.get_coordinates("Oriole Park at Camden Yards");
+    cout<<"'"<<p.get_name()<<"' x: '"<<p.get_x()<<"' y: '"<<p.get_y()<<"'"<<endl;
 }
 
 

@@ -67,11 +67,10 @@ EdgeContainer load_edges(string file_name,
         getline(fin, line);
         rstrip_newline(line);
         line_fragments = split(line, ',');
-        int index_a = reference.find(line_fragments[0]);
-        int index_b = reference.find(line_fragments[1]);
-        assert(index_a >= 0 && index_b >= 0);
-        edge_list.add(Edge(reference[index_a],
-                           reference[index_b],
+        assert(reference.contains(line_fragments[0]) &&
+               reference.contains(line_fragments[1]));
+        edge_list.add(Edge(line_fragments[0],
+                           line_fragments[1],
                            stoi(line_fragments[2])));
     }
     return edge_list;
