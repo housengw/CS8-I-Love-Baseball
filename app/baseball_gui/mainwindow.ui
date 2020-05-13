@@ -25,16 +25,16 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>601</width>
-      <height>431</height>
+      <width>761</width>
+      <height>491</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="Map">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>80</y>
+      <x>50</x>
+      <y>540</y>
       <width>114</width>
       <height>32</height>
      </rect>
@@ -46,8 +46,8 @@
    <widget class="QPushButton" name="Trip">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>180</y>
+      <x>220</x>
+      <y>540</y>
       <width>114</width>
       <height>32</height>
      </rect>
@@ -61,8 +61,8 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>601</width>
-      <height>431</height>
+      <width>761</width>
+      <height>491</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -75,8 +75,8 @@
    <widget class="QLabel" name="current_pos">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>350</y>
+      <x>550</x>
+      <y>560</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -88,16 +88,19 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>380</y>
+      <x>690</x>
+      <y>539</y>
       <width>111</width>
       <height>61</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QTextBrowser" name="location_pressed"/>
+     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
@@ -107,9 +110,6 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QTextBrowser" name="location_pressed"/>
      </item>
     </layout>
    </widget>
