@@ -5,12 +5,12 @@ ViewDistances::ViewDistances(Map* map, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ViewDistances)
 {
-    _map = map;
     ui->setupUi(this);
-    StadiumContainer stadiums = _map->get_stadiums();
+    _map = map;
+    vector<Stadium> stadium_v = sorted_by_stadium_name(_map->get_stadiums());
     QStringList string_list;
-    for (size_t i=0; i<stadiums.size(); i++){
-        string_list.append(QString::fromStdString(stadiums[i].get_stadium_name()));
+    for (size_t i=0; i<stadium_v.size(); i++){
+        string_list.append(QString::fromStdString(stadium_v[i].get_stadium_name()));
     }
     ui->from_stadium_cbox->addItems(string_list);
     ui->to_stadium_cbox->addItems(string_list);
