@@ -15,6 +15,9 @@ public:
                                      bool american_league=true,
                                      bool grass_surface=true,
                                      bool artificial_surface=true);
+    const StadiumContainer& get_stadiums() const{return _stadiums;}
+    const EdgeContainer& get_edges() const{return _edges;}
+    const PointContainer& get_points() const{return _points;}
 private:
     void _initialize_stadiums();
     void _initialize_edges();

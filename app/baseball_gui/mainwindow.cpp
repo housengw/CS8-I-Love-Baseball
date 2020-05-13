@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mouse_event.h"
-
+#include "view_distances.h"
 #include <QPixmap>      // header for images in GUI
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -61,4 +61,11 @@ void MainWindow::plot_connections(){
         scene->addLine(l);
     }
     ui->graphicsView->setScene(scene);
+}
+
+void MainWindow::on_view_distances_button_clicked()
+{
+    ViewDistances vd(_map);
+    vd.setModal(true);
+    vd.exec();
 }

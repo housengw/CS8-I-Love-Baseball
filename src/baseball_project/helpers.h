@@ -5,6 +5,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <QString>
 #include "constants.h"
 
 /*******************************************************************
@@ -103,5 +104,9 @@ void rstrip_newline(std::string& str);
 * Return: a lowercase version of the string
 *******************************************************************/
 std::string lower(std::string str);
+
+
+QString int_to_qstr(int number);
+
 
 #endif // HELPERS_H

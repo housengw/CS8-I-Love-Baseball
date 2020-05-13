@@ -11,6 +11,7 @@ public:
     bool match(string stadium_a, string stadium_b) const;
     string get_left_node() const{return _stadium_a;}
     string get_right_node() const{return _stadium_b;}
+    int get_cost() const{return _cost;}
     void print_info();
 private:
     string _stadium_a;

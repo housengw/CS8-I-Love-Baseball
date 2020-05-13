@@ -26,6 +26,8 @@ private slots:
 
     void plot_connections();
 
+    void on_view_distances_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;

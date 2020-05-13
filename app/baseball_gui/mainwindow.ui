@@ -46,9 +46,9 @@
    <widget class="QPushButton" name="Trip">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>200</x>
       <y>540</y>
-      <width>114</width>
+      <width>121</width>
       <height>32</height>
      </rect>
     </property>
@@ -94,7 +94,7 @@
       <x>690</x>
       <y>539</y>
       <width>111</width>
-      <height>61</height>
+      <height>100</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -112,6 +112,32 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="administrator_button">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>540</y>
+      <width>171</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Administrator Actions</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="view_distances_button">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>580</y>
+      <width>121</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View Distances</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

@@ -15,7 +15,7 @@ public:
     int find(string point_name) const;
     bool contains(string point_name) const;
     Point get_coordinates(string point_name) const;
-    void print();
+    void print() const;
 };
 
 #endif // POINT_CONTAINER_H
