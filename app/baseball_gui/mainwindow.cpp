@@ -26,7 +26,7 @@ void MainWindow::on_Map_clicked()
 {
     QPixmap m (":/Images/Stadiums.png");
 
-    m = m.scaled(ui->graphicsView->width(),ui->graphicsView->height(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+    m = m.scaled(ui->graphicsView->width(),ui->graphicsView->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
     scene->addPixmap(m);
 
     ui->graphicsView->setScene(scene);
@@ -35,11 +35,11 @@ void MainWindow::on_Map_clicked()
 void MainWindow::on_Trip_clicked()
 {
     QLine l,l1,l2;
-    l.setLine(217, 177,317, 319);
+    l.setLine(273,209,412, 225);
     scene->addLine(l);
-    l1.setLine(76,49,217, 177);
+    l1.setLine(95,57,273,209);
     scene->addLine(l1);
-    l2.setLine(217, 177,328, 190);
+    l2.setLine(273,209,381, 328);
     scene->addLine(l2);
     ui->graphicsView->setScene(scene);
 }
