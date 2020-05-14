@@ -82,7 +82,7 @@ void MainWindow::on_view_distances_button_clicked()
 
 void MainWindow::on_display_list_clicked()
 {
-    list_of_Stadiums list;
+    list_of_Stadiums list(_map);
     list.setModal(true);
     list.exec();
 }

@@ -68,7 +68,6 @@ int StadiumContainer::find(string stadium_name) const{
     return index;
 }
 
-
 bool StadiumContainer::contains(string stadium_name) const{
     return (find(stadium_name) >= 0);
 }
@@ -80,4 +79,9 @@ void StadiumContainer::print() const{
         cout<<endl;
     }
     cout<<endl;
+}
+
+Stadium StadiumContainer::get_stadium(string stadium_name) const{
+    assert(contains(stadium_name));
+    return _list[find(stadium_name)];
 }

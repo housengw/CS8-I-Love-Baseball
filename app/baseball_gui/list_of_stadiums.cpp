@@ -1,11 +1,12 @@
 #include "list_of_stadiums.h"
 #include "ui_list_of_stadiums.h"
 
-list_of_Stadiums::list_of_Stadiums(QWidget *parent) :
+list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::list_of_Stadiums)
 {
     ui->setupUi(this);
+    _map = map;
 
     ui->display_list->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->display_list->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -20,6 +21,11 @@ list_of_Stadiums::list_of_Stadiums(QWidget *parent) :
                 <<"Box Office #" << "Date Opened" << "Capacity" << "Surface";
     ui->display_list->setHorizontalHeaderLabels(tableHeaders);
     update_list();
+
+    vector<Stadium> stadium_v = sorted_by_stadium_name(_map->get_stadiums());
+    for (size_t i=0; i<stadium_v.size(); i++){
+        ui->stadium_cbox->addItem(QString::fromStdString(stadium_v[i].get_stadium_name()));
+    }
 }
 
 list_of_Stadiums::~list_of_Stadiums()
@@ -50,7 +56,7 @@ void list_of_Stadiums::on_turf_stateChanged(int arg1)
 void list_of_Stadiums::update_list ()
 {
     StadiumContainer stadiums;
-    stadiums = _map.get_stadiums();
+    stadiums = _map->get_stadiums();
 
     if (ui->american->QAbstractButton::isChecked() && !ui->national->QAbstractButton::isChecked()) {
         stadiums = stadiums.get_american_stadiums();
@@ -78,7 +84,6 @@ void list_of_Stadiums::update_list ()
         stadiums = stadiums.get_stadiums_grass_surface();
         _list = vectorize(stadiums);
     }
-
 }
 
 void list_of_Stadiums::on_teamName_clicked()
@@ -108,7 +113,7 @@ void list_of_Stadiums::display_List (vector<Stadium> list)
 
     vector<Stadium> ::iterator _it;
     _it = list.begin();
-    for (size_t i = 0; i < list.size(); i++){
+    for (int i = 0; i < list.size(); i++){
         ui->display_list->setItem(i, 0, new QTableWidgetItem (_it->get_stadium_name().c_str()));
         ui->display_list->setItem(i, 1, new QTableWidgetItem(_it->get_team_name().c_str()));
         ui->display_list->setItem(i, 2, new QTableWidgetItem(_it->get_address1().c_str()));
@@ -119,6 +124,7 @@ void list_of_Stadiums::display_List (vector<Stadium> list)
         ui->display_list->setItem(i, 7, new QTableWidgetItem(_it->get_surface().c_str()));
         _it++;
     }
+    ui->display_list->resizeRowsToContents();
 }
 
 int list_of_Stadiums::stadium_surface ()
@@ -132,3 +138,19 @@ int list_of_Stadiums::stadium_surface ()
     return 0;
 }
 
+
+void list_of_Stadiums::on_access_button_clicked()
+{
+    ui->display_list->setRowCount(1);
+    string stadium_name = ui->stadium_cbox->currentText().toStdString();
+    Stadium stadium = _map->get_stadiums().get_stadium(stadium_name);
+    ui->display_list->setItem(0, 0, new QTableWidgetItem (stadium.get_stadium_name().c_str()));
+    ui->display_list->setItem(0, 1, new QTableWidgetItem(stadium.get_team_name().c_str()));
+    ui->display_list->setItem(0, 2, new QTableWidgetItem(stadium.get_address1().c_str()));
+    ui->display_list->setItem(0, 3, new QTableWidgetItem(stadium.get_address2().c_str()));
+    ui->display_list->setItem(0, 4, new QTableWidgetItem(stadium.get_phone_number().c_str()));
+    ui->display_list->setItem(0, 5, new QTableWidgetItem(stadium.get_date_opened().get_date().c_str()));
+    ui->display_list->setItem(0, 6, new QTableWidgetItem(to_string(stadium.get_capacity()).c_str()));
+    ui->display_list->setItem(0, 7, new QTableWidgetItem(stadium.get_surface().c_str()));
+    ui->display_list->resizeRowsToContents();
+}
