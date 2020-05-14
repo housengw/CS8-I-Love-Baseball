@@ -91,10 +91,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>539</y>
+      <x>680</x>
+      <y>540</y>
       <width>111</width>
-      <height>100</height>
+      <height>61</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -137,6 +137,19 @@
     </property>
     <property name="text">
      <string>View Distances</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="display_list">
+    <property name="geometry">
+     <rect>
+      <x>23</x>
+      <y>580</y>
+      <width>171</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display List of Stadiums</string>
     </property>
    </widget>
   </widget>

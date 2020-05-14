@@ -22,6 +22,8 @@ public:
     void set_year(int y);                           //sets year
     bool is_leap(int y) const;                      //checks for leap year
 
+    bool _compare_dates(const Date &d1, const Date & d);
+
 private:
     int _day;       //determines the date
     int _month;     //determines the numeric month

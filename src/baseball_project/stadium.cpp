@@ -3,7 +3,8 @@
 Stadium::Stadium():
     _stadium_name(""),
     _team_name(""),
-    _address(""),
+    _address1(""),
+    _address2(""),
     _phone_number(""),
     _date_opened(Date()),
     _capacity(0),
@@ -14,7 +15,7 @@ Stadium::Stadium():
 
 Stadium::Stadium (string stadium,
                   string team,
-                  string adress,
+                  string adress1, string adress2,
                   string phone,
                   Date date,
                   int capacity,
@@ -22,7 +23,8 @@ Stadium::Stadium (string stadium,
 {
     set_stadium_name(stadium);
     set_team_name(team);
-    set_address(adress);
+    set_address1(adress1);
+    set_address2(adress2);
     set_phone_number(phone);
     set_date_opened(date);
     set_capacity(capacity);
@@ -39,8 +41,12 @@ void Stadium::set_team_name(const string& team_name){
 }
 
 
-void Stadium::set_address(const string& address){
-    _address = address;
+void Stadium::set_address1(const string& address){
+    _address1 = address;
+}
+
+void Stadium::set_address2(const string& address){
+    _address2 = address;
 }
 
 
@@ -82,7 +88,8 @@ void Stadium::print_info ()
 {
     cout << "Stadium : '" << get_stadium_name() << "'" << endl;
     cout << "Team Name: '" << get_team_name() << "'" << endl;
-    cout << "Address: '" << get_address() << "'" << endl;
+    cout << "Address: '" << get_address1() << "'" << endl
+         << get_address2() << "'" << endl;
     cout << "Opened Date: '" << _date_opened.get_date()<< "'" << endl;
     cout << "Phone: '" << get_phone_number() << "'" << endl;
 

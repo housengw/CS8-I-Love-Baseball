@@ -5,7 +5,8 @@ StadiumContainer::StadiumContainer()
     //intentionally left empty
 }
 
-StadiumContainer StadiumContainer::stadiums_grass_surface()
+
+StadiumContainer StadiumContainer::get_stadiums_grass_surface()
 {
     StadiumContainer temp;
     string surface;
@@ -18,6 +19,44 @@ StadiumContainer StadiumContainer::stadiums_grass_surface()
     return temp;
 }
 
+StadiumContainer StadiumContainer::get_stadiums_turf_surface()
+{
+    StadiumContainer temp;
+    string surface;
+    for(size_t i = 0; i < _size; i++){
+        surface = _list[i].get_surface() ;
+        if (surface == TURF_SURFACE_NAME){
+            temp.add(_list[i]);
+        }
+    }
+    return temp;
+}
+
+StadiumContainer StadiumContainer::get_american_stadiums()
+{
+    StadiumContainer temp;
+    string surface;
+    for(size_t i = 0; i < _size; i++){
+        surface = _list[i].get_league() ;
+        if (surface == AMERICAN_LEAGUE_NAME){
+            temp.add(_list[i]);
+        }
+    }
+    return temp;
+}
+
+StadiumContainer StadiumContainer::get_national_stadiums()
+{
+    StadiumContainer temp;
+    string surface;
+    for(size_t i = 0; i < _size; i++){
+        surface = _list[i].get_league() ;
+        if (surface == NATIONAL_LEAGUE_NAME){
+            temp.add(_list[i]);
+        }
+    }
+    return temp;
+}
 
 int StadiumContainer::find(string stadium_name) const{
     int index = -1;

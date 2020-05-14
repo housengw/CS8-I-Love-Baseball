@@ -5,7 +5,7 @@
 #include "point_container.h"
 #include "save_load.h"
 #include "constants.h"
-
+#include "sort_functions.h"
 
 class Map
 {
@@ -18,6 +18,7 @@ public:
     const StadiumContainer& get_stadiums() const{return _stadiums;}
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
+
 private:
     void _initialize_stadiums();
     void _initialize_edges();
@@ -25,6 +26,7 @@ private:
     StadiumContainer _stadiums;
     EdgeContainer _edges;
     PointContainer _points;
+
 };
 
 #endif // MAP_H

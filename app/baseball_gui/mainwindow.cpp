@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "mouse_event.h"
 #include "view_distances.h"
+#include "list_of_stadiums.h"
 #include "administrator_login.h"
 #include <QPixmap>      // header for images in GUI
 
@@ -78,6 +79,13 @@ void MainWindow::on_view_distances_button_clicked()
     vd.exec();
 }
 
+
+void MainWindow::on_display_list_clicked()
+{
+    list_of_Stadiums list;
+    list.setModal(true);
+    list.exec();
+}
 
 void MainWindow::on_administrator_button_clicked()
 {

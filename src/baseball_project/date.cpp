@@ -53,3 +53,21 @@ void Date::set_year(int y){
 bool Date::is_leap(int y) const{
     return is_leap_year(y);
 }
+
+bool Date::_compare_dates(const Date &d1, const Date & d)
+{
+    if (d1.get_year() < d.get_year()){
+        return true;
+    }
+    else if (d1.get_year() == d.get_year()) {
+        if (d1.get_month() == d.get_month() &&
+                d1.get_day() < d.get_day()){
+            return true;
+        }
+        else if (d1.get_month() < d.get_month()) {
+            return true;
+        }
+    }
+    return false;
+}
+

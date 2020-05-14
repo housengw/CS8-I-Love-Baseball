@@ -40,6 +40,7 @@ SOURCES += \
     ../../src/baseball_project/stadium_container.cpp \
     ../../src/baseball_project/stadium.cpp \
     view_distances.cpp \
+    list_of_stadiums.cpp \
     administrator_login.cpp \
     administrator_actions.cpp
 
@@ -60,12 +61,14 @@ HEADERS += \
     ../../src/baseball_project/stadium_container.h \
     ../../src/baseball_project/stadium.h \
     view_distances.h \
+    list_of_stadiums.h \
     administrator_login.h \
     administrator_actions.h
 
 FORMS += \
         mainwindow.ui \
     view_distances.ui \
+    list_of_stadiums.ui \ 
     administrator_login.ui \
     administrator_actions.ui
 

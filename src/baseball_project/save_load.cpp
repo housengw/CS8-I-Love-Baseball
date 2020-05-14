@@ -51,8 +51,8 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
 
             Date date;
             date.set_whole(date_str);
-            address1 += address2;
-            Stadium s(stadium, team, address1, phone, date, stoi(capacity), surface);
+//            address1 += address2;
+            Stadium s(stadium, team, address1,address2, phone, date, stoi(capacity), surface);
             s.set_league(league);
             s_temp.add(s);
         }
@@ -73,8 +73,8 @@ EdgeContainer load_edges(string file_name,
         getline(fin, line);
         rstrip_newline(line);
         line_fragments = split(line, ',');
-        assert(reference.contains(line_fragments[0]) &&
-               reference.contains(line_fragments[1]));
+//        assert(reference.contains(line_fragments[0]) &&
+//               reference.contains(line_fragments[1]));
         edge_list.add(Edge(line_fragments[0],
                            line_fragments[1],
                            stoi(line_fragments[2])));

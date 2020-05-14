@@ -24,8 +24,7 @@ vector<Stadium> sorted_by_stadium_name(const StadiumContainer& stadiums){
 
 void sort_by_opened_date (vector <Stadium>& stadiums)
 {
-    //needs a function to compare dates
-//    std::sort (stadiums.begin(), stadiums.end());
+    std::sort (stadiums.begin(), stadiums.end(), compare_dates);
 }
 
 
@@ -54,3 +53,11 @@ bool compare_stadium_name ( Stadium i, Stadium j)
 {
     return (i >j);
 }
+
+//compare stadiums date opened
+bool compare_dates (Stadium i, Stadium j)
+{
+    Date date;
+    return (date._compare_dates (i.get_date_opened(),j.get_date_opened()));
+}
+

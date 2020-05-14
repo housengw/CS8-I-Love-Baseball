@@ -10,8 +10,8 @@ bool compare_team_name ( Stadium i,  Stadium j);
 //compare stadium names
 bool compare_stadium_name ( Stadium i, Stadium j);
 
-//need a function to compare dates
-
+//compare dates
+bool compare_dates ( Stadium i, Stadium j);
 
 vector<Stadium> vectorize(const StadiumContainer& s);
 
