@@ -11,6 +11,17 @@ void sort_by_stadium_name (vector <Stadium>& stadiums)
     std::sort (stadiums.begin(), stadiums.end(), compare_stadium_name);
 }
 
+
+vector<Stadium> sorted_by_stadium_name(const StadiumContainer& stadiums){
+    vector<Stadium> stadium_v;
+    for (size_t i=0; i<stadiums.size(); i++){
+        stadium_v.insert(stadium_v.end(), stadiums[i]);
+    }
+    sort_by_stadium_name(stadium_v);
+    return stadium_v;
+}
+
+
 void sort_by_opened_date (vector <Stadium>& stadiums)
 {
     std::sort (stadiums.begin(), stadiums.end(), compare_dates);
