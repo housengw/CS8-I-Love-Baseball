@@ -126,6 +126,7 @@ void list_of_Stadiums::display_List (vector<Stadium> list)
         ui->display_list->setItem(i, 7, new QTableWidgetItem(_it->get_surface().c_str()));
         _it++;
     }
+    ui->display_list->resizeRowsToContents();
 }
 
 int list_of_Stadiums::stadium_surface ()
@@ -153,4 +154,5 @@ void list_of_Stadiums::on_access_button_clicked()
     ui->display_list->setItem(0, 5, new QTableWidgetItem(stadium.get_date_opened().get_date().c_str()));
     ui->display_list->setItem(0, 6, new QTableWidgetItem(to_string(stadium.get_capacity()).c_str()));
     ui->display_list->setItem(0, 7, new QTableWidgetItem(stadium.get_surface().c_str()));
+    ui->display_list->resizeRowsToContents();
 }
