@@ -21,6 +21,8 @@ public:
 
     void update_list ();
 
+    int stadium_surface ();
+
 private slots:
 
     void on_american_stateChanged(int arg1);
@@ -39,7 +41,9 @@ private slots:
 
 private:
     Ui::list_of_Stadiums *ui;
-    Map _list;
+    Map _map;
+    vector<Stadium> _list;
+
 
 };
 

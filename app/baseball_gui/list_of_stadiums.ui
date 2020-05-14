@@ -44,12 +44,18 @@
       <property name="text">
        <string>American Stadiums</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
      <widget class="QCheckBox" name="national">
       <property name="text">
        <string>National Stadiums</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -75,7 +81,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>980</x>

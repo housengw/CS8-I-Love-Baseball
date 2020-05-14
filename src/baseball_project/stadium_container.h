@@ -13,8 +13,12 @@ public:
     **  CONSTRUCTORS  **
     *****************************************/
     StadiumContainer();
-    StadiumContainer stadiums_grass_surface();
-    StadiumContainer stadiums_turf_surface();
+
+    StadiumContainer get_stadiums_grass_surface();
+    StadiumContainer get_stadiums_turf_surface();
+    StadiumContainer get_american_stadiums();
+    StadiumContainer get_national_stadiums();
+
     int find(string stadium_name) const;
     bool contains(string stadium_name) const;
     void print() const;

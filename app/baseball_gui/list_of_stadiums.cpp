@@ -19,6 +19,7 @@ list_of_Stadiums::list_of_Stadiums(QWidget *parent) :
     tableHeaders <<"Stadium"<<"Team"<<"Street Adress"<<"City, State, Zip"
                 <<"Box Office #" << "Date Opened" << "Capacity" << "Surface";
     ui->display_list->setHorizontalHeaderLabels(tableHeaders);
+    update_list();
 }
 
 list_of_Stadiums::~list_of_Stadiums()
@@ -48,31 +49,63 @@ void list_of_Stadiums::on_turf_stateChanged(int arg1)
 
 void list_of_Stadiums::update_list ()
 {
+    StadiumContainer stadiums;
+    stadiums = _map.get_stadiums();
 
-    _list._update_list (ui->american->QAbstractButton::isChecked(),
-                        ui->national->QAbstractButton::isChecked(),
-                        ui->grass->QAbstractButton::isChecked(),
-                        ui->turf->QAbstractButton::isChecked());
+    if (ui->american->QAbstractButton::isChecked() && !ui->national->QAbstractButton::isChecked()) {
+        stadiums = stadiums.get_american_stadiums();
+        _list = vectorize(stadiums);
+        //        if (stadium_surface() == 1)
+        //            _list = vectorize(stadiums.get_stadiums_turf_surface());
+        //        else if (stadium_surface() == 2) {
+        //            _list = vectorize(stadiums.get_stadiums_grass_surface());
+        //        }
+    }
+    else if (!ui->american->QAbstractButton::isChecked() && ui->national->QAbstractButton::isChecked()) {
+        stadiums = stadiums.get_national_stadiums();
+        _list = vectorize(stadiums);
+    }
+    else if (ui->american->QAbstractButton::isChecked() && ui->national->QAbstractButton::isChecked()) {
+        _list = vectorize(stadiums);
+    }
+
+    if (stadium_surface() == 1) {
+        stadiums = stadiums.get_stadiums_turf_surface();
+        _list = vectorize(stadiums);
+    }
+
+    else if (stadium_surface() == 2) {
+        stadiums = stadiums.get_stadiums_grass_surface();
+        _list = vectorize(stadiums);
+    }
+
 }
 
 void list_of_Stadiums::on_teamName_clicked()
 {
-    display_List (_list.sorted_TeamName());
+    vector<Stadium> temp_list (_list);
+    sort_by_team_name (temp_list);
+    display_List (temp_list);
 }
 
 void list_of_Stadiums::on_stadiumName_clicked()
 {
-    display_List (_list.sorted_StadiumName());
+    vector<Stadium> temp_list (_list);
+    sort_by_stadium_name (temp_list);
+    display_List (temp_list);
 }
 
 void list_of_Stadiums::on_dateOpened_clicked()
 {
-    display_List (_list.sorted_DateOpened());
+    vector<Stadium> temp_list (_list);
+    sort_by_opened_date (temp_list);
+    display_List (temp_list);
 }
 
 void list_of_Stadiums::display_List (vector<Stadium> list)
 {
     ui->display_list->setRowCount(list.size());
+
     vector<Stadium> ::iterator _it;
     _it = list.begin();
     for (size_t i = 0; i < list.size(); i++){
@@ -86,5 +119,16 @@ void list_of_Stadiums::display_List (vector<Stadium> list)
         ui->display_list->setItem(i, 7, new QTableWidgetItem(_it->get_surface().c_str()));
         _it++;
     }
+}
+
+int list_of_Stadiums::stadium_surface ()
+{
+    if (!ui->grass->QAbstractButton::isChecked() && ui->turf->QAbstractButton::isChecked()) {
+        return 1;
+    }
+    else if (ui->grass->QAbstractButton::isChecked() && !ui->turf->QAbstractButton::isChecked()) {
+        return 2;
+    }
+    return 0;
 }
 
