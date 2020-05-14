@@ -8,12 +8,10 @@ ViewDistances::ViewDistances(Map* map, QWidget *parent) :
     ui->setupUi(this);
     _map = map;
     vector<Stadium> stadium_v = sorted_by_stadium_name(_map->get_stadiums());
-    QStringList string_list;
     for (size_t i=0; i<stadium_v.size(); i++){
-        string_list.append(QString::fromStdString(stadium_v[i].get_stadium_name()));
+        ui->from_stadium_cbox->addItem(QString::fromStdString(stadium_v[i].get_stadium_name()));
+        ui->to_stadium_cbox->addItem(QString::fromStdString(stadium_v[i].get_stadium_name()));
     }
-    ui->from_stadium_cbox->addItems(string_list);
-    ui->to_stadium_cbox->addItems(string_list);
 }
 
 ViewDistances::~ViewDistances()

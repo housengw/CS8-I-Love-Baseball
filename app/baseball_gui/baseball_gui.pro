@@ -42,7 +42,9 @@ SOURCES += \
     view_distances.cpp \
     list_of_stadiums.cpp \
     administrator_login.cpp \
-    administrator_actions.cpp
+    administrator_actions.cpp \
+    manage_stadiums.cpp \
+    modify_stadium.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -63,14 +65,18 @@ HEADERS += \
     view_distances.h \
     list_of_stadiums.h \
     administrator_login.h \
-    administrator_actions.h
+    administrator_actions.h \
+    manage_stadiums.h \
+    modify_stadium.h
 
 FORMS += \
         mainwindow.ui \
     view_distances.ui \
     list_of_stadiums.ui \ 
     administrator_login.ui \
-    administrator_actions.ui
+    administrator_actions.ui \
+    manage_stadiums.ui \
+    modify_stadium.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

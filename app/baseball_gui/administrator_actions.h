@@ -19,6 +19,9 @@ public:
     explicit AdministratorActions(Map* map, QWidget *parent = nullptr);
     ~AdministratorActions();
 
+private slots:
+    void on_manage_stadiums_button_clicked();
+
 private:
     Ui::AdministratorActions *ui;
     Map* _map;

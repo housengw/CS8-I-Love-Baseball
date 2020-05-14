@@ -23,11 +23,9 @@ list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :
     update_list();
 
     vector<Stadium> stadium_v = sorted_by_stadium_name(_map->get_stadiums());
-    QStringList string_list;
     for (size_t i=0; i<stadium_v.size(); i++){
-        string_list.append(QString::fromStdString(stadium_v[i].get_stadium_name()));
+        ui->stadium_cbox->addItem(QString::fromStdString(stadium_v[i].get_stadium_name()));
     }
-    ui->stadium_cbox->addItems(string_list);
 }
 
 list_of_Stadiums::~list_of_Stadiums()
