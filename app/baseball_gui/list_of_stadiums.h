@@ -14,7 +14,7 @@ class list_of_Stadiums : public QDialog
     Q_OBJECT
 
 public:
-    explicit list_of_Stadiums(QWidget *parent = nullptr);
+    explicit list_of_Stadiums(Map* map, QWidget *parent = nullptr);
     ~list_of_Stadiums();
 
     void display_List (vector<Stadium> list);
@@ -39,9 +39,11 @@ private slots:
 
     void on_dateOpened_clicked();
 
+    void on_access_button_clicked();
+
 private:
     Ui::list_of_Stadiums *ui;
-    Map _map;
+    Map* _map;
     vector<Stadium> _list;
 
 
