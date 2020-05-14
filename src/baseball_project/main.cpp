@@ -9,6 +9,9 @@ void test_load_stadiums();
 void test_load_edges();
 void test_load_points();
 
+void test_modify_sourvenir_name(vector<Stadium>& source);
+void test_modify_sourvenir_price(vector<Stadium>& source);
+void test_add_sourvenir(vector<Stadium>& source);
 
 const std::string SRC_NATIONAL_FILE_PATH = "../../app/files/NationalTeams.txt";
 const std::string SRC_AMERICAN_FILE_PATH = "../../app/files/AmericanTeams.txt";
@@ -19,8 +22,8 @@ const std::string SRC_POINTS_FILE_PATH = "../../app/files/coordinates.csv";
 int main()
 {
 //    test_load_edges();
-//    test_load_stadiums();
-    test_load_points();
+    test_load_stadiums();
+//    test_load_points();
     return 0;
 }
 
@@ -51,6 +54,11 @@ void test_load_stadiums(){
     vector<Stadium> NTsortName;
     NTsortName = vectorize(NationalTeams);
     sort_by_team_name (NTsortName);
+
+//    test_modify_sourvenir_name(NTsortName);
+//    test_modify_sourvenir_price(NTsortName);
+//    test_add_sourvenir(NTsortName);
+
     print (NTsortName);
 
     cout <<endl<< "---------------------------------------" <<endl;
@@ -59,6 +67,11 @@ void test_load_stadiums(){
     vector<Stadium> ATsortName;
     ATsortName = vectorize(AmericanTeams);
     sort_by_stadium_name(ATsortName);
+
+//    test_modify_sourvenir_name(ATsortName);
+//    test_modify_sourvenir_price(ATsortName);
+//    test_add_sourvenir(ATsortName);
+
     print (ATsortName);
 
     cout <<endl<< "=============================================" <<endl;
@@ -108,7 +121,6 @@ void test_load_points(){
     cout<<"'"<<p.get_name()<<"' x: '"<<p.get_x()<<"' y: '"<<p.get_y()<<"'"<<endl;
 }
 
-
 void print (vector<Stadium> source)
 {
     vector <Stadium> :: iterator it;
@@ -116,5 +128,30 @@ void print (vector<Stadium> source)
         cout << endl << "    Team: " << it->get_team_name();
         cout << endl << " Stadium: " << it->get_stadium_name();
         cout << endl;
+//        it->print_souvenir_list();
+        cout << endl;
+    }
+}
+
+void test_modify_sourvenir_name(vector<Stadium>& source)
+{
+    vector <Stadium> :: iterator it;
+    for (it = source.begin(); it != source.end(); ++it) {
+        it->modify_souvenir_name("Baseball cap", "the new name");
+    }
+}
+void test_modify_sourvenir_price(vector<Stadium>& source)
+{
+    vector <Stadium> :: iterator it;
+    for (it = source.begin(); it != source.end(); ++it) {
+        it->modify_souvenir_price("Autographed baseball", 1000);
+    }
+}
+
+void test_add_sourvenir(vector<Stadium>& source)
+{
+    vector <Stadium> :: iterator it;
+    for (it = source.begin(); it != source.end(); ++it) {
+        it->add_souvenir("this is cool", 500);
     }
 }

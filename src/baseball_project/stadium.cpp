@@ -31,6 +31,16 @@ Stadium::Stadium (string stadium,
     set_surface (surface);
 }
 
+souvenir& Stadium::get_souvenir (string souvenir_name)
+{
+    return souvenirs.get(souvenir_name);
+}
+
+const souvenir& Stadium::get_souvenir (string souvenir_name) const
+{
+    return souvenirs.get(souvenir_name);
+}
+
 void Stadium::set_stadium_name(const string& stadium_name){
     _stadium_name = stadium_name;
 }
@@ -96,5 +106,33 @@ void Stadium::print_info ()
     cout << "Capacity: '" << get_capacity () << "'" << endl;
     cout << "Surface: '" << get_surface() << "'" << endl;
 
+}
+
+void Stadium::print_souvenir_list() const
+{souvenirs.print();}
+
+bool Stadium::add_souvenir(string name, double price)
+{
+    return souvenirs.add(souvenir(name, price));
+}
+
+bool Stadium::modify_souvenir_name(string name, string newName)
+{
+    if(!souvenirs.contains(name))
+    {
+        return false;
+    }
+    get_souvenir(name)._name = newName;
+    return true;
+}
+
+bool Stadium::modify_souvenir_price(string name, double newPrice)
+{
+    if(!souvenirs.contains(name))
+    {
+        return false;
+    }
+    get_souvenir(name)._price = newPrice;
+    return true;
 }
 

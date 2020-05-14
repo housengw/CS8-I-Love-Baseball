@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    ../../src/baseball_project/souvenirs_container.cpp \
         main.cpp \
         mainwindow.cpp \
     mouse_event.cpp \
@@ -47,6 +48,7 @@ SOURCES += \
     modify_stadium.cpp
 
 HEADERS += \
+    ../../src/baseball_project/souvenirs_container.h \
         mainwindow.h \
     mouse_event.h \
     ../../src/baseball_project/constants.h \
