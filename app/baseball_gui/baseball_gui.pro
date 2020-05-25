@@ -45,7 +45,8 @@ SOURCES += \
     administrator_login.cpp \
     administrator_actions.cpp \
     manage_stadiums.cpp \
-    modify_stadium.cpp
+    modify_stadium.cpp \
+    view_souvenir_list.cpp
 
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
@@ -69,12 +70,14 @@ HEADERS += \
     administrator_login.h \
     administrator_actions.h \
     manage_stadiums.h \
-    modify_stadium.h
+    modify_stadium.h \
+    view_souvenir_list.h
 
 FORMS += \
         mainwindow.ui \
     view_distances.ui \
-    list_of_stadiums.ui \ 
+    list_of_stadiums.ui \
+    view_souvenir_list.ui \
     administrator_login.ui \
     administrator_actions.ui \
     manage_stadiums.ui \

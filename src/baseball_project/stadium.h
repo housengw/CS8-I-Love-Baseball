@@ -25,6 +25,8 @@ public:
     const int& get_capacity() const{return _capacity;}
     const souvenir& get_souvenir (string souvenir_name) const;
     souvenir& get_souvenir (string souvenir_name);
+    const SouvenirsContainer& get_souvenir_list () const{return souvenirs;}
+    SouvenirsContainer& get_souvenir_list (){return souvenirs;}
 
     void set_stadium_name(const string& stadium_name);
     void set_team_name(const string& team_name);

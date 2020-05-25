@@ -1,5 +1,6 @@
 #include "list_of_stadiums.h"
 #include "ui_list_of_stadiums.h"
+#include "view_souvenir_list.h"
 
 list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :
     QDialog(parent),
@@ -153,4 +154,15 @@ void list_of_Stadiums::on_access_button_clicked()
     ui->display_list->setItem(0, 6, new QTableWidgetItem(to_string(stadium.get_capacity()).c_str()));
     ui->display_list->setItem(0, 7, new QTableWidgetItem(stadium.get_surface().c_str()));
     ui->display_list->resizeRowsToContents();
+}
+
+void list_of_Stadiums::on_pushButton_clicked()
+{
+    string stadium_name = ui->stadium_cbox->currentText().toStdString();
+    Stadium stadium = _map->get_stadiums().get_stadium(stadium_name);
+
+    view_souvenir_list souvenirList(_map, &stadium);
+
+    souvenirList.setModal(true);
+    souvenirList.exec();
 }

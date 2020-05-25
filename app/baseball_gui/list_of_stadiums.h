@@ -41,6 +41,8 @@ private slots:
 
     void on_access_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::list_of_Stadiums *ui;
     Map* _map;
