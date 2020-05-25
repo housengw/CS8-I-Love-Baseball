@@ -19,6 +19,8 @@ public:
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
 
+    void update_stadium(string stadium_name, Stadium s);
+
 private:
     void _initialize_stadiums();
     void _initialize_edges();
@@ -26,7 +28,6 @@ private:
     StadiumContainer _stadiums;
     EdgeContainer _edges;
     PointContainer _points;
-
 };
 
 #endif // MAP_H

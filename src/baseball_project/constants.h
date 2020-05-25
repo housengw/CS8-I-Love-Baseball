@@ -10,8 +10,7 @@ const std::string APP_NATIONAL_FILE_PATH = "../../../../files/NationalTeams.txt"
 const std::string APP_AMERICAN_FILE_PATH = "../../../../files/AmericanTeams.txt";
 const std::string APP_EDGES_FILE_PATH = "../../../../files/edges.csv";
 const std::string APP_POINTS_FILE_PATH = "../../../../files/coordinates.csv";
-const std::string APP_PW_CACHE_PATH = "pw.txt";
-const std::string TEMP_PW = "abc";
+const std::string APP_PW_FILE_PATH = "../../../../files/pw.txt";
 
 
 #endif // CONSTANTS_H
