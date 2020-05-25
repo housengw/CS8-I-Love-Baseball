@@ -2,6 +2,7 @@
 #define MODIFY_STADIUM_H
 #include "../../src/baseball_project/map.h"
 #include "../../src/baseball_project/helpers.h"
+#include "../../src/baseball_project/constants.h"
 #include "../../src/baseball_project/sort_functions.h"
 #include <QDialog>
 #include <QMessageBox>
@@ -21,6 +22,8 @@ public:
 
 private slots:
     void on_cancel_button_clicked();
+
+    void on_confirm_button_clicked();
 
 private:
     Ui::ModifyStadium *ui;

@@ -44,3 +44,12 @@ vector<Plottable> Map::get_plottables(bool national_league,
     }
     return plottables;
 }
+
+void Map::update_stadium(string stadium_name, Stadium s){
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (_stadiums[i].get_stadium_name() == stadium_name){
+            _stadiums[i] = s;
+            return;
+        }
+    }
+}
