@@ -46,6 +46,7 @@ SOURCES += \
     administrator_actions.cpp \
     manage_stadiums.cpp \
     modify_stadium.cpp \
+    view_souvenir_list.cpp \
     update_password.cpp
 
 HEADERS += \
@@ -71,12 +72,15 @@ HEADERS += \
     administrator_actions.h \
     manage_stadiums.h \
     modify_stadium.h \
+    view_souvenir_list.h \
     update_password.h
+
 
 FORMS += \
         mainwindow.ui \
     view_distances.ui \
-    list_of_stadiums.ui \ 
+    list_of_stadiums.ui \
+    view_souvenir_list.ui \
     administrator_login.ui \
     administrator_actions.ui \
     manage_stadiums.ui \
