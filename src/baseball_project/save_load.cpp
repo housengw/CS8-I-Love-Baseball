@@ -53,7 +53,7 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
 //            cout<<"'"<<line<<"'"<<endl;
 
             Date date;
-            date.set_whole(date_str);
+            date.set_date(date_str);
 //            address1 += address2;
             Stadium s(stadium, team, address1,address2, phone, date, stoi(capacity), surface);
             s.set_league(league);

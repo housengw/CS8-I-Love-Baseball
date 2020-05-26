@@ -58,6 +58,6 @@ bool compare_stadium_name ( Stadium i, Stadium j)
 bool compare_dates (Stadium i, Stadium j)
 {
     Date date;
-    return (date._compare_dates (i.get_date_opened(),j.get_date_opened()));
+    return (date.compare_dates (i.get_date_opened(),j.get_date_opened()));
 }
 
