@@ -1,8 +1,8 @@
 #ifndef MOUSE_EVENT_H
 #define MOUSE_EVENT_H
 
-#include <QWidget>
 #include <QMouseEvent>
+#include <QWidget>
 
 #include <QDebug>
 #include <QEvent>
@@ -11,20 +11,21 @@
 class mouse_event : public QLabel
 {
     Q_OBJECT
-public:
+  public:
+    // Variables
+    int x, // x position of the cursor
+        y; // y position of the cursor
+
     explicit mouse_event(QWidget *parent = nullptr);
 
-    void mouseMoveEvent (QMouseEvent *ev);
-    void mouseReleaseEvent (QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *ev);
+    void mouseReleaseEvent(QMouseEvent *);
 
-    int x, y;
+  signals:
+    void Mouse_Pos(); // Cursor po
+    void Mouse_Release();
 
-signals:
-
-    void Mouse_Pos ();
-    void Mouse_Release ();
-
-public slots:
+  public slots:
 };
 
 #endif // MOUSE_EVENT_H
