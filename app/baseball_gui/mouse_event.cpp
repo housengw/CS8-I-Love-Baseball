@@ -13,4 +13,7 @@ void mouse_event::mouseMoveEvent(QMouseEvent *ev)
 }
 
 //
-void mouse_event::mouseReleaseEvent(QMouseEvent *) { emit Mouse_Release(); }
+void mouse_event::mouseReleaseEvent(QMouseEvent *)
+{
+    emit Mouse_Release();
+}

@@ -8,47 +8,52 @@ SouvenirsContainer::SouvenirsContainer()
     add(souvenir("Autographed baseball", 19.99));
 }
 
-int SouvenirsContainer::find(string souvenir_name) const{
+int SouvenirsContainer::find(string souvenir_name) const
+{
     int index = -1;
-    for (size_t i=0; i<size(); i++){
-        if (_list[i]._name == souvenir_name){
+    for (size_t i = 0; i < size(); i++)
+    {
+        if (_list[i]._name == souvenir_name)
+        {
             index = i;
         }
     }
     return index;
 }
 
-
-void SouvenirsContainer::print() const {
-    for (size_t i=0; i<size(); i++){
+void SouvenirsContainer::print() const
+{
+    for (size_t i = 0; i < size(); i++)
+    {
         cout << _list[i];
     }
-    cout<<endl;
+    cout << endl;
 }
 
-bool SouvenirsContainer::add(const souvenir& item){
+bool SouvenirsContainer::add(const souvenir &item)
+{
 
-    if(contains(item._name))
+    if (contains(item._name))
     {
         return false;
     }
 
-    if (size() == _allocated){
-        reserve(size()*2);
+    if (size() == _allocated)
+    {
+        reserve(size() * 2);
     }
     _list[_size++] = item;
     return true;
 }
 
-
-souvenir& SouvenirsContainer::get(string souvenir_name)
+souvenir &SouvenirsContainer::get(string souvenir_name)
 {
     assert(contains(souvenir_name));
 
     return _list[find(souvenir_name)];
 }
 
-const souvenir& SouvenirsContainer::get (string souvenir_name) const
+const souvenir &SouvenirsContainer::get(string souvenir_name) const
 {
     assert(contains(souvenir_name));
 
@@ -56,4 +61,6 @@ const souvenir& SouvenirsContainer::get (string souvenir_name) const
 }
 
 bool SouvenirsContainer::contains(string souvenir_name) const
-{return (find(souvenir_name) >= 0);}
+{
+    return (find(souvenir_name) >= 0);
+}

@@ -1,9 +1,8 @@
 #include "update_password.h"
 #include "ui_update_password.h"
 
-UpdatePassword::UpdatePassword(string password, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::UpdatePassword)
+UpdatePassword::UpdatePassword(string password, QWidget *parent)
+    : QDialog(parent), ui(new Ui::UpdatePassword)
 {
     ui->setupUi(this);
     _password = password;
@@ -24,7 +23,8 @@ void UpdatePassword::on_confirm_button_clicked()
     string old_pw, new_pw;
     old_pw = ui->old_password->toPlainText().toStdString();
     new_pw = ui->new_password->toPlainText().toStdString();
-    if (old_pw != _password){
+    if (old_pw != _password)
+    {
         QMessageBox::warning(this, "Error", "Invalid Old Password");
         return;
     }

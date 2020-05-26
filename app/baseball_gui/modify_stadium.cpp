@@ -19,21 +19,20 @@ ModifyStadium::ModifyStadium(Map *map, string stadium_name, QWidget *parent)
     ui->city->setText(QString::fromStdString(stadium.get_address2()));
     ui->surface->addItem(QString::fromStdString(GRASS_SURFACE_NAME));
     ui->surface->addItem(QString::fromStdString(TURF_SURFACE_NAME));
-    if (stadium.get_surface() == GRASS_SURFACE_NAME){
+    if (stadium.get_surface() == GRASS_SURFACE_NAME)
+    {
         ui->surface->setCurrentText(QString::fromStdString(GRASS_SURFACE_NAME));
     }
-    else{
+    else
+    {
         ui->surface->setCurrentText(QString::fromStdString(TURF_SURFACE_NAME));
     }
 }
-
-ModifyStadium::~ModifyStadium() { delete ui; }
 
 ModifyStadium::~ModifyStadium()
 {
     delete ui;
 }
-
 
 void ModifyStadium::on_cancel_button_clicked()
 {
@@ -42,7 +41,8 @@ void ModifyStadium::on_cancel_button_clicked()
 
 void ModifyStadium::on_confirm_button_clicked()
 {
-    string stadium_name, team_name, capacity, phone_number, date, street, city, surface;
+    string stadium_name, team_name, capacity, phone_number, date, street, city,
+        surface;
     stadium_name = ui->stadium_name->toPlainText().toStdString();
     team_name = ui->team_name->toPlainText().toStdString();
     capacity = ui->capacity->toPlainText().toStdString();
@@ -52,18 +52,21 @@ void ModifyStadium::on_confirm_button_clicked()
     city = ui->city->toPlainText().toStdString();
     surface = ui->surface->currentText().toStdString();
 
-    if (!is_unsigned_int(capacity)){
+    if (!is_unsigned_int(capacity))
+    {
         QMessageBox::warning(this, "Error", "Invalid Capacity");
         return;
     }
-    if (!is_valid_date(date)){
+    if (!is_valid_date(date))
+    {
         QMessageBox::warning(this, "Error", "Invalid Date");
         return;
     }
 
     Date d;
     d.set_whole(date);
-    Stadium s(stadium_name, team_name, street, city, phone_number, d, stoi(capacity), surface);
+    Stadium s(stadium_name, team_name, street, city, phone_number, d,
+              stoi(capacity), surface);
     _map->update_stadium(_stadium_name, s);
     this->close();
 }

@@ -16,7 +16,10 @@ ManageStadiums::ManageStadiums(Map *map, QWidget *parent)
     }
 }
 
-ManageStadiums::~ManageStadiums() { delete ui; }
+ManageStadiums::~ManageStadiums()
+{
+    delete ui;
+}
 
 void ManageStadiums::on_modify_button_clicked()
 {

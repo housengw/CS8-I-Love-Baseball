@@ -16,7 +16,10 @@ ViewDistances::ViewDistances(Map *map, QWidget *parent)
     }
 }
 
-ViewDistances::~ViewDistances() { delete ui; }
+ViewDistances::~ViewDistances()
+{
+    delete ui;
+}
 
 void ViewDistances::on_get_distance_button_clicked()
 {

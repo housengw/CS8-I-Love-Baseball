@@ -21,7 +21,10 @@ string Date::get_date() const
     return to_string(_month) + "/" + to_string(_day) + "/" + to_string(_year);
 }
 
-bool Date::is_leap(int year) const { return is_leap_year(year); }
+bool Date::is_leap(int year) const
+{
+    return is_leap_year(year);
+}
 
 void Date::set_date(const string &date)
 {

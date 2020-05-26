@@ -8,9 +8,9 @@ using namespace std;
 class PointContainer : public Container<Point>
 {
   public:
-    /****************************************
-    **  CONSTRUCTORS  **
-    *****************************************/
+    /********************
+     **  CONSTRUCTORS  **
+     ********************/
     PointContainer();
     int find(string point_name) const;
     bool contains(string point_name) const;

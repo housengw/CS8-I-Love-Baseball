@@ -37,15 +37,30 @@ list_of_Stadiums::list_of_Stadiums(Map *map, QWidget *parent)
     }
 }
 
-list_of_Stadiums::~list_of_Stadiums() { delete ui; }
+list_of_Stadiums::~list_of_Stadiums()
+{
+    delete ui;
+}
 
-void list_of_Stadiums::on_american_stateChanged(int arg1) { update_list(); }
+void list_of_Stadiums::on_american_stateChanged(int arg1)
+{
+    update_list();
+}
 
-void list_of_Stadiums::on_national_stateChanged(int arg1) { update_list(); }
+void list_of_Stadiums::on_national_stateChanged(int arg1)
+{
+    update_list();
+}
 
-void list_of_Stadiums::on_grass_stateChanged(int arg1) { update_list(); }
+void list_of_Stadiums::on_grass_stateChanged(int arg1)
+{
+    update_list();
+}
 
-void list_of_Stadiums::on_turf_stateChanged(int arg1) { update_list(); }
+void list_of_Stadiums::on_turf_stateChanged(int arg1)
+{
+    update_list();
+}
 
 void list_of_Stadiums::update_list()
 {

@@ -22,7 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
             SLOT(Mouse_release()));
 }
 
-MainWindow::~MainWindow() { delete ui; }
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
 
 void MainWindow::on_Map_clicked()
 {
@@ -35,7 +38,10 @@ void MainWindow::on_Map_clicked()
     ui->graphicsView->setScene(scene);
 }
 
-void MainWindow::on_Trip_clicked() { plot_connections(); }
+void MainWindow::on_Trip_clicked()
+{
+    plot_connections();
+}
 
 void MainWindow::Mouse_current_pos()
 {

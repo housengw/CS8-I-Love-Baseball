@@ -10,14 +10,21 @@ AdministratorLogin::AdministratorLogin(Map *map, QWidget *parent)
     _password = load_password(APP_PW_FILE_PATH);
 }
 
-AdministratorLogin::~AdministratorLogin() { delete ui; }
+AdministratorLogin::~AdministratorLogin()
+{
+    delete ui;
+}
 
-void AdministratorLogin::on_cancel_button_clicked() { this->close(); }
+void AdministratorLogin::on_cancel_button_clicked()
+{
+    this->close();
+}
 
 void AdministratorLogin::on_login_button_clicked()
 {
     string pw = ui->pw_text_edit->toPlainText().toStdString();
-    if (!(pw == _password)){
+    if (!(pw == _password))
+    {
         QMessageBox::warning(this, "Error", "Invalid Password");
         return;
     }

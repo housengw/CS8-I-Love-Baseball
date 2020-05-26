@@ -21,7 +21,7 @@ class Map
 
     void update_stadium(string stadium_name, Stadium s);
 
-private:
+  private:
     void _initialize_stadiums();
     void _initialize_edges();
     void _initialize_points();

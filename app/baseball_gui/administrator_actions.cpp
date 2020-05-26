@@ -9,7 +9,10 @@ AdministratorActions::AdministratorActions(Map *map, QWidget *parent)
     _map = map;
 }
 
-AdministratorActions::~AdministratorActions() { delete ui; }
+AdministratorActions::~AdministratorActions()
+{
+    delete ui;
+}
 
 void AdministratorActions::on_manage_stadiums_button_clicked()
 {
