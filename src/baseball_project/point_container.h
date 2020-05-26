@@ -1,13 +1,13 @@
 #ifndef POINT_CONTAINER_H
 #define POINT_CONTAINER_H
-#include "point.h"
 #include "container.h"
+#include "point.h"
 
 using namespace std;
 
-class PointContainer: public Container<Point>
+class PointContainer : public Container<Point>
 {
-public:
+  public:
     /****************************************
     **  CONSTRUCTORS  **
     *****************************************/

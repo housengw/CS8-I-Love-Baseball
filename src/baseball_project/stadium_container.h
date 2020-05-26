@@ -1,14 +1,13 @@
 #ifndef STADIUMCONTAINER_H
 #define STADIUMCONTAINER_H
-#include <iostream>
-#include "stadium.h"
 #include "container.h"
+#include "stadium.h"
+#include <iostream>
 using namespace std;
 
-
-class StadiumContainer: public Container<Stadium>
+class StadiumContainer : public Container<Stadium>
 {
-public:
+  public:
     /****************************************
     **  CONSTRUCTORS  **
     *****************************************/

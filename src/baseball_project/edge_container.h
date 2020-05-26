@@ -1,12 +1,11 @@
 #ifndef EDGE_CONTAINER_H
 #define EDGE_CONTAINER_H
-#include "edge.h"
 #include "container.h"
+#include "edge.h"
 
-
-class EdgeContainer: public Container<Edge>
+class EdgeContainer : public Container<Edge>
 {
-public:
+  public:
     EdgeContainer();
     int find_connection(string stadium_a, string stadium_b) const;
     int get_cost(string stadium_a, string stadium_b) const;
