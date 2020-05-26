@@ -7,9 +7,9 @@ using namespace std;
 template <class T> class Container
 {
   public:
-    /****************************************
-    **  CONSTRUCTORS  **
-    *****************************************/
+    /*****************
+     ** CONSTRUCTOR **
+     *****************/
     Container();
 
     /****************************************
@@ -35,8 +35,22 @@ template <class T> class Container
     size_t _size;
 };
 
-template <class T> Container<T>::Container()
-{
+
+/*****************
+ ** CONSTRUCTOR **
+ *****************/
+
+/*******************************************************************
+* Container();
+*
+* allocate memory for the container and initialize the size to 0.
+*------------------------------------------------------------------
+* Parameter: nothing
+*------------------------------------------------------------------
+* Return: nothing
+*******************************************************************/
+template <class T>
+Container<T>::Container(){
     _allocated = 10;
     _list = new T[_allocated];
     _size = 0;
@@ -44,13 +58,39 @@ template <class T> Container<T>::Container()
 
 template <class T> Container<T>::~Container() { delete[] _list; }
 
+/************
+ ** BIG 3 ***
+ ************/
+
+/*******************************************************************
+* ~Container();
+*
+* deletes the container class
+*------------------------------------------------------------------
+* Parameter: nothing
+*------------------------------------------------------------------
+* Return: nothing
+*******************************************************************/
 template <class T>
-Container<T> &Container<T>::operator=(const Container<T> &rhs)
-{
-    if (this == &rhs)
-        return *this;
-    if (_list != nullptr)
-        delete[] _list;
+Container<T>::~Container(){
+    delete[] _list;
+}
+
+
+/*******************************************************************
+* Container<T>& operator= (const Container<T>& rhs)
+*
+* sets this container class to be the same as rhs
+*------------------------------------------------------------------
+* Parameter: rhs (Container<T>) //the container that this container
+*                               //    will be set equal to
+*------------------------------------------------------------------
+* Return: a reference to this container class
+*******************************************************************/
+template <class T>
+Container<T>& Container<T>::operator= (const Container<T>& rhs){
+    if (this == &rhs) return *this;
+    if (_list != nullptr) delete [] _list;
     _size = rhs._size;
     _allocated = rhs._allocated;
     _list = new T[rhs._allocated];
@@ -58,16 +98,37 @@ Container<T> &Container<T>::operator=(const Container<T> &rhs)
     return *this;
 }
 
-template <class T> Container<T>::Container(const Container<T> &other)
-{
+
+/*******************************************************************
+* Container(const Container<T>& other)
+*
+* constructs this container class to be the same as other
+*------------------------------------------------------------------
+* Parameter: other (Container<T>) //the container that this container
+*                                 //    will be constructed on
+*------------------------------------------------------------------
+* Return: nothing
+*******************************************************************/
+template <class T>
+Container<T>::Container(const Container<T>& other){
     _size = other._size;
     _allocated = 2 * other._size;
     _list = new T[_allocated];
     std::copy(other._list, other._list + other._size, _list);
 }
 
-template <class T> bool Container<T>::add(const T &item)
-{
+
+/*******************************************************************
+* bool add(const T& item)
+*
+* add item into the container class
+*------------------------------------------------------------------
+* Parameter: item (T) //the item to be added to the container class
+*------------------------------------------------------------------
+* Return: true if item is added. false otherwise
+*******************************************************************/
+template <class T>
+bool Container<T>::add(const T& item){
     // some condition: return false;
     if (size() == _allocated)
     {
@@ -77,19 +138,39 @@ template <class T> bool Container<T>::add(const T &item)
     return true;
 }
 
-template <class T> bool Container<T>::remove(size_t index)
-{
+
+/*******************************************************************
+* void remove(size_t index)
+*
+* removes the item at index
+*------------------------------------------------------------------
+* Parameter: index (size_t) //the index at which the item is removed
+*------------------------------------------------------------------
+* Return: true if item is removed. false otherwise
+*******************************************************************/
+template <class T>
+bool Container<T>::remove(size_t index){
     assert(index < size() && index >= 0);
     for (size_t i = index + 1; i < size(); i++)
     {
         _list[i - 1] = _list[i];
     }
-    _size--;
+    _size--; 
     return true;
 }
 
-template <class T> void Container<T>::reserve(size_t n)
-{
+
+/*******************************************************************
+* void reserve(size_t n)
+*
+* allocates n spaces to the container
+*------------------------------------------------------------------
+* Parameter: n (size_t) //the amount of space to allocate
+*------------------------------------------------------------------
+* Return: nothing
+*******************************************************************/
+template <class T>
+void Container<T>::reserve(size_t n){
     assert(n > _allocated);
     T *temp = _list;
     _allocated = n;
@@ -98,19 +179,50 @@ template <class T> void Container<T>::reserve(size_t n)
     delete[] temp;
 }
 
-template <class T> const T &Container<T>::operator[](size_t index) const
-{
+/*******************************************************************
+* const T& operator[](size_t index) const
+*
+* gets the item at index
+*------------------------------------------------------------------
+* Parameter: index (size_t) //the index at which the item is get
+*------------------------------------------------------------------
+* Return: the item at index
+*******************************************************************/
+template <class T>
+const T& Container<T>::operator[](size_t index) const{
     assert(index < size() && index >= 0);
     return _list[index];
 }
 
-template <class T> T &Container<T>::operator[](size_t index)
-{
+
+/*******************************************************************
+* const T& operator[](size_t index) const
+*
+* gets the item at index
+*------------------------------------------------------------------
+* Parameter: index (size_t) //the index at which the item is get
+*------------------------------------------------------------------
+* Return: the item at index
+*******************************************************************/
+template <class T>
+T& Container<T>::operator[](size_t index){
     assert(index < size() && index >= 0);
     return _list[index];
 }
 
-template <class T> void Container<T>::operator+=(const Container &add)
+
+/*******************************************************************
+* void operator += (const Container &add)
+*
+* appends all items from add to this container
+*------------------------------------------------------------------
+* Parameter: add (Container) //the container with items to be
+*                            //    appended to this container
+*------------------------------------------------------------------
+* Return: nothing
+*******************************************************************/
+template <class T>
+void Container<T>::operator += (const Container &add)
 {
     if (size() + add.size() >= _allocated)
     {

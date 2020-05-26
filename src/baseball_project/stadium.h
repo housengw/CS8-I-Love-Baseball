@@ -16,15 +16,17 @@ class Stadium
     const string &get_stadium_name() const { return _stadium_name; }
     const string &get_team_name() const { return _team_name; }
     //    const string& get_address() const{return _address;}
-    const string &get_address1() const { return _address1; }
-    const string &get_address2() const { return _address2; }
-    const string &get_surface() const { return _surface; }
-    const string &get_phone_number() const { return _phone_number; }
-    const string &get_league() const { return _league; }
-    const Date &get_date_opened() const { return _date_opened; }
-    const int &get_capacity() const { return _capacity; }
-    const souvenir &get_souvenir(string souvenir_name) const;
-    souvenir &get_souvenir(string souvenir_name);
+    const string& get_address1() const{return _address1;}
+    const string& get_address2() const{return _address2;}
+    const string& get_surface() const{return _surface;}
+    const string& get_phone_number() const{return _phone_number;}
+    const string& get_league() const{return _league;}
+    const Date& get_date_opened() const{return _date_opened;}
+    const int& get_capacity() const{return _capacity;}
+    const souvenir& get_souvenir (string souvenir_name) const;
+    souvenir& get_souvenir (string souvenir_name);
+    const SouvenirsContainer& get_souvenir_list () const{return souvenirs;}
+    SouvenirsContainer& get_souvenir_list (){return souvenirs;}
 
     void set_stadium_name(const string &stadium_name);
     void set_team_name(const string &team_name);

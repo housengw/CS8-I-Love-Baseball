@@ -24,9 +24,12 @@ class AdministratorLogin : public QDialog
 
     void on_login_button_clicked();
 
-  private:
+    void on_update_password_button_clicked();
+
+private:
     Ui::AdministratorLogin *ui;
-    Map *_map;
+    Map* _map;
+    string _password;
 };
 
 #endif // ADMINISTRATOR_LOGIN_H

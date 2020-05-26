@@ -8,7 +8,10 @@ void save_stadiums (string file_name,
 
 
 void save_password(string file_name, string password){
-
+    ofstream fout;
+    fout.open(file_name);
+    fout<<password;
+    fout.close();
 }
 
 
@@ -102,8 +105,10 @@ PointContainer load_points(string file_name){
 string load_password(string file_name){
     ifstream fin;
     fin.open(file_name);
-    if (!fin.is_open()){
-        return "";
+    if (fin.is_open()){
+        string password;
+        getline(fin, password);
+        return password;
     }
     return "";
 }

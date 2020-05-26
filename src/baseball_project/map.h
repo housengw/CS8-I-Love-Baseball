@@ -19,7 +19,9 @@ class Map
     const EdgeContainer &get_edges() const { return _edges; }
     const PointContainer &get_points() const { return _points; }
 
-  private:
+    void update_stadium(string stadium_name, Stadium s);
+
+private:
     void _initialize_stadiums();
     void _initialize_edges();
     void _initialize_points();

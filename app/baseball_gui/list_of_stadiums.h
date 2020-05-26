@@ -42,7 +42,9 @@ class list_of_Stadiums : public QDialog
 
     void on_access_button_clicked();
 
-  private:
+    void on_pushButton_clicked();
+
+private:
     Ui::list_of_Stadiums *ui;
     Map *_map;
     vector<Stadium> _list;
