@@ -37,6 +37,11 @@ void AddStadium::on_add_button_clicked()
         return;
     }
 
+    if (_map->get_stadiums().contains(stadium_name)){
+        QMessageBox::warning(this, "Error", "Stadium Already Exists");
+        return;
+    }
+
     Date d;
     d.set_whole(date);
     Stadium s(stadium_name, team_name, street, city, phone_number, d, stoi(capacity), surface);
