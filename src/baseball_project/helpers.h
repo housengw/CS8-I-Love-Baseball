@@ -106,7 +106,4 @@ void rstrip_newline(std::string& str);
 std::string lower(std::string str);
 
 
-QString int_to_qstr(int number);
-
-
 #endif // HELPERS_H

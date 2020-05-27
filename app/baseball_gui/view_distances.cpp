@@ -32,5 +32,5 @@ void ViewDistances::on_get_distance_button_clicked()
     }
 
     int cost = _map->get_edges().get_cost(stadium_a, stadium_b);
-    ui->distance_text_browser->setText(int_to_qstr(cost));
+    ui->distance_text_browser->setText(QString::fromStdString(std::to_string(cost)));
 }
