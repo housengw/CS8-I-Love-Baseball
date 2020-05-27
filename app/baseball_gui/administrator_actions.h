@@ -8,7 +8,7 @@
 
 namespace Ui
 {
-class AdministratorActions;
+    class AdministratorActions;
 }
 
 class AdministratorActions : public QDialog

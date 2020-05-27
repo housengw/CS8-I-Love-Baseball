@@ -1,5 +1,6 @@
 #include "administrator_login.h"
 #include "administrator_actions.h"
+#include "ui_administrator_login.h"
 #include "update_password.h"
 
 AdministratorLogin::AdministratorLogin(Map *map, QWidget *parent)

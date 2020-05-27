@@ -8,7 +8,7 @@
 
 namespace Ui
 {
-class ManageStadiums;
+    class ManageStadiums;
 }
 
 class ManageStadiums : public QDialog

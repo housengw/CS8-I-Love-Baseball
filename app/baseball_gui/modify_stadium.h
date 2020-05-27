@@ -2,13 +2,14 @@
 #define MODIFY_STADIUM_H
 #include "../../src/baseball_project/constants.h"
 #include "../../src/baseball_project/helpers.h"
+#include "../../src/baseball_project/map.h"
 #include "../../src/baseball_project/sort_functions.h"
 #include <QDialog>
 #include <QMessageBox>
 
 namespace Ui
 {
-class ModifyStadium;
+    class ModifyStadium;
 }
 
 class ModifyStadium : public QDialog

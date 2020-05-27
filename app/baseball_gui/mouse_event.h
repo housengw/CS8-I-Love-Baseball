@@ -22,7 +22,7 @@ class mouse_event : public QLabel
     void mouseReleaseEvent(QMouseEvent *);
 
   signals:
-    void Mouse_Pos(); // Cursor po
+    void Mouse_Pos(); // Cursor position
     void Mouse_Release();
 
   public slots:

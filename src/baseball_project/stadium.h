@@ -12,8 +12,14 @@ class Stadium
   public:
     // Constructor
     Stadium();
-    Stadium(string stadium, string team, string adress1, string adress2,
-            string phone, Date date, int capacity, string surface);
+    Stadium(string stadium,
+            string team,
+            string adress1,
+            string adress2,
+            string phone,
+            Date date,
+            int capacity,
+            string surface);
     const string &get_stadium_name() const { return _stadium_name; }
     const string &get_team_name() const { return _team_name; }
     //    const string& get_address() const{return _address;}

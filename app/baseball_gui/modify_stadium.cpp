@@ -64,7 +64,7 @@ void ModifyStadium::on_confirm_button_clicked()
     }
 
     Date d;
-    d.set_whole(date);
+    d.set_date(date);
     Stadium s(stadium_name, team_name, street, city, phone_number, d,
               stoi(capacity), surface);
     _map->update_stadium(_stadium_name, s);

@@ -12,7 +12,6 @@ void mouse_event::mouseMoveEvent(QMouseEvent *ev)
     emit Mouse_Pos();
 }
 
-//
 void mouse_event::mouseReleaseEvent(QMouseEvent *)
 {
     emit Mouse_Release();

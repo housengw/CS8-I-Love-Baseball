@@ -8,7 +8,7 @@
 
 namespace Ui
 {
-class UpdatePassword;
+    class UpdatePassword;
 }
 
 class UpdatePassword : public QDialog

@@ -7,7 +7,7 @@
 
 namespace Ui
 {
-class list_of_Stadiums;
+    class list_of_Stadiums;
 }
 
 class list_of_Stadiums : public QDialog
@@ -17,31 +17,19 @@ class list_of_Stadiums : public QDialog
   public:
     explicit list_of_Stadiums(Map *map, QWidget *parent = nullptr);
     ~list_of_Stadiums();
-
     void display_List(vector<Stadium> list);
-
     void update_list();
-
     int stadium_surface();
 
   private slots:
-
     void on_american_stateChanged(int arg1);
-
     void on_national_stateChanged(int arg1);
-
     void on_grass_stateChanged(int arg1);
-
     void on_turf_stateChanged(int arg1);
-
     void on_teamName_clicked();
-
     void on_stadiumName_clicked();
-
     void on_dateOpened_clicked();
-
     void on_access_button_clicked();
-
     void on_pushButton_clicked();
 
   private:

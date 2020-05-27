@@ -7,7 +7,7 @@
 
 namespace Ui
 {
-class view_souvenir_list;
+    class view_souvenir_list;
 }
 
 class view_souvenir_list : public QDialog
