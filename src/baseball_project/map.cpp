@@ -53,3 +53,7 @@ void Map::update_stadium(string stadium_name, Stadium s){
         }
     }
 }
+
+void Map::add_stadium(Stadium s){
+    _stadiums.add(s);
+}

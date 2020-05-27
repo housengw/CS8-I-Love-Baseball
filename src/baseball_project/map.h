@@ -18,8 +18,8 @@ public:
     const StadiumContainer& get_stadiums() const{return _stadiums;}
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
-
     void update_stadium(string stadium_name, Stadium s);
+    void add_stadium(Stadium s);
 
 private:
     void _initialize_stadiums();

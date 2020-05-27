@@ -27,6 +27,8 @@ list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :
     for (size_t i=0; i<stadium_v.size(); i++){
         ui->stadium_cbox->addItem(QString::fromStdString(stadium_v[i].get_stadium_name()));
     }
+
+    on_stadiumName_clicked();
 }
 
 list_of_Stadiums::~list_of_Stadiums()
