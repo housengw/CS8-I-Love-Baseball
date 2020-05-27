@@ -231,8 +231,3 @@ std::string lower(std::string str){
     }
     return str;
 }
-
-
-QString int_to_qstr(int number){
-    return QString::fromStdString(std::to_string(number));
-}

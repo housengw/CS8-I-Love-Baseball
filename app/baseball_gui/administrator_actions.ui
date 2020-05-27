@@ -26,6 +26,19 @@
     <string>Manage Stadiums</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="add_stadium_button">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>140</y>
+     <width>151</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Team / Stadium</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

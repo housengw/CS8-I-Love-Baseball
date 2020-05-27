@@ -11,7 +11,7 @@ ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :
     Stadium stadium = _map->get_stadiums().get_stadium(_stadium_name);
     ui->stadium_name->setText(QString::fromStdString(_stadium_name));
     ui->team_name->setText(QString::fromStdString(stadium.get_team_name()));
-    ui->capacity->setText(int_to_qstr(stadium.get_capacity()));
+    ui->capacity->setText(QString::fromStdString(std::to_string(stadium.get_capacity())));
     ui->phone_number->setText(QString::fromStdString(stadium.get_phone_number()));
     ui->date->setText(QString::fromStdString(stadium.get_date_opened().get_date()));
     ui->street->setText(QString::fromStdString(stadium.get_address1()));

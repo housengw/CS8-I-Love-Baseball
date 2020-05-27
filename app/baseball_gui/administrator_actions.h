@@ -22,6 +22,8 @@ public:
 private slots:
     void on_manage_stadiums_button_clicked();
 
+    void on_add_stadium_button_clicked();
+
 private:
     Ui::AdministratorActions *ui;
     Map* _map;
