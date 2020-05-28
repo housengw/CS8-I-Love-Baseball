@@ -21,7 +21,8 @@ public:
 
     int find(string stadium_name) const;
     bool contains(string stadium_name) const;
-    Stadium get_stadium(string stadium_name) const;
+    const Stadium& get_stadium(string stadium_name) const;
+    Stadium& get_stadium(string stadium_name);
     void print() const;
 };
 

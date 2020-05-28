@@ -25,6 +25,8 @@ private slots:
 
     void on_confirm_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::ModifyStadium *ui;
     Map* _map;

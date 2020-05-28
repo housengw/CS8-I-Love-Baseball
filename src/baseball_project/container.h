@@ -26,7 +26,9 @@ public:
     size_t size() const{return _size;}
     bool empty() const{return _size == 0;}
     const T& operator[](size_t index) const;
-    T& operator[](size_t index) ;
+    T& operator[](size_t index);
+    const T& at(size_t index) const;
+    T& at(size_t index);
 
     void operator += (const Container &add);
 protected:
@@ -205,6 +207,37 @@ T& Container<T>::operator[](size_t index){
     return _list[index];
 }
 
+/*******************************************************************
+* const T& at(size_t index) const
+*
+* gets the item at index
+*------------------------------------------------------------------
+* Parameter: index (size_t) //the index at which the item is get
+*------------------------------------------------------------------
+* Return: the item at index
+*******************************************************************/
+template <class T>
+const T& Container<T>::at(size_t index) const
+{
+    assert(index < size() && index >= 0);
+    return _list[index];
+}
+
+/*******************************************************************
+* T& at(size_t index)
+*
+* gets the item at index
+*------------------------------------------------------------------
+* Parameter: index (size_t) //the index at which the item is get
+*------------------------------------------------------------------
+* Return: the item at index
+*******************************************************************/
+template <class T>
+T& Container<T>::at(size_t index)
+{
+    assert(index < size() && index >= 0);
+    return _list[index];
+}
 
 /*******************************************************************
 * void operator += (const Container &add)

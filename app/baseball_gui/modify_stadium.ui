@@ -223,6 +223,19 @@
     <string>Surface</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>230</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>mdify sourvenir</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

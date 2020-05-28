@@ -1,5 +1,6 @@
 #include "modify_stadium.h"
 #include "ui_modify_stadium.h"
+#include "modify_souvenir_list.h"
 
 ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :
     QDialog(parent),
@@ -62,6 +63,18 @@ void ModifyStadium::on_confirm_button_clicked()
     Date d;
     d.set_whole(date);
     Stadium s(stadium_name, team_name, street, city, phone_number, d, stoi(capacity), surface);
+
+    Stadium stadium = _map->get_stadiums().get_stadium(_stadium_name);
+    s.get_souvenir_list() = stadium.get_souvenir_list();
+
     _map->update_stadium(_stadium_name, s);
     this->close();
+}
+
+void ModifyStadium::on_pushButton_clicked()
+{
+    modify_souvenir_list souvenirList(_map, _stadium_name);
+
+    souvenirList.setModal(true);
+    souvenirList.exec();
 }

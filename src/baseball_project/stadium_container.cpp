@@ -81,7 +81,13 @@ void StadiumContainer::print() const{
     cout<<endl;
 }
 
-Stadium StadiumContainer::get_stadium(string stadium_name) const{
+const Stadium& StadiumContainer::get_stadium(string stadium_name) const{
+    assert(contains(stadium_name));
+    return _list[find(stadium_name)];
+}
+
+Stadium& StadiumContainer::get_stadium(string stadium_name)
+{
     assert(contains(stadium_name));
     return _list[find(stadium_name)];
 }
