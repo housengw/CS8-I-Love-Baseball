@@ -53,7 +53,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Trip</string>
+     <string>Trip Planner</string>
     </property>
    </widget>
    <widget class="mouse_event" name="mouse_area">
@@ -94,7 +94,7 @@
       <x>680</x>
       <y>540</y>
       <width>111</width>
-      <height>61</height>
+      <height>100</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">

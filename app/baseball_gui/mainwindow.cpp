@@ -4,6 +4,7 @@
 #include "view_distances.h"
 #include "list_of_stadiums.h"
 #include "administrator_login.h"
+#include "trip_planner.h"
 #include <QPixmap>      // header for images in GUI
 
 
@@ -35,12 +36,16 @@ void MainWindow::on_Map_clicked()
     scene->addPixmap(m);
 
     ui->graphicsView->setScene(scene);
+
+    plot_connections();
 }
 
 
 void MainWindow::on_Trip_clicked()
 {
-    plot_connections();
+    TripPlanner tp(_map);
+    tp.setModal(true);
+    tp.exec();
 }
 
 
