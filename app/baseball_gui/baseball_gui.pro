@@ -49,7 +49,8 @@ SOURCES += \
     modify_stadium.cpp \
     view_souvenir_list.cpp \
     update_password.cpp \
-    add_stadium.cpp
+    add_stadium.cpp \
+    trip_planner.cpp
 
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
@@ -77,7 +78,8 @@ HEADERS += \
     modify_stadium.h \
     view_souvenir_list.h \
     update_password.h \
-    add_stadium.h
+    add_stadium.h \
+    trip_planner.h
 
 
 FORMS += \
@@ -91,7 +93,8 @@ FORMS += \
     manage_stadiums.ui \
     modify_stadium.ui \
     update_password.ui \
-    add_stadium.ui
+    add_stadium.ui \
+    trip_planner.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
