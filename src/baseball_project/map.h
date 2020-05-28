@@ -16,6 +16,7 @@ public:
                                      bool grass_surface=true,
                                      bool artificial_surface=true);
     const StadiumContainer& get_stadiums() const{return _stadiums;}
+    StadiumContainer& get_stadiums() {return _stadiums;}
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
     void update_stadium(string stadium_name, Stadium s);

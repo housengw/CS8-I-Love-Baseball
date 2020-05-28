@@ -28,6 +28,7 @@ SOURCES += \
     ../../src/baseball_project/souvenirs_container.cpp \
         main.cpp \
         mainwindow.cpp \
+    modify_souvenir_list.cpp \
     mouse_event.cpp \
     ../../src/baseball_project/date.cpp \
     ../../src/baseball_project/edge_container.cpp \
@@ -53,6 +54,7 @@ SOURCES += \
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
         mainwindow.h \
+    modify_souvenir_list.h \
     mouse_event.h \
     ../../src/baseball_project/constants.h \
     ../../src/baseball_project/container.h \
@@ -80,6 +82,7 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
+    modify_souvenir_list.ui \
     view_distances.ui \
     list_of_stadiums.ui \
     view_souvenir_list.ui \
