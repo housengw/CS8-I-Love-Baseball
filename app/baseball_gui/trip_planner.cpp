@@ -73,3 +73,8 @@ void TripPlanner::on_remove_button_clicked()
     update_table();
 }
 
+
+void TripPlanner::on_all_stadium_button_clicked()
+{
+    this->close();
+}
