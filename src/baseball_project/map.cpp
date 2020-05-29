@@ -1,5 +1,16 @@
 #include "map.h"
 
+/**************************************************************
+ * Map::Map ();
+ * ____________________________________________________________
+ * This method intializes the members with default values
+ * ___________________________________________________________
+ * Pre-Condition
+ * None
+ *
+ * Post-Condition
+ * initialize private members to default values
+ *************************************************************/
 Map::Map()
 {
     _initialize_stadiums();
@@ -9,6 +20,17 @@ Map::Map()
     _selected_stadiums = _stadiums;
 }
 
+/**************************************************************
+ * void Map::_initialize_stadiums()
+ * ____________________________________________________________
+ * This method intializes stadiums by loading from file
+ * ___________________________________________________________
+ * Pre-Condition
+ * None
+ *
+ * Post-Condition
+ * load stadiums from file into stadiums container
+ *************************************************************/
 void Map::_initialize_stadiums(){
     StadiumContainer national_stadiums, american_stadiums;
 
@@ -23,15 +45,48 @@ void Map::_initialize_stadiums(){
     }
 }
 
+/**************************************************************
+ * void Map::_initialize_edges()
+ * ____________________________________________________________
+ * This method intializes edges by loading from file
+ * ___________________________________________________________
+ * Pre-Condition
+ * None
+ *
+ * Post-Condition
+ * load edges from file into edges container
+ *************************************************************/
 void Map::_initialize_edges(){
     _edges = load_edges(APP_EDGES_FILE_PATH, _stadiums);
 }
 
 
+/**************************************************************
+ * void Map::_initialize_points()
+ * ____________________________________________________________
+ * This method intializes points by loading from file
+ * ___________________________________________________________
+ * Pre-Condition
+ * None
+ *
+ * Post-Condition
+ * load points from file into points container
+ *************************************************************/
 void Map::_initialize_points(){
     _points = load_points(APP_POINTS_FILE_PATH);
 }
 
+/**************************************************************
+ * void Map::_initialize_plottables()
+ * ____________________________________________________________
+ * This method intializes vector of plottable
+ * ___________________________________________________________
+ * Pre-Condition
+ * edges are loaded
+ *
+ * Post-Condition
+ * get coordinates of edges and insert into vector
+ *************************************************************/
 void Map::_initialize_plottables(){
     vector<Plottable> plottables;
     Point p1, p2;
@@ -44,7 +99,20 @@ void Map::_initialize_plottables(){
 }
 
 
-void Map::update_stadium(string stadium_name, Stadium s){
+/**************************************************************
+ * void Map::update_stadium(string stadium_name, Stadium s)
+ * ____________________________________________________________
+ * This method upades stadiums information
+ * ___________________________________________________________
+ * Pre-Condition
+ * Stadium name is given
+ *
+ * Post-Condition
+ * update stadium information
+ *************************************************************/
+void Map::update_stadium(string stadium_name,  //IN - string stadium name
+                         Stadium s)            //IN - Stadium s
+{
     for (size_t i=0; i<_stadiums.size(); i++){
         if (_stadiums[i].get_stadium_name() == stadium_name){
             _stadiums[i] = s;
@@ -53,6 +121,18 @@ void Map::update_stadium(string stadium_name, Stadium s){
     }
 }
 
-void Map::add_stadium(Stadium s){
+/**************************************************************
+ * void Map::add_stadium(Stadium s)
+ * ____________________________________________________________
+ * This method adds a stadium into stadium container
+ * ___________________________________________________________
+ * Pre-Condition
+ * Stadium s given
+ *
+ * Post-Condition
+ * stadium added into container
+ *************************************************************/
+void Map::add_stadium(Stadium s)   //IN - Stadium s
+{
     _stadiums.add(s);
 }
