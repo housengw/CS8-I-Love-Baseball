@@ -32,6 +32,8 @@ private slots:
 
     void on_remove_button_clicked();
 
+    void on_all_stadium_button_clicked();
+
 private:
     Ui::TripPlanner *ui;
     Map* _map;

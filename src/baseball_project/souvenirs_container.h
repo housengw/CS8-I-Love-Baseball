@@ -6,16 +6,22 @@
 using namespace std;
 
 
+/****************************************
+**  SOUVERNIR STRUCTURE  **
+*****************************************/
 struct souvenir
 {
-    string _name;
-    double _price;
+    string _name;    //IN/OUT name
+    double _price;   //IN/OUT price
+
+    //initialize private members
     souvenir(string name = "", double price = 0)
     {
         _name = name;
         _price = price;
     }
 
+    //display souvenir information
     friend ostream& operator <<(ostream& outs, const souvenir& print_me)
     {
         outs << "{" << print_me._name << ": $"
@@ -28,19 +34,24 @@ struct souvenir
 class SouvenirsContainer: public Container<souvenir>
 {
 public:
+    /****************************************
+    **  CONSTRUCTORS  **
+    *****************************************/
     SouvenirsContainer();
 
+    /*******************************************
+    **  ACCESSORS  **
+    *******************************************/
     const souvenir& get(string souvenir_name) const;
     souvenir& get(string souvenir_name);
-
-    bool add(const souvenir& item) override;
-
     int find(string souvenir_name) const;
-
+    bool contains(string souvenir_name) const;
     void print() const;
 
-    bool contains(string souvenir_name) const;
-
+    /**********************************************
+    **  MUTATORS  **
+    ***********************************************/
+    bool add(const souvenir& item) override;
 
 
 };
