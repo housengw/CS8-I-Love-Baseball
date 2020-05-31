@@ -44,8 +44,11 @@ void TripPlanner::update_table(){
 void TripPlanner::on_national_stadiums_button_clicked()
 {
     StadiumContainer selection, trip;
+    Stadium start = _map->get_stadiums().get_stadium(ui->comboBox->currentText().toStdString());
     selection = _map->get_stadiums().get_national_stadiums();
-    trip = _map->get_trip(selection);
+//    trip = _map->get_trip_permutation(selection);
+    trip = _map->get_trip_greedy(selection, start);
+
 //    this->close();
 }
 
