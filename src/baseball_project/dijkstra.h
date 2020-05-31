@@ -12,6 +12,7 @@ public:
     Dijkstra(const Dijkstra& copy_this);
     ~Dijkstra();
     int get_cost(int to_node);
+    Container<int> reconstruct(int to_node);
 //private:
     void _run();
     void _initialize_arrays(size_t size);

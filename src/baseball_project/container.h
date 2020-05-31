@@ -31,6 +31,8 @@ public:
     T& at(size_t index);
 
     void operator += (const Container &add);
+    Container<T>& operator+(Container<T> rhs);
+    Container<T>& operator+(T rhs);
 protected:
     T* _list;
     size_t _allocated;
@@ -171,7 +173,7 @@ bool Container<T>::remove(size_t index){
 *******************************************************************/
 template <class T>
 void Container<T>::reserve(size_t n){
-    assert(n > _allocated);
+    if (n <= _allocated) return;
     T* temp = _list;
     _allocated = n;
     _list = new T [_allocated];
@@ -263,6 +265,39 @@ void Container<T>::operator += (const Container &add)
     _size += add.size();
 }
 
+/*******************************************************************
+* Container<T>& operator+(Container<T> rhs)
+*
+* appends items of rhs to this container
+*------------------------------------------------------------------
+* Parameter: rhs (Container<T>) //the container to be appended to
+*                               //    this container
+*------------------------------------------------------------------
+* Return: a reference to this container
+*******************************************************************/
+template <class T>
+Container<T>& Container<T>::operator+(Container<T> rhs){
+    for (size_t i=0; i<rhs.size(); i++){
+        add(rhs[i]);
+    }
+    return *this;
+}
+
+/*******************************************************************
+* Container<T>& Container<T>::operator+(T rhs)
+*
+* appends rhs to this container
+*------------------------------------------------------------------
+* Parameter: rhs (T) //the item to be appended to
+*                    //    this container
+*------------------------------------------------------------------
+* Return: a reference to this container
+*******************************************************************/
+template <class T>
+Container<T>& Container<T>::operator+(T rhs){
+    add(rhs);
+    return *this;
+}
 
 
 
