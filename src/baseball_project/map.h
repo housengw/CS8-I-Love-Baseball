@@ -6,6 +6,8 @@
 #include "save_load.h"
 #include "constants.h"
 #include "sort_functions.h"
+#include "dijkstra.h"
+#include <algorithm>
 
 class Map
 {
@@ -24,13 +26,14 @@ public:
     const PointContainer& get_points() const{return _points;}
     const vector<Plottable>& get_plottables() const{return _plottables;}
     void update_stadium(string stadium_name, Stadium s);
+    StadiumContainer get_trip(StadiumContainer selection);
 
     /*******************************************
     **  MUTATOR  **
     *******************************************/
     void add_stadium(Stadium s);
 
-private:
+//private:
     StadiumContainer _stadiums;            //IN/OUT stadiums container
     EdgeContainer _edges;                  //IN/OUT edges container
     PointContainer _points;                //IN/OUT points container
@@ -45,7 +48,9 @@ private:
     void _initialize_edges();
     void _initialize_points();
     void _initialize_plottables();
-
+    Container<Dijkstra> _make_shortest_paths(StadiumContainer selection);
+    int** _make_adjacency_matrix();
+    int _compute_cost(vector<Stadium> stadiums, Container<Dijkstra> dijkstras);
 };
 
 #endif // MAP_H

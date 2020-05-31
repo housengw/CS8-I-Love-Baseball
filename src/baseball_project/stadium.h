@@ -67,8 +67,8 @@ public:
     /**********************************************
     **  Compare functions  **
     ***********************************************/
-    bool operator < (const Stadium& s);
-    bool operator >  (const Stadium& s);
+    bool operator < (const Stadium& s) const;
+    bool operator >  (const Stadium& s) const;
 
 private:
     string _stadium_name;      //IN/OUT - stadium name

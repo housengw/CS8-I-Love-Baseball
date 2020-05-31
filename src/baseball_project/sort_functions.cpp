@@ -93,6 +93,15 @@ vector<Stadium> vectorize(const StadiumContainer& s)
 }
 
 
+StadiumContainer containerize(const vector<Stadium>& s){
+    StadiumContainer c;
+    for (size_t i=0; i<s.size(); i++){
+        c.add(s[i]);
+    }
+    return c;
+}
+
+
 /**************************************************************
  * void add_stadiums_in_vector (const StadiumContainer& s, vector<Stadium> & dest)
  * ____________________________________________________________

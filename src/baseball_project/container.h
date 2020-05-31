@@ -93,6 +93,9 @@ Container<T>& Container<T>::operator= (const Container<T>& rhs){
     _size = rhs._size;
     _allocated = rhs._allocated;
     _list = new T [rhs._allocated];
+    for (size_t i=0; i<rhs.size(); i++){
+        _list[i] = rhs._list[i];
+    }
     std::copy(rhs._list, rhs._list + rhs._size, _list);
     return *this;
 }

@@ -43,7 +43,10 @@ void TripPlanner::update_table(){
 
 void TripPlanner::on_national_stadiums_button_clicked()
 {
-    this->close();
+    StadiumContainer selection, trip;
+    selection = _map->get_stadiums().get_national_stadiums();
+    trip = _map->get_trip(selection);
+//    this->close();
 }
 
 void TripPlanner::on_american_stadium_button_clicked()
