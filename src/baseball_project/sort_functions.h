@@ -36,6 +36,8 @@ bool compare_dates ( Stadium i, Stadium j);
  **********************************************/
 vector<Stadium> vectorize(const StadiumContainer& s);
 
+StadiumContainer containerize(const vector<Stadium>& s);
+
 /***********************************************
  * void add_stadiums_in_vector(const StadiumContainer& s, vector<Stadium> &dest);
  *   Vectorize: insert stadiums from container into vector

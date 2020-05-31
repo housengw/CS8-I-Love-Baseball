@@ -5,8 +5,8 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
-#include <QString>
 #include "constants.h"
+#include "container.h"
 
 /*******************************************************************
 * bool is_unsigned_int(std::string str);
@@ -104,6 +104,11 @@ void rstrip_newline(std::string& str);
 * Return: a lowercase version of the string
 *******************************************************************/
 std::string lower(std::string str);
+
+
+bool contains(Container<int> c, int n);
+
+int find_unsigned_min_not_in_s(int* array, size_t size, Container<int> s);
 
 
 #endif // HELPERS_H

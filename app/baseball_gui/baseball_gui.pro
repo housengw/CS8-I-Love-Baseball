@@ -50,7 +50,8 @@ SOURCES += \
     view_souvenir_list.cpp \
     update_password.cpp \
     add_stadium.cpp \
-    trip_planner.cpp
+    trip_planner.cpp \
+    ../../src/baseball_project/dijkstra.cpp
 
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
@@ -79,7 +80,8 @@ HEADERS += \
     view_souvenir_list.h \
     update_password.h \
     add_stadium.h \
-    trip_planner.h
+    trip_planner.h \
+    ../../src/baseball_project/dijkstra.h
 
 
 FORMS += \

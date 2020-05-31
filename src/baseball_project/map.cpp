@@ -136,3 +136,78 @@ void Map::add_stadium(Stadium s)   //IN - Stadium s
 {
     _stadiums.add(s);
 }
+
+
+StadiumContainer Map::get_trip(StadiumContainer selection){
+    Container<Dijkstra> dijkstras;
+    dijkstras = _make_shortest_paths(selection);
+
+//    cout<<dijkstras.size()<<endl;
+//    for(size_t i=0; i<dijkstras.size(); i++){
+//        cout<<_stadiums[i].get_stadium_name()<<": ";
+//        for (size_t j=0; j<dijkstras[i]._size; j++){
+//            cout<<dijkstras[i].c[j]<<" ";
+//        }
+//        cout<<endl;
+//    }
+
+    vector<Stadium> v = vectorize(selection);
+    vector<Stadium> best_case = v;
+    int min_cost = INT_MAX;
+    int cost;
+    int n=0;
+    do{
+//        cost = _compute_cost(v, dijkstras);
+//        if (cost < min_cost){
+//            min_cost = cost;
+//            best_case = v;
+//        }
+        n++;
+        cout<<"loop "<<n<<"| min_cost: "<<min_cost<<"| cost: "<<cost<<endl;
+    }while(next_permutation(v.begin(), v.end()));
+    return containerize(best_case);
+}
+
+
+int Map::_compute_cost(vector<Stadium> stadiums, Container<Dijkstra> dijkstras){
+    int cost = 0;
+    for (size_t i=0; i<stadiums.size()-1; i++){
+        int s1, s2;
+        s1 = _stadiums.find(stadiums[i].get_stadium_name());
+        s2 = _stadiums.find(stadiums[i+1].get_stadium_name());
+        cost += dijkstras[s1].get_cost(s2);
+    }
+    return cost;
+}
+
+Container<Dijkstra> Map::_make_shortest_paths(StadiumContainer selection){
+    Container<Dijkstra> dijkstras;
+    int** adjacency_matrix = _make_adjacency_matrix();
+    for (size_t i=0; i<selection.size(); i++){
+        Dijkstra d(_stadiums.find(selection[i].get_stadium_name()),
+                   adjacency_matrix,
+                   _stadiums.size());
+        dijkstras.add(Dijkstra(d));
+    }
+
+    return dijkstras;
+}
+
+int** Map::_make_adjacency_matrix(){
+    int** adjacency_matrix;
+    size_t matrix_size = _stadiums.size();
+    adjacency_matrix = new int*[matrix_size];
+    for (size_t i=0; i<matrix_size; i++){
+        adjacency_matrix[i] = new int[matrix_size];
+        for (size_t j=0; j<matrix_size; j++){
+            string stadium_i, stadium_j;
+            stadium_i = _stadiums[i].get_stadium_name();
+            stadium_j = _stadiums[j].get_stadium_name();
+            if (_edges.connected(stadium_i, stadium_j))
+                adjacency_matrix[i][j] = _edges.get_cost(stadium_i, stadium_j);
+            else
+                adjacency_matrix[i][j] = -1;
+        }
+    }
+    return adjacency_matrix;
+}

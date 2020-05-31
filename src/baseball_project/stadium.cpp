@@ -208,7 +208,7 @@ void  Stadium::set_surface(const string& surface)  //IN - surface
  * Post-Condition
  * return true if LHS and RHS team name in ascending order
  *************************************************************/
-bool Stadium::operator< (const Stadium& s)  //IN - stadium
+bool Stadium::operator< (const Stadium& s) const  //IN - stadium
 {
     return ( _team_name  < s.get_team_name());
 }
@@ -224,7 +224,7 @@ bool Stadium::operator< (const Stadium& s)  //IN - stadium
  * Post-Condition
  * return true if LHS and RHS stadium name in ascending order
  *************************************************************/
-bool Stadium::operator > (const Stadium& s)    //IN - stadium
+bool Stadium::operator > (const Stadium& s) const   //IN - stadium
 {
     return ( _stadium_name  < s.get_stadium_name());
 }
