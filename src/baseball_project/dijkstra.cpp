@@ -116,3 +116,15 @@ bool Dijkstra::_connected(int from_city, //the city to be checked
                           int to_city){  //the city to be checked
     return _adjacency_matrix[from_city][to_city] >= 0;
 }
+
+
+Container<int> Dijkstra::reconstruct(int to_node){
+    if (p[to_node] < 0){
+        Container<int> c;
+        c.add(_from_node);
+        return c;
+    }
+    else{
+        return reconstruct(p[to_node]) + to_node;
+    }
+}

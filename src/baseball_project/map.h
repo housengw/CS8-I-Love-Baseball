@@ -26,7 +26,8 @@ public:
     const PointContainer& get_points() const{return _points;}
     const vector<Plottable>& get_plottables() const{return _plottables;}
     void update_stadium(string stadium_name, Stadium s);
-    StadiumContainer get_trip(StadiumContainer selection);
+    StadiumContainer get_trip_permutation(StadiumContainer selection);
+    StadiumContainer get_trip_greedy(StadiumContainer selection, Stadium start);
 
     /*******************************************
     **  MUTATOR  **
@@ -48,7 +49,11 @@ public:
     void _initialize_edges();
     void _initialize_points();
     void _initialize_plottables();
+    Container<int> _index(StadiumContainer selection);
+    StadiumContainer _get_greedy_permutation(StadiumContainer selection, Stadium start, Container<Dijkstra> d);
+    StadiumContainer _reconstruct_trip(StadiumContainer selection, StadiumContainer perm, Container<Dijkstra> d);
     Container<Dijkstra> _make_shortest_paths(StadiumContainer selection);
+    StadiumContainer _map_indices_to_stadiums(Container<int> indices);
     int** _make_adjacency_matrix();
     int _compute_cost(vector<Stadium> stadiums, Container<Dijkstra> dijkstras);
 };

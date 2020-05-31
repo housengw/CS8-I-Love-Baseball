@@ -138,7 +138,7 @@ void Map::add_stadium(Stadium s)   //IN - Stadium s
 }
 
 
-StadiumContainer Map::get_trip(StadiumContainer selection){
+StadiumContainer Map::get_trip_permutation(StadiumContainer selection){
     Container<Dijkstra> dijkstras;
     dijkstras = _make_shortest_paths(selection);
 
@@ -166,6 +166,80 @@ StadiumContainer Map::get_trip(StadiumContainer selection){
         cout<<"loop "<<n<<"| min_cost: "<<min_cost<<"| cost: "<<cost<<endl;
     }while(next_permutation(v.begin(), v.end()));
     return containerize(best_case);
+}
+
+
+StadiumContainer Map::get_trip_greedy(StadiumContainer selection, Stadium start){
+    if (!selection.contains(start.get_stadium_name())){
+        selection.add(start);
+    }
+    Container<Dijkstra> dijkstras = _make_shortest_paths(selection);
+    StadiumContainer greedy_perm, trip;
+    greedy_perm = _get_greedy_permutation(selection, start, dijkstras);
+    trip = _reconstruct_trip(selection, greedy_perm, dijkstras);
+    return trip;
+}
+
+
+StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,
+                                        StadiumContainer perm,
+                                        Container<Dijkstra> dijkstras){
+    StadiumContainer trip;
+    Container<int> reconstructed;
+    int current_index, next_index;
+    Dijkstra current_dijkstra;
+    trip.add(perm[0]);
+    for (size_t i=0; i<perm.size()-1; i++){
+        current_index = selection.find(perm[i].get_stadium_name());
+        next_index = selection.find(perm[i+1].get_stadium_name());
+        current_dijkstra = dijkstras[current_index];
+        reconstructed = current_dijkstra.reconstruct(next_index);
+        reconstructed.remove(0);
+        trip += _map_indices_to_stadiums(reconstructed);
+    }
+    return trip;
+}
+
+StadiumContainer Map::_map_indices_to_stadiums(Container<int> indices){
+    StadiumContainer stadiums;
+    for (size_t i=0; i<indices.size(); i++){
+        stadiums.add(_stadiums[indices[i]]);
+    }
+    return stadiums;
+}
+
+StadiumContainer Map::_get_greedy_permutation(StadiumContainer selection,
+                                              Stadium start,
+                                              Container<Dijkstra> dijkstras){
+    StadiumContainer greedy_perm;
+    Container<int> indices = _index(selection);
+    Stadium current_stadium = start;
+    Dijkstra current_dijkstra;
+    int min, min_index;
+    for (size_t i=0; i<selection.size(); i++){
+        min = INT_MAX;
+        current_dijkstra = dijkstras[selection.find(current_stadium.get_stadium_name())];
+        for (size_t i=0; i<selection.size(); i++){
+            if (greedy_perm.contains(selection[i].get_stadium_name())) continue;
+            int cost = current_dijkstra.get_cost(indices[i]);
+            if (cost < min){
+                min = cost;
+                min_index = i;
+            }
+        }
+        current_stadium = _stadiums[indices[min_index]];
+        greedy_perm.add(current_stadium);
+    }
+    return greedy_perm;
+}
+
+
+Container<int> Map::_index(StadiumContainer selection){
+    Container<int> indices;
+    for (size_t i=0; i<selection.size(); i++){
+        indices.add(_stadiums.find(selection[i].get_stadium_name()));
+    }
+    return indices;
 }
 
 
