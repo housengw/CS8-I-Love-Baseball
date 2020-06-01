@@ -46,14 +46,18 @@ void TripPlanner::on_national_stadiums_button_clicked()
     StadiumContainer selection, trip;
     Stadium start = _map->get_stadiums().get_stadium(ui->comboBox->currentText().toStdString());
     selection = _map->get_stadiums().get_national_stadiums();
-//    trip = _map->get_trip_permutation(selection);
     trip = _map->get_trip_greedy(selection, start);
-
-//    this->close();
+    _map->set_trip(trip);
+    this->close();
 }
 
 void TripPlanner::on_american_stadium_button_clicked()
 {
+    StadiumContainer selection, trip;
+    Stadium start = _map->get_stadiums().get_stadium(ui->comboBox->currentText().toStdString());
+    selection = _map->get_stadiums().get_american_stadiums();
+    trip = _map->get_trip_greedy(selection, start);
+    _map->set_trip(trip);
     this->close();
 }
 
@@ -82,5 +86,10 @@ void TripPlanner::on_remove_button_clicked()
 
 void TripPlanner::on_all_stadium_button_clicked()
 {
+    StadiumContainer selection, trip;
+    Stadium start = _map->get_stadiums().get_stadium(ui->comboBox->currentText().toStdString());
+    selection = _map->get_stadiums();
+    trip = _map->get_trip_greedy(selection, start);
+    _map->set_trip(trip);
     this->close();
 }
