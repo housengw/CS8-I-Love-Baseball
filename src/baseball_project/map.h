@@ -25,6 +25,9 @@ public:
     const EdgeContainer& get_edges() const{return _edges;}
     const PointContainer& get_points() const{return _points;}
     const vector<Plottable>& get_plottables() const{return _plottables;}
+    const StadiumContainer& get_trip() const{return _trip;}
+    vector<Plottable> get_trip_plottables() const;
+
     void update_stadium(string stadium_name, Stadium s);
     StadiumContainer get_trip_permutation(StadiumContainer selection);
     StadiumContainer get_trip_greedy(StadiumContainer selection, Stadium start);
@@ -33,13 +36,14 @@ public:
     **  MUTATOR  **
     *******************************************/
     void add_stadium(Stadium s);
+    void set_trip(StadiumContainer trip){_trip = trip;}
 
-//private:
+private:
     StadiumContainer _stadiums;            //IN/OUT stadiums container
     EdgeContainer _edges;                  //IN/OUT edges container
     PointContainer _points;                //IN/OUT points container
     vector<Plottable> _plottables;         //IN/OUT vector of plottable
-    StadiumContainer _selected_stadiums;   //IN/OUT selected stadiums container
+    StadiumContainer _trip;   //IN/OUT selected stadiums container
 
 
     /*******************************************
@@ -49,6 +53,7 @@ public:
     void _initialize_edges();
     void _initialize_points();
     void _initialize_plottables();
+    EdgeContainer _get_trip_edges() const;
     Container<int> _index(StadiumContainer selection);
     StadiumContainer _get_greedy_permutation(StadiumContainer selection, Stadium start, Container<Dijkstra> d);
     StadiumContainer _reconstruct_trip(StadiumContainer selection, StadiumContainer perm, Container<Dijkstra> d);

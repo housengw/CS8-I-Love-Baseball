@@ -13,7 +13,7 @@ public:
     ~Dijkstra();
     int get_cost(int to_node);
     Container<int> reconstruct(int to_node);
-//private:
+private:
     void _run();
     void _initialize_arrays(size_t size);
     bool _connected(int from_city, int to_city);

@@ -17,7 +17,7 @@ Map::Map()
     _initialize_points();
     _initialize_edges();
     _initialize_plottables();
-    _selected_stadiums = _stadiums;
+    _trip = StadiumContainer();
 }
 
 /**************************************************************
@@ -96,6 +96,34 @@ void Map::_initialize_plottables(){
         plottables.insert(plottables.end(), Plottable(p1, p2));
     }
     _plottables = plottables;
+}
+
+
+EdgeContainer Map::_get_trip_edges() const{
+    if (_trip.size() == 0) return EdgeContainer();
+    EdgeContainer edges;
+    for (size_t i=0; i<_edges.size(); i++){
+        for (size_t j=0; j<_trip.size()-1; j++){
+            if (_edges[i].match(_trip[j].get_stadium_name(),
+                                _trip[j+1].get_stadium_name())){
+                edges.add(_edges[i]);
+            }
+        }
+    }
+    return edges;
+}
+
+
+vector<Plottable> Map::get_trip_plottables() const{
+    vector<Plottable> plottables;
+    Point p1, p2;
+    EdgeContainer edges = _get_trip_edges();
+    for (size_t i=0; i<edges.size(); i++){
+        p1 = _points.get_coordinates(edges[i].get_left_node());
+        p2 = _points.get_coordinates(edges[i].get_right_node());
+        plottables.insert(plottables.end(), Plottable(p1, p2));
+    }
+    return plottables;
 }
 
 
@@ -180,20 +208,22 @@ StadiumContainer Map::get_trip_greedy(StadiumContainer selection, Stadium start)
     return trip;
 }
 
-
 StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,
                                         StadiumContainer perm,
                                         Container<Dijkstra> dijkstras){
     StadiumContainer trip;
     Container<int> reconstructed;
+    Container<int> indices = _index(selection);
     int current_index, next_index;
     Dijkstra current_dijkstra;
     trip.add(perm[0]);
+
     for (size_t i=0; i<perm.size()-1; i++){
         current_index = selection.find(perm[i].get_stadium_name());
         next_index = selection.find(perm[i+1].get_stadium_name());
         current_dijkstra = dijkstras[current_index];
-        reconstructed = current_dijkstra.reconstruct(next_index);
+        reconstructed = current_dijkstra.reconstruct(indices[next_index]);
+
         reconstructed.remove(0);
         trip += _map_indices_to_stadiums(reconstructed);
     }

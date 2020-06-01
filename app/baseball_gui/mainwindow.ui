@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
+    <width>1001</width>
     <height>673</height>
    </rect>
   </property>
@@ -23,32 +23,32 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>207</x>
       <y>30</y>
       <width>761</width>
       <height>491</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="Map">
+   <widget class="QPushButton" name="clear_trip_button">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>20</x>
       <y>540</y>
-      <width>114</width>
+      <width>161</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Map</string>
+     <string>Clear Trip</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Trip">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>197</x>
       <y>540</y>
-      <width>121</width>
+      <width>301</width>
       <height>32</height>
      </rect>
     </property>
@@ -59,7 +59,7 @@
    <widget class="mouse_event" name="mouse_area">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>207</x>
       <y>30</y>
       <width>761</width>
       <height>491</height>
@@ -75,7 +75,7 @@
    <widget class="QLabel" name="current_pos">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>727</x>
       <y>560</y>
       <width>131</width>
       <height>31</height>
@@ -91,7 +91,7 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>857</x>
       <y>540</y>
       <width>111</width>
       <height>100</height>
@@ -116,7 +116,7 @@
    <widget class="QPushButton" name="administrator_button">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>547</x>
       <y>540</y>
       <width>171</width>
       <height>32</height>
@@ -129,7 +129,7 @@
    <widget class="QPushButton" name="view_distances_button">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>377</x>
       <y>580</y>
       <width>121</width>
       <height>32</height>
@@ -142,7 +142,7 @@
    <widget class="QPushButton" name="display_list">
     <property name="geometry">
      <rect>
-      <x>23</x>
+      <x>200</x>
       <y>580</y>
       <width>171</width>
       <height>32</height>
@@ -152,13 +152,36 @@
      <string>Display List of Stadiums</string>
     </property>
    </widget>
+   <widget class="QTableWidget" name="visited_stadiums_table">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>161</width>
+      <height>461</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Visited Stadiums</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>821</width>
+     <width>1001</width>
      <height>22</height>
     </rect>
    </property>
