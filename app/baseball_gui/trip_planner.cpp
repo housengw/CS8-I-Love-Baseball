@@ -63,6 +63,11 @@ void TripPlanner::on_american_stadium_button_clicked()
 
 void TripPlanner::on_custom_stadium_button_clicked()
 {
+    StadiumContainer selection, trip;
+    Stadium start = _map->get_stadiums().get_stadium(ui->comboBox->currentText().toStdString());
+    selection = _selected_stadiums;
+    trip = _map->get_trip_greedy(selection, start);
+    _map->set_trip(trip);
     this->close();
 }
 

@@ -27,6 +27,7 @@ public:
     const vector<Plottable>& get_plottables() const{return _plottables;}
     const StadiumContainer& get_trip() const{return _trip;}
     vector<Plottable> get_trip_plottables() const;
+    int get_cost() const;
 
     void update_stadium(string stadium_name, Stadium s);
     StadiumContainer get_trip_permutation(StadiumContainer selection);
