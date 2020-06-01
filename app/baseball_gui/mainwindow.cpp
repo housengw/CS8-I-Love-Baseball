@@ -49,6 +49,9 @@ void MainWindow::update_map(){
     plot_connections();
     plot_trip();
     update_visited_stadiums_table();
+
+    ui->total_stadiums_text->setText(QString::fromStdString(to_string(_map->get_trip().size())));
+    ui->total_distance_text->setText(QString::fromStdString(to_string(_map->get_cost())));
 }
 
 void MainWindow::update_visited_stadiums_table(){
