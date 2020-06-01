@@ -109,7 +109,7 @@ void MainWindow::plot_trip(){
         p1 = plottables[i].p1;
         p2 = plottables[i].p2;
         l.setLine(p1.get_x(), p1.get_y(), p2.get_x(), p2.get_y());
-        scene->addLine(l, QPen(QColor("red")));
+        scene->addLine(l, QPen(QBrush("red"), 4));
     }
     ui->graphicsView->setScene(scene);
 }
