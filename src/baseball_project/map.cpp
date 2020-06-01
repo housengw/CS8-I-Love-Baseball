@@ -315,3 +315,13 @@ int** Map::_make_adjacency_matrix(){
     }
     return adjacency_matrix;
 }
+
+
+int Map::get_cost() const{
+    int cost=0;
+    for (int i=0; i<int(_trip.size())-1; i++){
+        cost += _edges.get_cost(_trip[i].get_stadium_name(),
+                                _trip[i+1].get_stadium_name());
+    }
+    return cost;
+}
