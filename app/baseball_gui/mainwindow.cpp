@@ -15,10 +15,20 @@ MainWindow::MainWindow(QWidget *parent) :
     _map = new Map;
     ui->setupUi(this);
     scene = new QGraphicsScene();
-    on_Map_clicked();
+    update_map();
     connect(ui->mouse_area, SIGNAL (Mouse_Pos()), this, SLOT (Mouse_current_pos ()));
     connect(ui->mouse_area, SIGNAL (Mouse_Release()), this, SLOT (Mouse_release ()));
 
+    ui->visited_stadiums_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->visited_stadiums_table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->visited_stadiums_table->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->visited_stadiums_table->setUpdatesEnabled(true);
+    ui->visited_stadiums_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->visited_stadiums_table->verticalHeader()->hide();
+    ui->visited_stadiums_table->setColumnCount(1);
+    QStringList tableHeaders;
+    tableHeaders <<"Stadium";
+    ui->visited_stadiums_table->setHorizontalHeaderLabels(tableHeaders);
 }
 
 
@@ -28,8 +38,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_Map_clicked()
-{
+void MainWindow::update_map(){
     QPixmap m (":/Images/Stadiums.png");
 
     m = m.scaled(ui->graphicsView->width(),ui->graphicsView->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
@@ -38,6 +47,16 @@ void MainWindow::on_Map_clicked()
     ui->graphicsView->setScene(scene);
 
     plot_connections();
+    plot_trip();
+    update_visited_stadiums_table();
+}
+
+void MainWindow::update_visited_stadiums_table(){
+    ui->visited_stadiums_table->setRowCount(_map->get_trip().size());
+    for (size_t i=0; i<_map->get_trip().size(); i++){
+        ui->visited_stadiums_table->setItem(i, 0, new QTableWidgetItem(_map->get_trip()[i].get_stadium_name().c_str()));
+    }
+    ui->visited_stadiums_table->resizeRowsToContents();
 }
 
 
@@ -46,6 +65,7 @@ void MainWindow::on_Trip_clicked()
     TripPlanner tp(_map);
     tp.setModal(true);
     tp.exec();
+    update_map();
 }
 
 
@@ -73,6 +93,21 @@ void MainWindow::plot_connections(){
         l.setLine(p1.get_x(), p1.get_y(), p2.get_x(), p2.get_y());
         scene->addLine(l);
     }
+    ui->graphicsView->setScene(scene);   
+}
+
+
+void MainWindow::plot_trip(){
+    vector<Plottable> plottables;
+    Point p1, p2;
+    QLine l;
+    plottables = _map->get_trip_plottables();
+    for (size_t i=0; i<plottables.size(); i++){
+        p1 = plottables[i].p1;
+        p2 = plottables[i].p2;
+        l.setLine(p1.get_x(), p1.get_y(), p2.get_x(), p2.get_y());
+        scene->addLine(l, QPen(QColor("red")));
+    }
     ui->graphicsView->setScene(scene);
 }
 
@@ -97,4 +132,10 @@ void MainWindow::on_administrator_button_clicked()
     AdministratorLogin al(_map);
     al.setModal(true);
     al.exec();
+}
+
+void MainWindow::on_clear_trip_button_clicked()
+{
+    _map->set_trip(StadiumContainer());
+    update_map();
 }
