@@ -1,6 +1,18 @@
 #include "view_distances.h"
 #include "ui_view_distances.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * ViewDistances::ViewDistances(Map* map,  QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes variables to default values
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 ViewDistances::ViewDistances(Map* map, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ViewDistances)
@@ -14,11 +26,35 @@ ViewDistances::ViewDistances(Map* map, QWidget *parent) :
     }
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * ViewDistances::~ViewDistances(): Class ViewDistances
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 ViewDistances::~ViewDistances()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void ViewDistances::on_get_distance_button_clicked()
+ *________________________________________________________________
+ *  This function process the input and find the distance between stadiums
+ *  If stadiums have no direct connection, it will display error message
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     get distance button clicked and stadiums selected
+ *
+ *  POST-CONDITIONS
+ *     display distance or message
+ *****************************************************************/
 void ViewDistances::on_get_distance_button_clicked()
 {
     string stadium_a, stadium_b;

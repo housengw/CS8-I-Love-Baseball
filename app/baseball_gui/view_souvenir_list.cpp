@@ -2,6 +2,19 @@
 #include "ui_view_souvenir_list.h"
 #include "administrator_login.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * view_souvenir_list::view_souvenir_list(Map* map, Stadium* stadium, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes variables to default values and display the
+ *  list of souvenir
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 view_souvenir_list::view_souvenir_list(Map* map, Stadium* stadium, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::view_souvenir_list),
@@ -26,11 +39,34 @@ view_souvenir_list::view_souvenir_list(Map* map, Stadium* stadium, QWidget *pare
 
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * view_souvenir_list::~view_souvenir_list(): Class view_souvenir_list
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 view_souvenir_list::~view_souvenir_list()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void view_souvenir_list::display_List()
+ *________________________________________________________________
+ *  This function will display the souvenir information
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     display souvenir information
+ *****************************************************************/
 void view_souvenir_list::display_List()
 {
     SouvenirsContainer* list = &(_stadium->get_souvenir_list());
@@ -47,6 +83,18 @@ void view_souvenir_list::display_List()
 }
 
 
+/*****************************************************************
+ *  Method void view_souvenir_list::on_pushButton_clicked()
+ *________________________________________________________________
+ *  This function creates an AdministratorLogin object to let administrator
+ *  modify the souvenir information
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     button clicked
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 void view_souvenir_list::on_pushButton_clicked()
 {
     AdministratorLogin al(_map);
