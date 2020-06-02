@@ -30,7 +30,6 @@ public:
     int get_cost() const;
 
     void update_stadium(string stadium_name, Stadium s);
-    StadiumContainer get_trip_permutation(StadiumContainer selection);
     StadiumContainer get_trip_greedy(StadiumContainer selection, Stadium start);
 
     /*******************************************

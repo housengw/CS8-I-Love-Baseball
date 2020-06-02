@@ -144,7 +144,21 @@ void Map::update_stadium(string stadium_name,  //IN - string stadium name
     for (size_t i=0; i<_stadiums.size(); i++){
         if (_stadiums[i].get_stadium_name() == stadium_name){
             _stadiums[i] = s;
-            return;
+        }
+    }
+
+    for (size_t i=0; i<_points.size(); i++){
+        if (_points[i].get_name() == stadium_name){
+            _points[i].set_name(s.get_stadium_name());
+        }
+    }
+
+    for (size_t i=0; i<_edges.size(); i++){
+        if (_edges[i].get_left_node() == stadium_name){
+            _edges[i].set_left_node(s.get_stadium_name());
+        }
+        else if (_edges[i].get_right_node() == stadium_name){
+            _edges[i].set_right_node(s.get_stadium_name());
         }
     }
 }
@@ -165,42 +179,11 @@ void Map::add_stadium(Stadium s)   //IN - Stadium s
     _stadiums.add(s);
 }
 
-
-StadiumContainer Map::get_trip_permutation(StadiumContainer selection){
-    Container<Dijkstra> dijkstras;
-    dijkstras = _make_shortest_paths(selection);
-
-//    cout<<dijkstras.size()<<endl;
-//    for(size_t i=0; i<dijkstras.size(); i++){
-//        cout<<_stadiums[i].get_stadium_name()<<": ";
-//        for (size_t j=0; j<dijkstras[i]._size; j++){
-//            cout<<dijkstras[i].c[j]<<" ";
-//        }
-//        cout<<endl;
-//    }
-
-    vector<Stadium> v = vectorize(selection);
-    vector<Stadium> best_case = v;
-    int min_cost = INT_MAX;
-    int cost;
-    int n=0;
-    do{
-//        cost = _compute_cost(v, dijkstras);
-//        if (cost < min_cost){
-//            min_cost = cost;
-//            best_case = v;
-//        }
-        n++;
-        cout<<"loop "<<n<<"| min_cost: "<<min_cost<<"| cost: "<<cost<<endl;
-    }while(next_permutation(v.begin(), v.end()));
-    return containerize(best_case);
-}
-
-
 StadiumContainer Map::get_trip_greedy(StadiumContainer selection, Stadium start){
     if (!selection.contains(start.get_stadium_name())){
         selection.add(start);
     }
+
     Container<Dijkstra> dijkstras = _make_shortest_paths(selection);
     StadiumContainer greedy_perm, trip;
     greedy_perm = _get_greedy_permutation(selection, start, dijkstras);
