@@ -1,6 +1,19 @@
 #include "modify_souvenir_list.h"
 #include "ui_modify_souvenir_list.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * modify_souvenir_list::modify_souvenir_list(Map* map, string stadium_name, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables to default values and
+ *  update the souvenir tables
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 modify_souvenir_list::modify_souvenir_list(Map* map, string stadium_name, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::modify_souvenir_list),
@@ -33,11 +46,34 @@ modify_souvenir_list::modify_souvenir_list(Map* map, string stadium_name, QWidge
     update_textBox();
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * modify_souvenir_list::~modify_souvenir_list(): Class modify_souvenir_list
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 modify_souvenir_list::~modify_souvenir_list()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::display_List ()
+ *________________________________________________________________
+ *  This function will display the souvenir information in a table
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     souvenir displayed
+ *****************************************************************/
 void modify_souvenir_list::display_List()
 {
     SouvenirsContainer* list = &(_stadium->get_souvenir_list());
@@ -53,6 +89,17 @@ void modify_souvenir_list::display_List()
     ui->display_souvenirs->resizeRowsToContents();
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::clear_table ()
+ *________________________________________________________________
+ *  This function will clear the souvenir table
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     table cleared
+ *****************************************************************/
 void modify_souvenir_list::clear_table()
 {
     // Deselects all selected items
@@ -68,6 +115,17 @@ void modify_souvenir_list::clear_table()
     ui->display_souvenirs->setRowCount(0);
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::update_textBox()
+ *________________________________________________________________
+ *  This function will update_textBox and display the list of souvenir
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     verifies souvenir list no empty
+ *
+ *  POST-CONDITIONS
+ *     update table
+ *****************************************************************/
 void modify_souvenir_list::update_textBox()
 {
     if(_stadium->get_souvenir_list().empty())
@@ -83,11 +141,34 @@ void modify_souvenir_list::update_textBox()
     ui->price->setText(QString::fromStdString(string(number)));
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::on_index_currentIndexChanged(const QString &arg1)
+ *________________________________________________________________
+ *  This function call update_textBox
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     index state changed
+ *
+ *  POST-CONDITIONS
+ *     souvenir updated
+ *****************************************************************/
 void modify_souvenir_list::on_index_currentIndexChanged(const QString &arg1)
 {
     update_textBox();
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::on_modify_button_clicked()
+ *________________________________________________________________
+ *  This function process the input and create a object for ModifyStadium
+ *  class to modify the stadium selected
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     modify button clicked and stadium selected
+ *
+ *  POST-CONDITIONS
+ *     table updated and displayed
+ *****************************************************************/
 void modify_souvenir_list::on_modify_clicked()
 {
     if(_stadium->get_souvenir_list().empty())
@@ -113,6 +194,17 @@ void modify_souvenir_list::on_modify_clicked()
 }
 
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::on_delete_2_clicked()
+ *________________________________________________________________
+ *  This function will remove souvenir
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     remove button clicked and item selected
+ *
+ *  POST-CONDITIONS
+ *     table updated and displayed
+ *****************************************************************/
 void modify_souvenir_list::on_delete_2_clicked()
 {
     if(_stadium->get_souvenir_list().empty())
@@ -132,6 +224,17 @@ void modify_souvenir_list::on_delete_2_clicked()
     update_textBox();
 }
 
+/*****************************************************************
+ *  Method void modify_souvenir_list::on_add_clicked()
+ *________________________________________________________________
+ *  This function will add souvenir
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     add button clicked and input filled out
+ *
+ *  POST-CONDITIONS
+ *     table updated and displayed
+ *****************************************************************/
 void modify_souvenir_list::on_add_clicked()
 {
     string newName;
