@@ -94,7 +94,7 @@
       <x>860</x>
       <y>540</y>
       <width>111</width>
-      <height>94</height>
+      <height>100</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -221,7 +221,7 @@
      <string>Distance Traveled</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="purchase_list_button">
     <property name="geometry">
      <rect>
       <x>20</x>

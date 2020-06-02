@@ -148,7 +148,7 @@ void MainWindow::on_clear_trip_button_clicked()
     purchaseList.clear_list();
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_purchase_list_button_clicked()
 {
     purchase_list pl(_map, &purchaseList);
     pl.setModal(true);

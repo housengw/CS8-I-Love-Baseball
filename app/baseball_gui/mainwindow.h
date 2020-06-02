@@ -33,7 +33,7 @@ private slots:
 
     void on_clear_trip_button_clicked();
 
-    void on_pushButton_clicked();
+    void on_purchase_list_button_clicked();
 
 private:
     Ui::MainWindow *ui;
