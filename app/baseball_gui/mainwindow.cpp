@@ -5,6 +5,7 @@
 #include "list_of_stadiums.h"
 #include "administrator_login.h"
 #include "trip_planner.h"
+#include "purchase_list.h"
 #include <QPixmap>      // header for images in GUI
 
 
@@ -29,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringList tableHeaders;
     tableHeaders <<"Stadium";
     ui->visited_stadiums_table->setHorizontalHeaderLabels(tableHeaders);
+
+    purchaseList.clear_list();
 }
 
 
@@ -65,6 +68,7 @@ void MainWindow::update_visited_stadiums_table(){
 
 void MainWindow::on_Trip_clicked()
 {
+    purchaseList.clear_list();
     TripPlanner tp(_map);
     tp.setModal(true);
     tp.exec();
@@ -141,4 +145,12 @@ void MainWindow::on_clear_trip_button_clicked()
 {
     _map->set_trip(StadiumContainer());
     update_map();
+    purchaseList.clear_list();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    purchase_list pl(_map, &purchaseList);
+    pl.setModal(true);
+    pl.exec();
 }

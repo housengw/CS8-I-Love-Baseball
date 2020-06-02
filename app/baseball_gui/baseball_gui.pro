@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
     ../../src/baseball_project/souvenirs_container.cpp \
+    buy_souvenir.cpp \
         main.cpp \
         mainwindow.cpp \
     modify_souvenir_list.cpp \
@@ -41,6 +42,7 @@ SOURCES += \
     ../../src/baseball_project/sort_functions.cpp \
     ../../src/baseball_project/stadium_container.cpp \
     ../../src/baseball_project/stadium.cpp \
+    purchase_list.cpp \
     view_distances.cpp \
     list_of_stadiums.cpp \
     administrator_login.cpp \
@@ -55,6 +57,7 @@ SOURCES += \
 
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
+    buy_souvenir.h \
         mainwindow.h \
     modify_souvenir_list.h \
     mouse_event.h \
@@ -71,6 +74,7 @@ HEADERS += \
     ../../src/baseball_project/sort_functions.h \
     ../../src/baseball_project/stadium_container.h \
     ../../src/baseball_project/stadium.h \
+    purchase_list.h \
     view_distances.h \
     list_of_stadiums.h \
     administrator_login.h \
@@ -85,8 +89,10 @@ HEADERS += \
 
 
 FORMS += \
+    buy_souvenir.ui \
         mainwindow.ui \
     modify_souvenir_list.ui \
+    purchase_list.ui \
     view_distances.ui \
     list_of_stadiums.ui \
     view_souvenir_list.ui \

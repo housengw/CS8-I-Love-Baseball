@@ -33,10 +33,13 @@ private slots:
 
     void on_clear_trip_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     Map* _map;
+    SouvenirsContainer purchaseList;
 };
 
 #endif // MAINWINDOW_H
