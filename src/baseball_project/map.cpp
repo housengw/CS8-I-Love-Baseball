@@ -457,6 +457,7 @@ int** Map::_make_adjacency_matrix()
 }
 
 
+
 /**************************************************************
  * int Map::get_cost() const
  * ____________________________________________________________
@@ -468,8 +469,7 @@ int** Map::_make_adjacency_matrix()
  * Post-Condition
  * return int total cost
  *************************************************************/
-int Map::get_cost() const
-{
+int Map::get_cost() const{
     int cost=0;
     for (int i=0; i<int(_trip.size())-1; i++){
         cost += _edges.get_cost(_trip[i].get_stadium_name(),
