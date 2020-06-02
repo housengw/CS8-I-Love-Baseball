@@ -155,6 +155,7 @@ void MainWindow::on_clear_trip_button_clicked()
 {
     _map->set_trip(StadiumContainer());
     update_map();
+    purchaseList.clear_list();
 }
 
 /*****************************************************************
