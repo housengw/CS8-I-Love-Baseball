@@ -54,6 +54,10 @@ void purchase_list::display_list()
 void purchase_list::on_buy_clicked()
 {
     string stadium_name = ui->visited_stadium->currentText().toStdString();
+    if (stadium_name.empty()){
+        QMessageBox::warning(this, "Error", "Plan a trip first");
+        return;
+    }
     buy_souvenir bs(_map, list, stadium_name);
     bs.setModal(true);
     bs.exec();

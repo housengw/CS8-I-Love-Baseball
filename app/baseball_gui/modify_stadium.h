@@ -19,7 +19,7 @@ class ModifyStadium : public QDialog
 public:
     /********************************
      ** CONSTRUCTOR and DESTRUCTOR **
-     ********************************/
+     *****************************Fir***/
     explicit ModifyStadium(Map* map, string stadium_name, QWidget *parent = nullptr);
     ~ModifyStadium();
 

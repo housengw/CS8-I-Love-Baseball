@@ -33,7 +33,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>choose the stadium viseted below</string>
+    <string>Choose the stadium visited below</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -69,7 +69,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>buy</string>
+    <string>Buy</string>
    </property>
   </widget>
  </widget>
