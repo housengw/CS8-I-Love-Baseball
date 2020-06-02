@@ -3,6 +3,18 @@
 #include "manage_stadiums.h"
 #include "add_stadium.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * AdministratorActions::AdministratorActions(Map* map, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 AdministratorActions::AdministratorActions(Map* map, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AdministratorActions)
@@ -11,11 +23,35 @@ AdministratorActions::AdministratorActions(Map* map, QWidget *parent) :
     _map = map;
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * AdministratorActions::~AdministratorActions(): Class AdministratorActions
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 AdministratorActions::~AdministratorActions()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void AdministratorActions::on_manage_stadiums_button_clicked()
+ *________________________________________________________________
+ *  This function creates an object of ManageStadiums class to let the
+ *  administrator modify the stadiums
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     manage stadiums button clicked
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 void AdministratorActions::on_manage_stadiums_button_clicked()
 {
     ManageStadiums ms(_map);
@@ -23,6 +59,18 @@ void AdministratorActions::on_manage_stadiums_button_clicked()
     ms.exec();
 }
 
+/*****************************************************************
+ *  Method void AdministratorActions::on_add_stadium_button_clicked()
+ *________________________________________________________________
+ *  This function creates an object of AddStadium class to let the
+ *  administrator add new stadiums
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     add button clicked
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 void AdministratorActions::on_add_stadium_button_clicked()
 {
     AddStadium as(_map);
