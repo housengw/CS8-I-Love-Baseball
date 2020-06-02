@@ -87,9 +87,13 @@ void Map::_initialize_points(){
  * Post-Condition
  * get coordinates of edges and insert into vector
  *************************************************************/
-void Map::_initialize_plottables(){
+void Map::_initialize_plottables()
+{
     vector<Plottable> plottables;
     Point p1, p2;
+
+    //PROC - get coordinates of edges and insert into
+    //       vector<Plottable>
     for (size_t i=0; i<_edges.size(); i++){
         p1 = _points.get_coordinates(_edges[i].get_left_node());
         p2 = _points.get_coordinates(_edges[i].get_right_node());
@@ -99,7 +103,21 @@ void Map::_initialize_plottables(){
 }
 
 
-EdgeContainer Map::_get_trip_edges() const{
+/**************************************************************
+ * EdgeContainer Map::_get_trip_edges() const
+ * ____________________________________________________________
+ * This method adds the edges of the trip into EdgeContainer
+ * ___________________________________________________________
+ * Pre-Condition
+ * Verifies if _trip size == 0 return EdgeContainer
+ *
+ * Post-Condition
+ * retrun EdgeContainer of trip edges
+ *************************************************************/
+EdgeContainer Map::_get_trip_edges() const
+{
+    //PROC - if trip size == 0 return the EdgeContainer
+    //       else for each matched edges get the edges and insert into container
     if (_trip.size() == 0) return EdgeContainer();
     EdgeContainer edges;
     for (size_t i=0; i<_edges.size(); i++){
@@ -114,7 +132,22 @@ EdgeContainer Map::_get_trip_edges() const{
 }
 
 
-vector<Plottable> Map::get_trip_plottables() const{
+/**************************************************************
+ * EdgeContainer Map::_get_trip_edges() const
+ * ____________________________________________________________
+ * This method adds the edges of the trip into EdgeContainer
+ * ___________________________________________________________
+ * Pre-Condition
+ * Verifies if _trip size == 0 return EdgeContainer
+ *
+ * Post-Condition
+ * retrun EdgeContainer of trip edges
+ *************************************************************/
+vector<Plottable> Map::get_trip_plottables() const
+{
+
+    //PROC - get coordinates of edges and insert into
+    //       vector<Plottable>
     vector<Plottable> plottables;
     Point p1, p2;
     EdgeContainer edges = _get_trip_edges();
@@ -197,20 +230,50 @@ StadiumContainer Map::get_trip_permutation(StadiumContainer selection){
 }
 
 
-StadiumContainer Map::get_trip_greedy(StadiumContainer selection, Stadium start){
+/**************************************************************
+ * StadiumContainer Map::get_trip_greedy(StadiumContainer selection, Stadium start)
+ * ____________________________________________________________
+ * This method get trip using greedy algorithm
+ * ___________________________________________________________
+ * Pre-Condition
+ * StadiumContainer of selected stadiums, and start stadium
+ *
+ * Post-Condition
+ * return trip in StadiumContainer
+ *************************************************************/
+StadiumContainer Map::get_trip_greedy (StadiumContainer selection,  //IN - selected stadiums
+                                       Stadium start)               //IN - start stadium
+{
+    //PROC - add start stadium into container if is not found
     if (!selection.contains(start.get_stadium_name())){
         selection.add(start);
     }
+    //call make shorthest path of the selected stadiums
     Container<Dijkstra> dijkstras = _make_shortest_paths(selection);
     StadiumContainer greedy_perm, trip;
+    //use get greedy permutation and reconstruct the trip
     greedy_perm = _get_greedy_permutation(selection, start, dijkstras);
     trip = _reconstruct_trip(selection, greedy_perm, dijkstras);
+    //return trip
     return trip;
 }
 
-StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,
-                                        StadiumContainer perm,
-                                        Container<Dijkstra> dijkstras){
+/**************************************************************
+ * StadiumContainer Map::_reconstruct_trip(StadiumContainer selection, StadiumContainer perm,
+ *                                      Container<Dijkstra> dijkstras)
+ * ____________________________________________________________
+ * This method reconstruct the trip
+ * ___________________________________________________________
+ * Pre-Condition
+ * StadiumContainer of selected stadiumm, perm and Dijkstra container
+ *
+ * Post-Condition
+ * return trip in StadiumContainer
+ *************************************************************/
+StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,    //IN - selected stadiums
+                                        StadiumContainer perm,         //IN - greedy_perm
+                                        Container<Dijkstra> dijkstras) //IN - dijkstras container
+{
     StadiumContainer trip;
     Container<int> reconstructed;
     Container<int> indices = _index(selection);
@@ -218,7 +281,7 @@ StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,
     Dijkstra current_dijkstra;
     trip.add(perm[0]);
 
-    for (size_t i=0; i<perm.size()-1; i++){
+    for (size_t i=0; i < perm.size()-1; i++){
         current_index = selection.find(perm[i].get_stadium_name());
         next_index = selection.find(perm[i+1].get_stadium_name());
         current_dijkstra = dijkstras[current_index];
@@ -230,7 +293,20 @@ StadiumContainer Map::_reconstruct_trip(StadiumContainer selection,
     return trip;
 }
 
-StadiumContainer Map::_map_indices_to_stadiums(Container<int> indices){
+/**************************************************************
+ * StadiumContainer Map::_map_indices_to_stadiums(Container<int> indices)
+ * ____________________________________________________________
+ * This method get the stadiums with the indices container and add into
+ * StadiumContainer
+ * ___________________________________________________________
+ * Pre-Condition
+ * Container of int indices given
+ *
+ * Post-Condition
+ * return stadiums in StadiumContainer
+ *************************************************************/
+StadiumContainer Map::_map_indices_to_stadiums(Container<int> indices) //IN - int container
+{
     StadiumContainer stadiums;
     for (size_t i=0; i<indices.size(); i++){
         stadiums.add(_stadiums[indices[i]]);
@@ -238,9 +314,23 @@ StadiumContainer Map::_map_indices_to_stadiums(Container<int> indices){
     return stadiums;
 }
 
-StadiumContainer Map::_get_greedy_permutation(StadiumContainer selection,
-                                              Stadium start,
-                                              Container<Dijkstra> dijkstras){
+/**************************************************************
+ * StadiumContainer Map::_get_greedy_permutation(StadiumContainer selection,
+ *                            Stadium start, Container<Dijkstra> dijkstras)
+ * ____________________________________________________________
+ * This method will perform the greedy algorithm and insert the dijkstras
+ * of the selected stadiums into greedy perm container
+ * ___________________________________________________________
+ * Pre-Condition
+ * Selected stadiums, start stadium, and dijkstras container are given
+ *
+ * Post-Condition
+ * return greedy perm in StadiumContainer
+ *************************************************************/
+StadiumContainer Map::_get_greedy_permutation(StadiumContainer selection,    //IN - selected stadiums
+                                              Stadium start,                 //IN - start stadium
+                                              Container<Dijkstra> dijkstras) //IN - dijkstras container
+{
     StadiumContainer greedy_perm;
     Container<int> indices = _index(selection);
     Stadium current_stadium = start;
@@ -264,7 +354,20 @@ StadiumContainer Map::_get_greedy_permutation(StadiumContainer selection,
 }
 
 
-Container<int> Map::_index(StadiumContainer selection){
+/**************************************************************
+ * Container<int> Map::_index(StadiumContainer selection)
+ * ____________________________________________________________
+ * This method will get the index of each stadium in the stadium container
+ * and add into a container of int
+ * ___________________________________________________________
+ * Pre-Condition
+ * Selected stadiums is given
+ *
+ * Post-Condition
+ * return container of int
+ *************************************************************/
+Container<int> Map::_index(StadiumContainer selection)   //IN - selected stadiums
+{
     Container<int> indices;
     for (size_t i=0; i<selection.size(); i++){
         indices.add(_stadiums.find(selection[i].get_stadium_name()));
@@ -273,7 +376,20 @@ Container<int> Map::_index(StadiumContainer selection){
 }
 
 
-int Map::_compute_cost(vector<Stadium> stadiums, Container<Dijkstra> dijkstras){
+/**************************************************************
+ * int Map::_compute_cost(vector<Stadium> stadiums,Container<Dijkstra> dijkstras)
+ * ____________________________________________________________
+ * This method will compute the total cost between the stadiums
+ * ___________________________________________________________
+ * Pre-Condition
+ * vector of stadiums and dijkstras container are given
+ *
+ * Post-Condition
+ * return total cost between stadiums
+ *************************************************************/
+int Map::_compute_cost(vector<Stadium> stadiums,
+                       Container<Dijkstra> dijkstras)    //IN - dijkstras container
+{
     int cost = 0;
     for (size_t i=0; i<stadiums.size()-1; i++){
         int s1, s2;
@@ -284,7 +400,19 @@ int Map::_compute_cost(vector<Stadium> stadiums, Container<Dijkstra> dijkstras){
     return cost;
 }
 
-Container<Dijkstra> Map::_make_shortest_paths(StadiumContainer selection){
+/**************************************************************
+ * Container<Dijkstra> Map::_make_shortest_paths(StadiumContainer selection)
+ * ____________________________________________________________
+ * This method will find the shortest path between selected stadiums
+ * ___________________________________________________________
+ * Pre-Condition
+ * selected stadiums are given
+ *
+ * Post-Condition
+ * return Dijkstra container with the shortest path between stadiums
+ *************************************************************/
+Container<Dijkstra> Map::_make_shortest_paths(StadiumContainer selection)  //IN - selected stadiums
+{
     Container<Dijkstra> dijkstras;
     int** adjacency_matrix = _make_adjacency_matrix();
     for (size_t i=0; i<selection.size(); i++){
@@ -297,7 +425,19 @@ Container<Dijkstra> Map::_make_shortest_paths(StadiumContainer selection){
     return dijkstras;
 }
 
-int** Map::_make_adjacency_matrix(){
+/**************************************************************
+ * int** Map::_make_adjacency_matrix()
+ * ____________________________________________________________
+ * This method will create the adjacency matrix of the stadiums
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * return pointer to adjacency matrix
+ *************************************************************/
+int** Map::_make_adjacency_matrix()
+{
     int** adjacency_matrix;
     size_t matrix_size = _stadiums.size();
     adjacency_matrix = new int*[matrix_size];
@@ -317,6 +457,18 @@ int** Map::_make_adjacency_matrix(){
 }
 
 
+
+/**************************************************************
+ * int Map::get_cost() const
+ * ____________________________________________________________
+ * This method will calculate the total cost of the trip
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * return int total cost
+ *************************************************************/
 int Map::get_cost() const{
     int cost=0;
     for (int i=0; i<int(_trip.size())-1; i++){

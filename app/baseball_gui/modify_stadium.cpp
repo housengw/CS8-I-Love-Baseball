@@ -2,6 +2,18 @@
 #include "ui_modify_stadium.h"
 #include "modify_souvenir_list.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables to default values
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ModifyStadium)
@@ -28,17 +40,52 @@ ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :
 }
 
 
+/*****************************************************************
+ * DESTRUCTOR
+ * ModifyStadium::~ModifyStadium(): Class ModifyStadium
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 ModifyStadium::~ModifyStadium()
 {
     delete ui;
 }
 
 
+/*****************************************************************
+ *  Method void ModifyStadium::on_cancel_button_clicked()
+ *________________________________________________________________
+ *  This function returns this->close()
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     cancel button clicked
+ *
+ *  POST-CONDITIONS
+ *     close window
+ *****************************************************************/
 void ModifyStadium::on_cancel_button_clicked()
 {
     this->close();
 }
 
+/*****************************************************************
+ *  Method void ModifyStadium::on_confirm_button_clicked()
+ *________________________________________________________________
+ *  This function process the input for a new stadium and display error
+ *  message for incorrect input and update stadium
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     confirm button clicked and input filled out
+ *
+ *  POST-CONDITIONS
+ *     stadium updated and close window
+ *****************************************************************/
 void ModifyStadium::on_confirm_button_clicked()
 {
     string stadium_name, team_name, capacity, phone_number, date, street, city, surface;
@@ -71,6 +118,17 @@ void ModifyStadium::on_confirm_button_clicked()
     this->close();
 }
 
+/*****************************************************************
+ *  Method void ModifyStadium::on_pushButton_clicked()
+ *________________________________________________________________
+ *  This function process the souvenir information
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     button clicked and stadium seleted
+ *
+ *  POST-CONDITIONS
+ *     none
+ *****************************************************************/
 void ModifyStadium::on_pushButton_clicked()
 {
     modify_souvenir_list souvenirList(_map, _stadium_name);

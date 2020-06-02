@@ -16,7 +16,7 @@ public:
     /****************************************
     **  BIG 3  **
     *****************************************/
-    virtual ~Container();                                 //destructor
+    virtual ~Container();                         //destructor
     Container& operator = (const Container& rhs); //assginment operator
     Container (const Container &copy_this);       //copy constructor
 
@@ -35,10 +35,11 @@ public:
     void operator += (const Container &add);
     Container<T>& operator+(Container<T> rhs);
     Container<T>& operator+(T rhs);
+
 protected:
-    T* _list;
-    size_t _allocated;
-    size_t _size;
+    T* _list;            //IN/OUT list of items type T
+    size_t _allocated;   //IN/OUT allocated capacity of list
+    size_t _size;        //IN/OUT size of list
 };
 
 
@@ -75,7 +76,8 @@ Container<T>::Container(){
 * Return: nothing
 *******************************************************************/
 template <class T>
-Container<T>::~Container(){
+Container<T>::~Container()
+{
     delete[] _list;
 }
 
@@ -91,7 +93,8 @@ Container<T>::~Container(){
 * Return: a reference to this container class
 *******************************************************************/
 template <class T>
-Container<T>& Container<T>::operator= (const Container<T>& rhs){
+Container<T>& Container<T>::operator= (const Container<T>& rhs)
+{
     if (this == &rhs) return *this;
     if (_list != nullptr) delete [] _list;
     _size = rhs._size;

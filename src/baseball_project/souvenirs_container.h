@@ -54,8 +54,58 @@ public:
     **  MUTATORS  **
     ***********************************************/
     bool add(const souvenir& item) override;
-
-
 };
 
 #endif // SOUVENIRS_CONTAINER_H
+
+/****************************************
+ **  CONSTRUCTORS  **
+ *****************************************/
+/*****************************************
+ *  SouvenirsContainer();
+ *   Constructor: initialize private members to default values
+ *   Parameters: None
+ *   Return: None
+ *****************************************/
+
+
+/****************************************
+ **  ACCESSORS  **
+ *****************************************/
+/***********************************************
+ *  const souvenir& get(string souvenir_name) const
+ *   Accessor: return souvenir
+ *   Parameters: souvenir name
+ *   Return: const souvenir
+ **********************************************/
+/***********************************************
+ *  souvenir& get(string souvenir_name);
+ *   Accessor: return souvenir
+ *   Parameters: souvenir name
+ *   Return: souvenir
+ **********************************************/
+/***********************************************
+ *  int find(string souvenir_name) const;
+ *   Accessor: find souvenir in container
+ *   Parameters: souvenir name
+ *   Return: int > 0 if found else int < 0
+ **********************************************/
+/***********************************************
+ *  bool contains(string souvenir_name) const;
+ *   Accessor: verify if souvenir is contain in souvenir container
+ *   Parameters: string souvenir_name
+ *   Return: true if souvenir is contained else false
+ **********************************************/
+/***********************************************
+ *  void print() const;
+ *   Accessor: print the information of souvenir
+ *   Parameters: None
+ *   Return: None
+ **********************************************/
+
+
+
+
+
+
+
