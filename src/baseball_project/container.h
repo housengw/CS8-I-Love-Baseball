@@ -30,6 +30,8 @@ public:
     const T& at(size_t index) const;
     T& at(size_t index);
 
+    void clear_list();
+
     void operator += (const Container &add);
     Container<T>& operator+(Container<T> rhs);
     Container<T>& operator+(T rhs);
@@ -300,6 +302,22 @@ template <class T>
 Container<T>& Container<T>::operator+(T rhs){
     add(rhs);
     return *this;
+}
+
+
+/*******************************************************************
+* void Container<T>::clear_list()
+*
+* clears the data within the list
+*------------------------------------------------------------------
+* Parameter: NONE
+*------------------------------------------------------------------
+* Return: NONE
+*******************************************************************/
+template <class T>
+void Container<T>::clear_list()
+{
+    _size = 0;
 }
 
 

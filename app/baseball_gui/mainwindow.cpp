@@ -5,6 +5,7 @@
 #include "list_of_stadiums.h"
 #include "administrator_login.h"
 #include "trip_planner.h"
+#include "purchase_list.h"
 #include <QPixmap>      // header for images in GUI
 
 
@@ -43,6 +44,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringList tableHeaders;
     tableHeaders <<"Stadium";
     ui->visited_stadiums_table->setHorizontalHeaderLabels(tableHeaders);
+
+    purchaseList.clear_list();
 }
 
 
@@ -129,6 +132,7 @@ void MainWindow::update_visited_stadiums_table()
  *****************************************************************/
 void MainWindow::on_Trip_clicked()
 {
+    purchaseList.clear_list();
     TripPlanner tp(_map);
     tp.setModal(true);
     tp.exec();
@@ -151,6 +155,7 @@ void MainWindow::on_clear_trip_button_clicked()
 {
     _map->set_trip(StadiumContainer());
     update_map();
+    purchaseList.clear_list();
 }
 
 /*****************************************************************
@@ -176,7 +181,7 @@ void MainWindow::plot_connections()
         l.setLine(p1.get_x(), p1.get_y(), p2.get_x(), p2.get_y());
         scene->addLine(l);
     }
-    ui->graphicsView->setScene(scene);   
+    ui->graphicsView->setScene(scene);
 }
 
 
@@ -280,10 +285,16 @@ void MainWindow::on_administrator_button_clicked()
  *****************************************************************/
 void MainWindow::Mouse_current_pos()
 {
-    ui->current_pos->setText(
-                QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
+  ui->current_pos->setText(
+              QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
 }
 
+void MainWindow::on_purchase_list_button_clicked()
+{
+    purchase_list pl(_map, &purchaseList);
+    pl.setModal(true);
+    pl.exec();
+}
 
 /*****************************************************************
  *  Method void MainWindow::Mouse_release()

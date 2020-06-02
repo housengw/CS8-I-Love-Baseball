@@ -58,6 +58,7 @@ bool SouvenirsContainer::add(const souvenir& item)  //IN - souvenir item
 
     if(contains(item._name))
     {
+        get(item._name)._quantity++;
         return false;
     }
 
