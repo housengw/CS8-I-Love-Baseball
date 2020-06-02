@@ -4,6 +4,7 @@
 #include "../../src/baseball_project/map.h"
 #include "../../src/baseball_project/souvenirs_container.h"
 #include <QDialog>
+#include <QMessageBox>
 
 
 namespace Ui {
