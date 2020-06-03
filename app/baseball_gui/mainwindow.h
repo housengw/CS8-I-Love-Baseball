@@ -3,6 +3,7 @@
 #include "../../src/baseball_project/map.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QFileDialog>
 
 namespace Ui {
 class MainWindow;
@@ -40,6 +41,22 @@ private slots:
 
 
     void on_purchase_list_button_clicked();
+
+    void on_actionAmerican_Stadiums_triggered();
+
+    void on_actionNational_Stadiums_triggered();
+
+    void on_actionEdges_triggered();
+
+    void on_actionPoints_triggered();
+
+    void on_load_american_stadiums_triggered();
+
+    void on_load_national_stadiums_triggered();
+
+    void on_load_edges_triggered();
+
+    void on_load_points_triggered();
 
 private:
     Ui::MainWindow *ui;      // Main Window object for GUI

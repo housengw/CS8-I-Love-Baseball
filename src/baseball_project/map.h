@@ -41,6 +41,10 @@ public:
     void add_point(Point p);
     void add_edge(Edge e);
     void set_trip(StadiumContainer trip){_trip = trip;}
+    void load_american_stadiums(string file_name);
+    void load_national_stadiums(string file_name);
+    void load_edges(string file_name);
+    void load_points(string file_name);
 
 private:
     StadiumContainer _stadiums;            //IN/OUT stadiums container

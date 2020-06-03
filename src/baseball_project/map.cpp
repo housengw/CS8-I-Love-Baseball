@@ -57,7 +57,7 @@ void Map::_initialize_stadiums(){
  * load edges from file into edges container
  *************************************************************/
 void Map::_initialize_edges(){
-    _edges = load_edges(APP_EDGES_FILE_PATH, _stadiums);
+    _edges = _load_edges(APP_EDGES_FILE_PATH);
 }
 
 
@@ -73,7 +73,7 @@ void Map::_initialize_edges(){
  * load points from file into points container
  *************************************************************/
 void Map::_initialize_points(){
-    _points = load_points(APP_POINTS_FILE_PATH);
+    _points = _load_points(APP_POINTS_FILE_PATH);
 }
 
 /**************************************************************
@@ -480,3 +480,37 @@ bool Map::has_dangling_stadium() const{
     }
     return false;
 }
+
+
+void Map::load_american_stadiums(string file_name){
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (_stadiums[i].get_league() == AMERICAN_LEAGUE_NAME){
+            _stadiums.remove(i);
+            i--;
+        }
+    }
+    StadiumContainer american_stadiums;
+    load_stadiums(file_name, AMERICAN_LEAGUE_NAME, american_stadiums);
+    _stadiums += american_stadiums;
+}
+
+void Map::load_national_stadiums(string file_name){
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (_stadiums[i].get_league() == NATIONAL_LEAGUE_NAME){
+            _stadiums.remove(i);
+            i--;
+        }
+    }
+    StadiumContainer national_stadiums;
+    load_stadiums(file_name, NATIONAL_LEAGUE_NAME, national_stadiums);
+    _stadiums += national_stadiums;
+}
+
+void Map::load_edges(string file_name){
+    _edges = _load_edges(file_name);
+}
+
+void Map::load_points(string file_name){
+    _points = _load_points(file_name);
+}
+
