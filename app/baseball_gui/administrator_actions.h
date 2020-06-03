@@ -30,6 +30,8 @@ private slots:
 
     void on_add_stadium_button_clicked();
 
+    void on_manage_edges_button_clicked();
+
 private:
     Ui::AdministratorActions *ui;  // AdministratorActions object for GUI
     Map* _map;                     // Map class object

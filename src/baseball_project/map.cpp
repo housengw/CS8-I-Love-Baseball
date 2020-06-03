@@ -460,3 +460,23 @@ int Map::get_cost() const{
     }
     return cost;
 }
+
+
+void Map::add_point(Point p){
+    _points.add(p);
+}
+
+
+void Map::add_edge(Edge e){
+    _edges.add(e);
+}
+
+
+bool Map::has_dangling_stadium() const{
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (!_edges.contains(_stadiums[i].get_stadium_name())){
+            return true;
+        }
+    }
+    return false;
+}

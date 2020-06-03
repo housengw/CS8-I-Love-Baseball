@@ -18,6 +18,7 @@ public:
     int find_connection(string stadium_a, string stadium_b) const;
     int get_cost(string stadium_a, string stadium_b) const;
     bool connected(string stadium_a, string stadium_b) const;
+    bool contains(string stadium) const;
     void print() const;
 };
 

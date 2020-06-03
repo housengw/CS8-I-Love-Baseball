@@ -132,6 +132,10 @@ void MainWindow::update_visited_stadiums_table()
  *****************************************************************/
 void MainWindow::on_Trip_clicked()
 {
+    if (_map->has_dangling_stadium()){
+        QMessageBox::warning(this, "Error", "One or more stadium is isolated");
+        return;
+    }
     purchaseList.clear_list();
     TripPlanner tp(_map);
     tp.setModal(true);
