@@ -14,7 +14,9 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-modify_souvenir_list::modify_souvenir_list(Map* map, string stadium_name, QWidget *parent) :
+modify_souvenir_list::modify_souvenir_list(Map* map,             //IN - map class
+                                           string stadium_name,  //IN - stadium name
+                                           QWidget *parent) :    //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::modify_souvenir_list),
     _stadium_name(stadium_name)

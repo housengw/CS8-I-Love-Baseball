@@ -13,7 +13,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-UpdatePassword::UpdatePassword(string password, QWidget *parent) :
+UpdatePassword::UpdatePassword(string password,    //IN - password
+                               QWidget *parent) :  //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::UpdatePassword)
 {

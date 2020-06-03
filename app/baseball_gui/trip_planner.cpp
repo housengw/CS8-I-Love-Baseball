@@ -14,7 +14,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-TripPlanner::TripPlanner(Map* map, QWidget *parent) :
+TripPlanner::TripPlanner(Map* map,           //IN - map class
+                         QWidget *parent) :  //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::TripPlanner)
 {

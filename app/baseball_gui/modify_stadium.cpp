@@ -14,7 +14,9 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-ModifyStadium::ModifyStadium(Map* map, string stadium_name, QWidget *parent) :
+ModifyStadium::ModifyStadium(Map* map,             //IN - map class
+                             string stadium_name,  //IN - stadium name
+                             QWidget *parent) :    //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::ModifyStadium)
 {
