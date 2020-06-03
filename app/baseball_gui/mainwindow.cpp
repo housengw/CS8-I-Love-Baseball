@@ -328,6 +328,18 @@ void MainWindow::Mouse_release()
     ui->location_pressed->setText(QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
 }
 
+
+/*****************************************************************
+ *  Method void MainWindow::on_actionAmerican_Stadiums_triggered()
+ *________________________________________________________________
+ *  saves american stadiums to a file
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     American stadiums are saved to a file
+ *****************************************************************/
 void MainWindow::on_actionAmerican_Stadiums_triggered()
 {
     std::string file_name = QFileDialog::getSaveFileName(this, "Save Stadiums", "/").toStdString();
@@ -337,6 +349,17 @@ void MainWindow::on_actionAmerican_Stadiums_triggered()
 }
 
 
+/*****************************************************************
+ *  Method void MainWindow::on_actionNational_Stadiums_triggered()
+ *________________________________________________________________
+ *  saves national stadiums to a file
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     National stadiums are saved to a file
+ *****************************************************************/
 void MainWindow::on_actionNational_Stadiums_triggered()
 {
     std::string file_name = QFileDialog::getSaveFileName(this, "Save Stadiums", "/").toStdString();
@@ -346,6 +369,17 @@ void MainWindow::on_actionNational_Stadiums_triggered()
 }
 
 
+/*****************************************************************
+ *  Method void MainWindow::on_actionEdges_triggered()
+ *________________________________________________________________
+ *  saves edges to a file
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     edges are saved to a file
+ *****************************************************************/
 void MainWindow::on_actionEdges_triggered()
 {
     std::string file_name = QFileDialog::getSaveFileName(this, "Save Edges", "/").toStdString();
@@ -354,6 +388,18 @@ void MainWindow::on_actionEdges_triggered()
     }
 }
 
+
+/*****************************************************************
+ *  Method void MainWindow::on_actionPoints_triggered()
+ *________________________________________________________________
+ *  saves points to a file
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     points are saved to a file
+ *****************************************************************/
 void MainWindow::on_actionPoints_triggered()
 {
     std::string file_name = QFileDialog::getSaveFileName(this, "Save Points", "/").toStdString();
@@ -362,6 +408,17 @@ void MainWindow::on_actionPoints_triggered()
     }
 }
 
+/*****************************************************************
+ *  Method void MainWindow::on_load_american_stadiums_triggered()
+ *________________________________________________________________
+ *  load american stadiums
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     american stadiums are loaded from a file
+ *****************************************************************/
 void MainWindow::on_load_american_stadiums_triggered()
 {
     QString selfilter = tr("Text files (*.txt)");
@@ -371,6 +428,17 @@ void MainWindow::on_load_american_stadiums_triggered()
     }
 }
 
+/*****************************************************************
+ *  Method void MainWindow::on_load_national_stadiums_triggered()
+ *________________________________________________________________
+ *  load national stadiums
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     national stadiums are loaded from a file
+ *****************************************************************/
 void MainWindow::on_load_national_stadiums_triggered()
 {
     QString selfilter = tr("Text files (*.txt)");
@@ -380,6 +448,17 @@ void MainWindow::on_load_national_stadiums_triggered()
     }
 }
 
+/*****************************************************************
+ *  Method void MainWindow::on_load_edges_triggered()
+ *________________________________________________________________
+ *  load edges
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     edges are loaded from a file
+ *****************************************************************/
 void MainWindow::on_load_edges_triggered()
 {
     QString selfilter = tr("Comma Separated Value (*.csv)");
@@ -389,6 +468,17 @@ void MainWindow::on_load_edges_triggered()
     }
 }
 
+/*****************************************************************
+ *  Method void MainWindow::on_load_points_triggered()
+ *________________________________________________________________
+ *  load points
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     points are loaded from a file
+ *****************************************************************/
 void MainWindow::on_load_points_triggered()
 {
     QString selfilter = tr("Comma Separated Value (*.csv)");

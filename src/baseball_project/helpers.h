@@ -106,8 +106,31 @@ void rstrip_newline(std::string& str);
 std::string lower(std::string str);
 
 
+/*******************************************************************
+* bool contains(Container<int> c, int n);
+*
+* checks if n is in c
+*------------------------------------------------------------------
+* Parameter: c (Container<int>) //IN - a container
+*            n (int)            //IN - the number to find
+*------------------------------------------------------------------
+* Return: true if n is in c.
+*         false otherwise
+*******************************************************************/
 bool contains(Container<int> c, int n);
 
+
+/*******************************************************************
+* int find_unsigned_min_not_in_s(int* array, size_t size, Container<int> s);
+*
+* find the index of the minimum item in array that is not in s
+*------------------------------------------------------------------
+* Parameter: array (int*)       //IN - an integer array
+*            size (size_t)      //IN - the size of the array
+*            s (Container<int>) //IN - a container
+*------------------------------------------------------------------
+* Return: the index of the minimum item in array not in s is returned
+*******************************************************************/
 int find_unsigned_min_not_in_s(int* array, size_t size, Container<int> s);
 
 

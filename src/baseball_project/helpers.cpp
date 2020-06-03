@@ -233,6 +233,23 @@ std::string lower(std::string str){
     return str;
 }
 
+
+/**********************************************************
+*
+* Function contains
+*_________________________________________________________
+* checks if n is in c
+*
+* -returns true if n is in c.
+*          false otherwise
+*_________________________________________________________
+* PRE-CONDITIONS
+* none
+*
+* POST-CONDITIONS
+* true is returned if n is in c
+* false is retured otherwise
+***********************************************************/
 bool contains(Container<int> c, int n){
     for (size_t i=0; i<c.size(); i++){
         if (c[i] == n) return true;
@@ -240,6 +257,21 @@ bool contains(Container<int> c, int n){
     return false;
 }
 
+
+/**********************************************************
+*
+* Function find_unsigned_min_not_in_s
+*_________________________________________________________
+* find the index of the minimum item in array that is not in s
+*
+* -returns the index of the minimum item in array not in s
+*_________________________________________________________
+* PRE-CONDITIONS
+* size is the length of array
+*
+* POST-CONDITIONS
+* the index of the minimum item in array not in s is returned
+***********************************************************/
 int find_unsigned_min_not_in_s(int* array, size_t size, Container<int> s){
     if (size <= 0) return -1;
         int min_index = -1;
