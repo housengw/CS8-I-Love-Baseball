@@ -1,6 +1,18 @@
 #include "manage_edges.h"
 #include "ui_manage_edges.h"
 
+/*****************************************************************
+ * CONSTRUCTOR
+ * ManageEdges::ManageEdges(Map* map, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables to default values
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
 ManageEdges::ManageEdges(Map* map, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ManageEdges)
@@ -27,22 +39,36 @@ ManageEdges::ManageEdges(Map* map, QWidget *parent) :
 }
 
 
-void ManageEdges::update_table(){
-    EdgeContainer ec = _map->get_edges();
-    ui->edges_table->setRowCount(ec.size());
-    for (size_t i=0; i<ec.size(); i++){
-        ui->edges_table->setItem(i, 0, new QTableWidgetItem(ec[i].get_left_node().c_str()));
-        ui->edges_table->setItem(i, 1, new QTableWidgetItem(ec[i].get_right_node().c_str()));
-        ui->edges_table->setItem(i, 2, new QTableWidgetItem(to_string(ec[i].get_cost()).c_str()));
-    }
-}
-
-
+/*****************************************************************
+ * DESTRUCTOR
+ * ManageEdges::~ManageEdges(): Class ManageEdges
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 ManageEdges::~ManageEdges()
 {
     delete ui;
 }
 
+
+/*****************************************************************
+ *  Method void ManageEdges::on_add_button_clicked()
+ *________________________________________________________________
+ *  Pulls data from from_stadium_cbox, to_stadium_cbox and cost
+ * and adds an edge to _map->_edges.
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     the data pulled from the ui is not empty
+ *
+ *  POST-CONDITIONS
+ *     an edge is added to _map->_edges
+ *****************************************************************/
 void ManageEdges::on_add_button_clicked()
 {
     string from, to, cost;
@@ -67,6 +93,19 @@ void ManageEdges::on_add_button_clicked()
     ui->cost->clear();
 }
 
+
+/*****************************************************************
+ *  Method void ManageEdges::on_remove_button_clicked()
+ *________________________________________________________________
+ *  Pulls data from row_to_remove and remove an edge from _map->_edges
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     the data pulled from the ui is not empty and is within
+ *     the range of _map->_edges
+ *
+ *  POST-CONDITIONS
+ *     an edge is removed from _map->_edges
+ *****************************************************************/
 void ManageEdges::on_remove_button_clicked()
 {
     if (_map->get_edges().size() == 0) return;
@@ -85,4 +124,26 @@ void ManageEdges::on_remove_button_clicked()
     _map->get_edges().remove(row_int);
     update_table();
     ui->row_to_remove->clear();
+}
+
+/*****************************************************************
+ *  void ManageEdges::update_table()
+ *________________________________________________________________
+ *  updates the table that displays the edges
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     the table that displays the edges is updated
+ *****************************************************************/
+void ManageEdges::update_table()
+{
+    EdgeContainer ec = _map->get_edges();
+    ui->edges_table->setRowCount(ec.size());
+    for (size_t i=0; i<ec.size(); i++){
+        ui->edges_table->setItem(i, 0, new QTableWidgetItem(ec[i].get_left_node().c_str()));
+        ui->edges_table->setItem(i, 1, new QTableWidgetItem(ec[i].get_right_node().c_str()));
+        ui->edges_table->setItem(i, 2, new QTableWidgetItem(to_string(ec[i].get_cost()).c_str()));
+    }
 }
