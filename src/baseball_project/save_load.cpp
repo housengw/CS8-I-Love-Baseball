@@ -1,6 +1,17 @@
 #include "save_load.h"
 
 
+/**************************************************************
+ * void save_stadiums (string file_name, const StadiumContainer& sc)
+ * ____________________________________________________________
+ * Saves stadiums into file
+ * ___________________________________________________________
+ * Pre-Condition
+ * string file name and a stadium container is given
+ *
+ * Post-Condition
+ * stadiums in the stadium container has been saved to a file
+ *************************************************************/
 void save_stadiums (string file_name,
                     const StadiumContainer& sc){
     ofstream fout;
@@ -19,7 +30,17 @@ void save_stadiums (string file_name,
     }
 }
 
-
+/**************************************************************
+ * void save_edges (string file_name, const EdgeContainer& ec)
+ * ____________________________________________________________
+ * Saves edgess into file
+ * ___________________________________________________________
+ * Pre-Condition
+ * string file name and an edge container is given
+ *
+ * Post-Condition
+ * edges in the edge container is saved to a file
+ *************************************************************/
 void save_edges (string file_name, const EdgeContainer& ec){
     ofstream fout;
     fout.open(file_name);
@@ -34,6 +55,17 @@ void save_edges (string file_name, const EdgeContainer& ec){
 }
 
 
+/**************************************************************
+ * void save_points (string file_name, const PointContainer& pc)
+ * ____________________________________________________________
+ * Saves points into file
+ * ___________________________________________________________
+ * Pre-Condition
+ * string file name and a point container is given
+ *
+ * Post-Condition
+ * points in the point container is saved to a file
+ *************************************************************/
 void save_points (string file_name, const PointContainer& pc){
     ofstream fout;
     fout.open(file_name);

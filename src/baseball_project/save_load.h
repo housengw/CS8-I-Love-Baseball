@@ -16,10 +16,20 @@ using namespace std;
  **********************************************/
 void save_stadiums (string file_name, const StadiumContainer& mcontainer);
 
-
+/***********************************************
+ * void save_edges (string file_name, const EdgeContainer& ec);
+ *   Save: save edges into file
+ *   Parameters: string file name, EdgeContainer ec
+ *   Return: None
+ **********************************************/
 void save_edges (string file_name, const EdgeContainer& ec);
 
-
+/***********************************************
+ * void save_stadiums (string file_name, const StadiumContainer& mcontainer);
+ *   Save: save points into file
+ *   Parameters: string file name, PointContainer pc
+ *   Return: None
+ **********************************************/
 void save_points (string file_name, const PointContainer& pc);
 
 
