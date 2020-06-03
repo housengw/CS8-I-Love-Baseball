@@ -13,7 +13,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-ViewDistances::ViewDistances(Map* map, QWidget *parent) :
+ViewDistances::ViewDistances(Map* map,             //IN - map class
+                             QWidget *parent) :    //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::ViewDistances)
 {

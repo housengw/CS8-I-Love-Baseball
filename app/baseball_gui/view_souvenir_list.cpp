@@ -15,7 +15,9 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-view_souvenir_list::view_souvenir_list(Map* map, Stadium* stadium, QWidget *parent) :
+view_souvenir_list::view_souvenir_list(Map* map,             //IN - map class
+                                       Stadium* stadium,     //IN - stadium
+                                       QWidget *parent) :    //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::view_souvenir_list),
     _stadium(stadium)

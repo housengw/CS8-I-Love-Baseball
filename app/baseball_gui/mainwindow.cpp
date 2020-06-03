@@ -23,7 +23,7 @@
  *  POST-CONDITIONS
  *     Various options added to display list, create trip or administrator actions
  *****************************************************************/
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :  //IN - parent of the mainwindow
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -289,6 +289,18 @@ void MainWindow::Mouse_current_pos()
               QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
 }
 
+/*****************************************************************
+ *  Method void MainWindow::on_purchase_list_button_clicked()
+ *________________________________________________________________
+ *  This function call purchase_list class to let user purchase
+ *  souvenirs during trip
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     Purchase button clicked
+ *
+ *  POST-CONDITIONS
+ *     Display new window and update purchases
+ *****************************************************************/
 void MainWindow::on_purchase_list_button_clicked()
 {
     purchase_list pl(_map, &purchaseList);

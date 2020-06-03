@@ -12,7 +12,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-mouse_event::mouse_event(QWidget *parent) : QLabel(parent)
+mouse_event::mouse_event(QWidget *parent)  //IN - parent of the mainwindow
+    : QLabel(parent)
 {
     setMouseTracking(true);
 }

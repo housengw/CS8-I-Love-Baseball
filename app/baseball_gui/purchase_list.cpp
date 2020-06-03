@@ -2,7 +2,21 @@
 #include "ui_purchase_list.h"
 #include "buy_souvenir.h"
 
-purchase_list::purchase_list(Map* map, SouvenirsContainer* purchaseList, QWidget *parent) :
+/*****************************************************************
+ * CONSTRUCTOR
+ * purchase_list::purchase_list(Map* map, SouvenirsContainer* purchaseList, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
+purchase_list::purchase_list(Map* map,                         //IN - map class object
+                             SouvenirsContainer* purchaseList, //IN - souvenir container
+                             QWidget *parent) :                //IN - parent widget
     QDialog(parent),
     ui(new Ui::purchase_list),
     _map(map),
@@ -30,11 +44,34 @@ purchase_list::purchase_list(Map* map, SouvenirsContainer* purchaseList, QWidget
     display_list();
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * purchase_list::~purchase_list(): Class purchase_list
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 purchase_list::~purchase_list()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void purchase_list::display_list ()
+ *________________________________________________________________
+ *  This function will display the list of sourvenir items
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     list displayed
+ *****************************************************************/
 void purchase_list::display_list()
 {
     ui->display_list->setRowCount(list->size());
@@ -51,6 +88,18 @@ void purchase_list::display_list()
 }
 
 
+/*****************************************************************
+ *  Method void purchase_list::on_buy_clicked ()
+ *________________________________________________________________
+ *  This function will call buy_souvenir to let user buy souvenirs
+ *  items
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     Buy button clicked
+ *
+ *  POST-CONDITIONS
+ *     update purchases and display list
+ *****************************************************************/
 void purchase_list::on_buy_clicked()
 {
     string stadium_name = ui->visited_stadium->currentText().toStdString();

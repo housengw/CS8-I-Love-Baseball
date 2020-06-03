@@ -14,7 +14,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-ManageStadiums::ManageStadiums(Map* map, QWidget *parent) :
+ManageStadiums::ManageStadiums(Map* map,           //IN - map class
+                               QWidget *parent) :  //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::ManageStadiums)
 {

@@ -15,7 +15,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-AdministratorActions::AdministratorActions(Map* map, QWidget *parent) :
+AdministratorActions::AdministratorActions(Map* map,            //IN - map class
+                                           QWidget *parent) :   //IN - parent of the mainwindow
     QDialog(parent),
     ui(new Ui::AdministratorActions)
 {

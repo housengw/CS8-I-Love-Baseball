@@ -6,7 +6,7 @@
  * CONSTRUCTOR
  * list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :QDialog(parent)
  *________________________________________________________________
- *  This constructor initializes the private variables and displat the table
+ *  This constructor initializes the private variables and display the table
  *  with stadium's information
  *________________________________________________________________
  *  PRE-CONDITIONS
@@ -15,7 +15,8 @@
  *  POST-CONDITIONS
  *     None
  *****************************************************************/
-list_of_Stadiums::list_of_Stadiums(Map* map, QWidget *parent) :
+list_of_Stadiums::list_of_Stadiums(Map* map,          //IN - map class
+                                   QWidget *parent) : //IN - parent widget
     QDialog(parent),
     ui(new Ui::list_of_Stadiums)
 {

@@ -38,14 +38,13 @@ private slots:
     void Mouse_current_pos ();
     void Mouse_release ();
 
-
     void on_purchase_list_button_clicked();
 
 private:
-    Ui::MainWindow *ui;      // Main Window object for GUI
-    QGraphicsScene *scene;   // QGraphicsScene object for stadium map
-    Map* _map;               // Map class object
-    SouvenirsContainer purchaseList;
+    Ui::MainWindow *ui;             // Main Window object for GUI
+    QGraphicsScene *scene;          // QGraphicsScene object for stadium map
+    Map* _map;                      // Map class object
+    SouvenirsContainer purchaseList;// Souvenir container
 };
 
 #endif // MAINWINDOW_H
@@ -149,6 +148,13 @@ private:
 /*******************************************
  *  void Mouse_release ();
  *   Mutator: It will track the mouse coordinates on the map
+ *   Parameters: None
+ *   Return: None
+ *****************************************/
+/*******************************************
+ *  void on_purchase_list_button_clicked ();
+ *   Mutator: It will open window to let user make purchases
+ *   of souvenir in trip
  *   Parameters: None
  *   Return: None
  *****************************************/

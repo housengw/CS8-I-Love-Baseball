@@ -1,7 +1,23 @@
 #include "buy_souvenir.h"
 #include "ui_buy_souvenir.h"
 
-buy_souvenir::buy_souvenir(Map* map, SouvenirsContainer* purchaseList, string stadium_name, QWidget *parent) :
+/*****************************************************************
+ * CONSTRUCTOR
+ * buy_souvenir::buy_souvenir(Map* map, SouvenirsContainer* purchaseList, string stadium_name, QWidget *parent) :QDialog(parent)
+ *________________________________________________________________
+ *  This constructor initializes the private variables and display list of
+ *  souvenir items
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
+buy_souvenir::buy_souvenir(Map* map,                          //IN - map class object
+                           SouvenirsContainer* purchaseList,  //IN - souvenir container
+                           string stadium_name,               //IN - stadium selected
+                           QWidget *parent) :                 //IN - parent widget
     QDialog(parent),
     ui(new Ui::buy_souvenir),
     _map(map),
@@ -32,11 +48,34 @@ buy_souvenir::buy_souvenir(Map* map, SouvenirsContainer* purchaseList, string st
     }
 }
 
+/*****************************************************************
+ * DESTRUCTOR
+ * buy_souvenir::~buy_souvenir(): Class buy_souvenir
+ *________________________________________________________________
+ *  This deallocates any dynamically allocated memory
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     none
+ *
+ *  POST-CONDITIONS
+ *     dynamic memory deallocated
+ *****************************************************************/
 buy_souvenir::~buy_souvenir()
 {
     delete ui;
 }
 
+/*****************************************************************
+ *  Method void buy_souvenir::display_List ()
+ *________________________________________________________________
+ *  This function will display the list of purchased sourvenir items
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     None
+ *
+ *  POST-CONDITIONS
+ *     list displayed
+ *****************************************************************/
 void buy_souvenir::display_List()
 {
     SouvenirsContainer* list = &(_stadium->get_souvenir_list());
@@ -52,6 +91,17 @@ void buy_souvenir::display_List()
     ui->display_souvenirs->resizeRowsToContents();
 }
 
+/*****************************************************************
+ *  Method void buy_souvenir::on_buy_clicked ()
+ *________________________________________________________________
+ *  This function will let user to buy souvenirs items and display them
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     Buy button clicked
+ *
+ *  POST-CONDITIONS
+ *     update purchases, display list and close window
+ *****************************************************************/
 void buy_souvenir::on_buy_clicked()
 {
     if(_stadium->get_souvenir_list().empty())
