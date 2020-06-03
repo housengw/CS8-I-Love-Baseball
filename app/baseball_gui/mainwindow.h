@@ -39,10 +39,13 @@ private slots:
     void Mouse_release ();
 
 
+    void on_purchase_list_button_clicked();
+
 private:
     Ui::MainWindow *ui;      // Main Window object for GUI
     QGraphicsScene *scene;   // QGraphicsScene object for stadium map
     Map* _map;               // Map class object
+    SouvenirsContainer purchaseList;
 };
 
 #endif // MAINWINDOW_H

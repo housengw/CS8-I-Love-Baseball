@@ -13,12 +13,14 @@ struct souvenir
 {
     string _name;    //IN/OUT name
     double _price;   //IN/OUT price
+    int _quantity;
 
     //initialize private members
-    souvenir(string name = "", double price = 0)
+    souvenir(string name = "", double price = 0, int quantity = 1)
     {
         _name = name;
         _price = price;
+        _quantity = quantity;
     }
 
     //display souvenir information
