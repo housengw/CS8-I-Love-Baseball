@@ -19,6 +19,8 @@ public:
     bool match(string stadium_a, string stadium_b) const;
     string get_left_node() const{return _stadium_a;}
     string get_right_node() const{return _stadium_b;}
+    void set_left_node(string stadium){_stadium_a = stadium;}
+    void set_right_node(string stadium){_stadium_b = stadium;}
     int get_cost() const{return _cost;}
     void print_info();
 

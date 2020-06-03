@@ -2,9 +2,51 @@
 
 
 void save_stadiums (string file_name,
-                    const StadiumContainer& scontainer){
-
+                    const StadiumContainer& sc){
+    ofstream fout;
+    fout.open(file_name);
+    for (size_t i=0; i<sc.size(); i++){
+        fout<<sc[i].get_stadium_name()<<endl
+            <<sc[i].get_team_name()<<endl
+            <<sc[i].get_address1()<<endl
+            <<sc[i].get_address2()<<endl
+            <<sc[i].get_phone_number()<<endl
+            <<sc[i].get_date_opened().get_date()<<endl
+            <<sc[i].get_capacity()<<endl
+            <<sc[i].get_surface()<<endl;
+        if (i != sc.size()-1)
+            fout<<endl;
+    }
 }
+
+
+void save_edges (string file_name, const EdgeContainer& ec){
+    ofstream fout;
+    fout.open(file_name);
+    for (size_t i=0; i<ec.size(); i++){
+        fout<<ec[i].get_left_node()<<","
+            <<ec[i].get_right_node()<<","
+            <<ec[i].get_cost();
+        if (i != ec.size()-1){
+            fout<<endl;
+        }
+    }
+}
+
+
+void save_points (string file_name, const PointContainer& pc){
+    ofstream fout;
+    fout.open(file_name);
+    for (size_t i=0; i<pc.size(); i++){
+        fout<<pc[i].get_name()<<","
+            <<pc[i].get_x()<<","
+            <<pc[i].get_y();
+        if (i != pc.size()-1){
+            fout<<endl;
+        }
+    }
+}
+
 
 /**************************************************************
  * void save_password(string file_name, string password)
@@ -97,8 +139,7 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
  * Post-Condition
  * Edges loaded into edge container
  *************************************************************/
-EdgeContainer load_edges(string file_name,                   //IN - file name
-                         const StadiumContainer& reference)  //IN - stadium container
+EdgeContainer _load_edges(string file_name)                   //IN - file name
 {
     ifstream fin;
     string line;
@@ -129,7 +170,7 @@ EdgeContainer load_edges(string file_name,                   //IN - file name
  * Post-Condition
  * points loaded into points container
  *************************************************************/
-PointContainer load_points(string file_name)   //IN - string file name
+PointContainer _load_points(string file_name)   //IN - string file name
 {
     ifstream fin;
     string line;

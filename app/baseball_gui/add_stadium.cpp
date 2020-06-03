@@ -23,6 +23,8 @@ AddStadium::AddStadium(Map* map,            //IN - map class
     _map = map;
     ui->surface->addItem(QString::fromStdString(GRASS_SURFACE_NAME));
     ui->surface->addItem(QString::fromStdString(TURF_SURFACE_NAME));
+    ui->league->addItem(QString::fromStdString(NATIONAL_LEAGUE_NAME));
+    ui->league->addItem(QString::fromStdString(AMERICAN_LEAGUE_NAME));
 }
 
 /*****************************************************************
@@ -56,7 +58,8 @@ AddStadium::~AddStadium()
  *****************************************************************/
 void AddStadium::on_add_button_clicked()
 {
-    string stadium_name, team_name, capacity, phone_number, date, street, city, surface;
+    string stadium_name, team_name, capacity, phone_number,
+            date, street, city, surface, league, x, y;
     stadium_name = ui->stadium_name->toPlainText().toStdString();
     team_name = ui->team_name->toPlainText().toStdString();
     capacity = ui->capacity->toPlainText().toStdString();
@@ -65,7 +68,16 @@ void AddStadium::on_add_button_clicked()
     street = ui->street->toPlainText().toStdString();
     city = ui->city->toPlainText().toStdString();
     surface = ui->surface->currentText().toStdString();
+    league = ui->league->currentText().toStdString();
+    x = ui->x_location->toPlainText().toStdString();
+    y = ui->y_location->toPlainText().toStdString();
 
+    if (stadium_name.empty() || team_name.empty() || capacity.empty() ||
+            phone_number.empty() || date.empty() || street.empty() ||
+            city.empty() || x.empty() || y.empty()){
+        QMessageBox::warning(this, "Error", "Empty field(s)");
+        return;
+    }
     if (!is_unsigned_int(capacity)){
         QMessageBox::warning(this, "Error", "Invalid Capacity");
         return;
@@ -74,7 +86,6 @@ void AddStadium::on_add_button_clicked()
         QMessageBox::warning(this, "Error", "Invalid Date");
         return;
     }
-
     if (_map->get_stadiums().contains(stadium_name)){
         QMessageBox::warning(this, "Error", "Stadium Already Exists");
         return;
@@ -83,7 +94,11 @@ void AddStadium::on_add_button_clicked()
     Date d;
     d.set_whole(date);
     Stadium s(stadium_name, team_name, street, city, phone_number, d, stoi(capacity), surface);
+    s.set_league(league);
     _map->add_stadium(s);
+
+    Point p(stadium_name, stoi(x), stoi(y));
+    _map->add_point(p);
     this->close();
 }
 

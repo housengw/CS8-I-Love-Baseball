@@ -57,7 +57,7 @@ void Map::_initialize_stadiums(){
  * load edges from file into edges container
  *************************************************************/
 void Map::_initialize_edges(){
-    _edges = load_edges(APP_EDGES_FILE_PATH, _stadiums);
+    _edges = _load_edges(APP_EDGES_FILE_PATH);
 }
 
 
@@ -73,7 +73,7 @@ void Map::_initialize_edges(){
  * load points from file into points container
  *************************************************************/
 void Map::_initialize_points(){
-    _points = load_points(APP_POINTS_FILE_PATH);
+    _points = _load_points(APP_POINTS_FILE_PATH);
 }
 
 /**************************************************************
@@ -177,7 +177,21 @@ void Map::update_stadium(string stadium_name,  //IN - string stadium name
     for (size_t i=0; i<_stadiums.size(); i++){
         if (_stadiums[i].get_stadium_name() == stadium_name){
             _stadiums[i] = s;
-            return;
+        }
+    }
+
+    for (size_t i=0; i<_points.size(); i++){
+        if (_points[i].get_name() == stadium_name){
+            _points[i].set_name(s.get_stadium_name());
+        }
+    }
+
+    for (size_t i=0; i<_edges.size(); i++){
+        if (_edges[i].get_left_node() == stadium_name){
+            _edges[i].set_left_node(s.get_stadium_name());
+        }
+        else if (_edges[i].get_right_node() == stadium_name){
+            _edges[i].set_right_node(s.get_stadium_name());
         }
     }
 }
@@ -196,37 +210,6 @@ void Map::update_stadium(string stadium_name,  //IN - string stadium name
 void Map::add_stadium(Stadium s)   //IN - Stadium s
 {
     _stadiums.add(s);
-}
-
-
-StadiumContainer Map::get_trip_permutation(StadiumContainer selection){
-    Container<Dijkstra> dijkstras;
-    dijkstras = _make_shortest_paths(selection);
-
-//    cout<<dijkstras.size()<<endl;
-//    for(size_t i=0; i<dijkstras.size(); i++){
-//        cout<<_stadiums[i].get_stadium_name()<<": ";
-//        for (size_t j=0; j<dijkstras[i]._size; j++){
-//            cout<<dijkstras[i].c[j]<<" ";
-//        }
-//        cout<<endl;
-//    }
-
-    vector<Stadium> v = vectorize(selection);
-    vector<Stadium> best_case = v;
-    int min_cost = INT_MAX;
-    int cost;
-    int n=0;
-    do{
-//        cost = _compute_cost(v, dijkstras);
-//        if (cost < min_cost){
-//            min_cost = cost;
-//            best_case = v;
-//        }
-        n++;
-        cout<<"loop "<<n<<"| min_cost: "<<min_cost<<"| cost: "<<cost<<endl;
-    }while(next_permutation(v.begin(), v.end()));
-    return containerize(best_case);
 }
 
 
@@ -477,3 +460,57 @@ int Map::get_cost() const{
     }
     return cost;
 }
+
+
+void Map::add_point(Point p){
+    _points.add(p);
+}
+
+
+void Map::add_edge(Edge e){
+    _edges.add(e);
+}
+
+
+bool Map::has_dangling_stadium() const{
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (!_edges.contains(_stadiums[i].get_stadium_name())){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+void Map::load_american_stadiums(string file_name){
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (_stadiums[i].get_league() == AMERICAN_LEAGUE_NAME){
+            _stadiums.remove(i);
+            i--;
+        }
+    }
+    StadiumContainer american_stadiums;
+    load_stadiums(file_name, AMERICAN_LEAGUE_NAME, american_stadiums);
+    _stadiums += american_stadiums;
+}
+
+void Map::load_national_stadiums(string file_name){
+    for (size_t i=0; i<_stadiums.size(); i++){
+        if (_stadiums[i].get_league() == NATIONAL_LEAGUE_NAME){
+            _stadiums.remove(i);
+            i--;
+        }
+    }
+    StadiumContainer national_stadiums;
+    load_stadiums(file_name, NATIONAL_LEAGUE_NAME, national_stadiums);
+    _stadiums += national_stadiums;
+}
+
+void Map::load_edges(string file_name){
+    _edges = _load_edges(file_name);
+}
+
+void Map::load_points(string file_name){
+    _points = _load_points(file_name);
+}
+

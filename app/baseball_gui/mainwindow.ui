@@ -244,6 +244,26 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSave">
+    <property name="title">
+     <string>Save</string>
+    </property>
+    <addaction name="actionAmerican_Stadiums"/>
+    <addaction name="actionNational_Stadiums"/>
+    <addaction name="actionEdges"/>
+    <addaction name="actionPoints"/>
+   </widget>
+   <widget class="QMenu" name="menuLoad">
+    <property name="title">
+     <string>Load</string>
+    </property>
+    <addaction name="load_american_stadiums"/>
+    <addaction name="load_national_stadiums"/>
+    <addaction name="load_edges"/>
+    <addaction name="load_points"/>
+   </widget>
+   <addaction name="menuSave"/>
+   <addaction name="menuLoad"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -254,6 +274,46 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAmerican_Stadiums">
+   <property name="text">
+    <string>American Stadiums</string>
+   </property>
+  </action>
+  <action name="actionNational_Stadiums">
+   <property name="text">
+    <string>National Stadiums</string>
+   </property>
+  </action>
+  <action name="actionEdges">
+   <property name="text">
+    <string>Edges</string>
+   </property>
+  </action>
+  <action name="actionPoints">
+   <property name="text">
+    <string>Points</string>
+   </property>
+  </action>
+  <action name="load_american_stadiums">
+   <property name="text">
+    <string>American Stadiums</string>
+   </property>
+  </action>
+  <action name="load_national_stadiums">
+   <property name="text">
+    <string>National Stadiums</string>
+   </property>
+  </action>
+  <action name="load_edges">
+   <property name="text">
+    <string>Edges</string>
+   </property>
+  </action>
+  <action name="load_points">
+   <property name="text">
+    <string>Points</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

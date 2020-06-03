@@ -100,6 +100,12 @@ void ModifyStadium::on_confirm_button_clicked()
     city = ui->city->toPlainText().toStdString();
     surface = ui->surface->currentText().toStdString();
 
+    if (stadium_name.empty() || team_name.empty() || capacity.empty() ||
+            phone_number.empty() || date.empty() || street.empty() ||
+            city.empty()){
+        QMessageBox::warning(this, "Error", "Empty field(s)");
+        return;
+    }
     if (!is_unsigned_int(capacity)){
         QMessageBox::warning(this, "Error", "Invalid Capacity");
         return;

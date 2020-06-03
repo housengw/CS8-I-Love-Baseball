@@ -97,3 +97,26 @@ void EdgeContainer::print() const
     }
     cout<<endl;
 }
+
+
+/**************************************************************
+ * bool EdgeContainer::contains(string stadium) const
+ * ____________________________________________________________
+ * This method checks if the edge container has the stadium
+ * ___________________________________________________________
+ * Pre-Condition
+ * All private members are initialized
+ *
+ * Post-Condition
+ * true is returned if stadium is in the container.
+ * false is returned otherwise
+ *************************************************************/
+bool EdgeContainer::contains(string stadium) const{
+    for (size_t i=0; i<size(); i++){
+        if (_list[i].get_left_node() == stadium ||
+                _list[i].get_right_node() == stadium){
+            return true;
+        }
+    }
+    return false;
+}

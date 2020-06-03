@@ -53,7 +53,8 @@ SOURCES += \
     update_password.cpp \
     add_stadium.cpp \
     trip_planner.cpp \
-    ../../src/baseball_project/dijkstra.cpp
+    ../../src/baseball_project/dijkstra.cpp \
+    manage_edges.cpp
 
 HEADERS += \
     ../../src/baseball_project/souvenirs_container.h \
@@ -85,7 +86,8 @@ HEADERS += \
     update_password.h \
     add_stadium.h \
     trip_planner.h \
-    ../../src/baseball_project/dijkstra.h
+    ../../src/baseball_project/dijkstra.h \
+    manage_edges.h
 
 
 FORMS += \
@@ -102,7 +104,8 @@ FORMS += \
     modify_stadium.ui \
     update_password.ui \
     add_stadium.ui \
-    trip_planner.ui
+    trip_planner.ui \
+    manage_edges.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

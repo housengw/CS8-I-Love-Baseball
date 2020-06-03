@@ -17,6 +17,12 @@ using namespace std;
 void save_stadiums (string file_name, const StadiumContainer& mcontainer);
 
 
+void save_edges (string file_name, const EdgeContainer& ec);
+
+
+void save_points (string file_name, const PointContainer& pc);
+
+
 /***********************************************
  * void save_password(string file_name, string password);
  *   Save: password into file
@@ -41,7 +47,7 @@ void load_stadiums (string file_name, string league, StadiumContainer &mcontaine
  *   Parameters: string file name, and reference stadium container
  *   Return: edge container
  **********************************************/
-EdgeContainer load_edges(string file_name, const StadiumContainer& reference);
+EdgeContainer _load_edges(string file_name);
 
 
 /***********************************************
@@ -50,7 +56,7 @@ EdgeContainer load_edges(string file_name, const StadiumContainer& reference);
  *   Parameters: string file name
  *   Return: point container
  **********************************************/
-PointContainer load_points(string file_name);
+PointContainer _load_points(string file_name);
 
 
 /***********************************************

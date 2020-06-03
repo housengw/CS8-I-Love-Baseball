@@ -18,8 +18,8 @@ public:
     **  ACCESSORS  **
     *******************************************/
     string get_name() const{return _name;}
-    int get_x(){return _x;}
-    int get_y(){return _y;}
+    int get_x() const{return _x;}
+    int get_y() const{return _y;}
 
     /*******************************************
     **  MUTATORS  **

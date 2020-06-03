@@ -1,6 +1,7 @@
 #include "administrator_actions.h"
 #include "ui_administrator_actions.h"
 #include "manage_stadiums.h"
+#include "manage_edges.h"
 #include "add_stadium.h"
 
 /*****************************************************************
@@ -77,4 +78,23 @@ void AdministratorActions::on_add_stadium_button_clicked()
     AddStadium as(_map);
     as.setModal(true);
     as.exec();
+}
+
+
+/*****************************************************************
+ *  void AdministratorActions::on_manage_edges_button_clicked()
+ *________________________________________________________________
+ *  This function pulls up the manage edges interface
+ *________________________________________________________________
+ *  PRE-CONDITIONS
+ *     manage edges button clicked
+ *
+ *  POST-CONDITIONS
+ *     None
+ *****************************************************************/
+void AdministratorActions::on_manage_edges_button_clicked()
+{
+    ManageEdges me(_map);
+    me.setModal(true);
+    me.exec();
 }

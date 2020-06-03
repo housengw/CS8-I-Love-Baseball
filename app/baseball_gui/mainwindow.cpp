@@ -132,6 +132,10 @@ void MainWindow::update_visited_stadiums_table()
  *****************************************************************/
 void MainWindow::on_Trip_clicked()
 {
+    if (_map->has_dangling_stadium()){
+        QMessageBox::warning(this, "Error", "One or more stadium is isolated");
+        return;
+    }
     purchaseList.clear_list();
     TripPlanner tp(_map);
     tp.setModal(true);
@@ -322,4 +326,74 @@ void MainWindow::on_purchase_list_button_clicked()
 void MainWindow::Mouse_release()
 {
     ui->location_pressed->setText(QString ("X = %1, Y = %2").arg(ui->mouse_area->x).arg(ui->mouse_area->y));
+}
+
+void MainWindow::on_actionAmerican_Stadiums_triggered()
+{
+    std::string file_name = QFileDialog::getSaveFileName(this, "Save Stadiums", "/").toStdString();
+    if (!file_name.empty()){
+        save_stadiums(file_name, _map->get_stadiums().get_american_stadiums());
+    }
+}
+
+
+void MainWindow::on_actionNational_Stadiums_triggered()
+{
+    std::string file_name = QFileDialog::getSaveFileName(this, "Save Stadiums", "/").toStdString();
+    if (!file_name.empty()){
+        save_stadiums(file_name, _map->get_stadiums().get_national_stadiums());
+    }
+}
+
+
+void MainWindow::on_actionEdges_triggered()
+{
+    std::string file_name = QFileDialog::getSaveFileName(this, "Save Edges", "/").toStdString();
+    if (!file_name.empty()){
+        save_edges(file_name, _map->get_edges());
+    }
+}
+
+void MainWindow::on_actionPoints_triggered()
+{
+    std::string file_name = QFileDialog::getSaveFileName(this, "Save Points", "/").toStdString();
+    if (!file_name.empty()){
+        save_points(file_name, _map->get_points());
+    }
+}
+
+void MainWindow::on_load_american_stadiums_triggered()
+{
+    QString selfilter = tr("Text files (*.txt)");
+    string file_name = QFileDialog::getOpenFileName(this, "Load American Stadiums", "/", selfilter).toStdString();
+    if (!file_name.empty()){
+        _map->load_american_stadiums(file_name);
+    }
+}
+
+void MainWindow::on_load_national_stadiums_triggered()
+{
+    QString selfilter = tr("Text files (*.txt)");
+    string file_name = QFileDialog::getOpenFileName(this, "Load National Stadiums", "/", selfilter).toStdString();
+    if (!file_name.empty()){
+        _map->load_national_stadiums(file_name);
+    }
+}
+
+void MainWindow::on_load_edges_triggered()
+{
+    QString selfilter = tr("Comma Separated Value (*.csv)");
+    string file_name = QFileDialog::getOpenFileName(this, "Load Edges", "/", selfilter).toStdString();
+    if (!file_name.empty()){
+        _map->load_edges(file_name);
+    }
+}
+
+void MainWindow::on_load_points_triggered()
+{
+    QString selfilter = tr("Comma Separated Value (*.csv)");
+    string file_name = QFileDialog::getOpenFileName(this, "Load Points", "/", selfilter).toStdString();
+    if (!file_name.empty()){
+        _map->load_points(file_name);
+    }
 }

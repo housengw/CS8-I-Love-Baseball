@@ -23,6 +23,7 @@ public:
     const StadiumContainer& get_stadiums() const{return _stadiums;}
     StadiumContainer& get_stadiums() {return _stadiums;}
     const EdgeContainer& get_edges() const{return _edges;}
+    EdgeContainer& get_edges() {return _edges;}
     const PointContainer& get_points() const{return _points;}
     const vector<Plottable>& get_plottables() const{return _plottables;}
     const StadiumContainer& get_trip() const{return _trip;}
@@ -30,14 +31,20 @@ public:
     int get_cost() const;
 
     void update_stadium(string stadium_name, Stadium s);
-    StadiumContainer get_trip_permutation(StadiumContainer selection);
     StadiumContainer get_trip_greedy(StadiumContainer selection, Stadium start);
+    bool has_dangling_stadium() const;
 
     /*******************************************
     **  MUTATOR  **
     *******************************************/
     void add_stadium(Stadium s);
+    void add_point(Point p);
+    void add_edge(Edge e);
     void set_trip(StadiumContainer trip){_trip = trip;}
+    void load_american_stadiums(string file_name);
+    void load_national_stadiums(string file_name);
+    void load_edges(string file_name);
+    void load_points(string file_name);
 
 private:
     StadiumContainer _stadiums;            //IN/OUT stadiums container
