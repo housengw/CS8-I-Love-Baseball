@@ -1,8 +1,6 @@
 #ifndef VIEW_DISTANCES_H
 #define VIEW_DISTANCES_H
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/helpers.h"
-#include "../../src/baseball_project/sort_functions.h"
 #include <QDialog>
 #include <QMessageBox>
 

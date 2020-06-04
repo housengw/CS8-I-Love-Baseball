@@ -1,8 +1,6 @@
 #ifndef TRIP_PLANNER_H
 #define TRIP_PLANNER_H
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/helpers.h"
-#include "../../src/baseball_project/constants.h"
 #include <QDialog>
 #include <QMessageBox>
 

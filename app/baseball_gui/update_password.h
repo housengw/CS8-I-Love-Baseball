@@ -1,8 +1,6 @@
 #ifndef UPDATE_PASSWORD_H
 #define UPDATE_PASSWORD_H
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/helpers.h"
-#include "../../src/baseball_project/constants.h"
 #include <QDialog>
 #include <QMessageBox>
 
