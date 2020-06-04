@@ -440,7 +440,6 @@ int** Map::_make_adjacency_matrix()
 }
 
 
-
 /**************************************************************
  * int Map::get_cost() const
  * ____________________________________________________________
@@ -462,16 +461,50 @@ int Map::get_cost() const{
 }
 
 
+/**************************************************************
+ * void Map::add_point(Point p)
+ * ____________________________________________________________
+ * add a point to _points
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * p is added to _points
+ *************************************************************/
 void Map::add_point(Point p){
     _points.add(p);
 }
 
 
+/**************************************************************
+ * void Map::add_edge(Edge e)
+ * ____________________________________________________________
+ * add an edge to _edges
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * e is added to _edges
+ *************************************************************/
 void Map::add_edge(Edge e){
     _edges.add(e);
 }
 
 
+/**************************************************************
+ * bool Map::has_dangling_stadium() const
+ * ____________________________________________________________
+ * checks if there is an isolated stadium
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * true is returned if one or more stadium is isolated
+ * false is returned otherwise
+ *************************************************************/
 bool Map::has_dangling_stadium() const{
     for (size_t i=0; i<_stadiums.size(); i++){
         if (!_edges.contains(_stadiums[i].get_stadium_name())){
@@ -482,6 +515,17 @@ bool Map::has_dangling_stadium() const{
 }
 
 
+/**************************************************************
+ * void Map::load_american_stadiums(string file_name)
+ * ____________________________________________________________
+ * loads american stadiums
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * american stadiums from file_name are loaded to _stadiums
+ *************************************************************/
 void Map::load_american_stadiums(string file_name){
     for (size_t i=0; i<_stadiums.size(); i++){
         if (_stadiums[i].get_league() == AMERICAN_LEAGUE_NAME){
@@ -494,6 +538,18 @@ void Map::load_american_stadiums(string file_name){
     _stadiums += american_stadiums;
 }
 
+
+/**************************************************************
+ * void Map::load_national_stadiums(string file_name)
+ * ____________________________________________________________
+ * loads national stadiums
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * national stadiums from file_name are loaded to _stadiums
+ *************************************************************/
 void Map::load_national_stadiums(string file_name){
     for (size_t i=0; i<_stadiums.size(); i++){
         if (_stadiums[i].get_league() == NATIONAL_LEAGUE_NAME){
@@ -506,10 +562,33 @@ void Map::load_national_stadiums(string file_name){
     _stadiums += national_stadiums;
 }
 
+/**************************************************************
+ * void Map::load_edges(string file_name)
+ * ____________________________________________________________
+ * loads edges
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * edges from file_name are loaded to _edges
+ *************************************************************/
 void Map::load_edges(string file_name){
     _edges = _load_edges(file_name);
 }
 
+
+/**************************************************************
+ * void Map::load_points(string file_name)
+ * ____________________________________________________________
+ * loads points
+ * ___________________________________________________________
+ * Pre-Condition
+ * none
+ *
+ * Post-Condition
+ * points from file_name are loaded to _points
+ *************************************************************/
 void Map::load_points(string file_name){
     _points = _load_points(file_name);
 }
