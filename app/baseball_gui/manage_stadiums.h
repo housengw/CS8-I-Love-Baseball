@@ -1,8 +1,6 @@
 #ifndef MANAGE_STADIUMS_H
 #define MANAGE_STADIUMS_H
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/helpers.h"
-#include "../../src/baseball_project/sort_functions.h"
 #include <QDialog>
 #include <QMessageBox>
 

@@ -1,8 +1,6 @@
 #ifndef ADMINISTRATOR_LOGIN_H
 #define ADMINISTRATOR_LOGIN_H
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/helpers.h"
-#include "../../src/baseball_project/constants.h"
 #include <QDialog>
 #include <QMessageBox>
 

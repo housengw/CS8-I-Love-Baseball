@@ -2,7 +2,6 @@
 #define VIEW_SOUVENIR_LIST_H
 
 #include <QDialog>
-#include "../../src/baseball_project/stadium.h"
 #include "../../src/baseball_project/map.h"
 
 namespace Ui {

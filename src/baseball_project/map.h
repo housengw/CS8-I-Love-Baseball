@@ -1,8 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
-#include "stadium_container.h"
-#include "edge_container.h"
-#include "point_container.h"
+
 #include "save_load.h"
 #include "constants.h"
 #include "sort_functions.h"
@@ -107,6 +105,12 @@ private:
  *   Return: edges container by reference
  **********************************************/
 /***********************************************
+ *  EdgeContainer& get_edges() const
+ *   Accessor: returns edges container
+ *   Parameters: none
+ *   Return: edges container by reference
+ **********************************************/
+/***********************************************
  *  const PointContainer& get_points() const
  *   Accessor: returns points container
  *   Parameters: none
@@ -114,6 +118,12 @@ private:
  **********************************************/
 /***********************************************
  *  const vector<Plottable>& get_plottables() const
+ *   Accessor: returns vector of Plottable
+ *   Parameters: none
+ *   Return: vector
+ **********************************************/
+/***********************************************
+ *  vector<Plottable> get_plottables() const
  *   Accessor: returns vector of Plottable
  *   Parameters: none
  *   Return: vector
@@ -143,11 +153,12 @@ private:
  *   Return: StadiumContainer of trip after runnign greedy algorithm
  **********************************************/
 /***********************************************
- *  StadiumContainer get_trip_permutation(StadiumContainer selection);
- *   Accessor: get trip permutation
- *   Parameters: StadiumContainer of selected stadiums
- *   Return: StadiumContainer of trip after permutation
+ *  bool has_dangling_stadium() const;
+ *   Accessor: find if stadium has dangling
+ *   Parameters: None
+ *   Return: true if it has dangling stadium
  **********************************************/
+
 
 /*******************************************
 **  MUTATOR  **
@@ -159,9 +170,45 @@ private:
  *   Return: None
  **********************************************/
 /***********************************************
+ *  void add_point (Point p);
+ *   Mutator: add point
+ *   Parameters: Point p
+ *   Return: None
+ **********************************************/
+/***********************************************
+ *  void add_edge (Edge e);
+ *   Mutator: add edge
+ *   Parameters: Edge e
+ *   Return: None
+ **********************************************/
+/***********************************************
  *  void set_trip (StadiumContainer trip)
  *   Mutator: set trip
  *   Parameters: StadiumContainer trip
+ *   Return: None
+ **********************************************/
+/***********************************************
+ *  void load_american_stadiums (string file_name)
+ *   Mutator: load american stadiums
+ *   Parameters: string file name
+ *   Return: None
+ **********************************************/
+/***********************************************
+ *  void load_national_stadiums (string file_name)
+ *   Mutator: load national stadiums
+ *   Parameters: string file name
+ *   Return: None
+ **********************************************/
+/***********************************************
+ *  void load_edges (string file_name)
+ *   Mutator: load edges
+ *   Parameters: string file name
+ *   Return: None
+ **********************************************/
+/***********************************************
+ *  void load_points (string file_name)
+ *   Mutator: load points
+ *   Parameters: string file name
  *   Return: None
  **********************************************/
 
@@ -213,13 +260,6 @@ private:
  *             container of int
  *   Parameters: Stadium container selection
  *   Return: container of int index
- **********************************************/
-/***********************************************
- * StadiumContainer _get_greedy_permutation(StadiumContainer selection,
- *                 Stadium start, Container<Dijkstra> d);
- *   Function: get greedy permutation of the selected stadiums
- *   Parameters: Stadium container selection, start stadium, and dijkstras container
- *   Return: stadium container
  **********************************************/
 /***********************************************
  * StadiumContainer _reconstruct_trip(StadiumContainer selection,

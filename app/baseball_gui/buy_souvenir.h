@@ -1,9 +1,7 @@
 #ifndef BUY_SOUVENIR_H
 #define BUY_SOUVENIR_H
 
-
 #include "../../src/baseball_project/map.h"
-#include "../../src/baseball_project/souvenirs_container.h"
 #include <QDialog>
 
 namespace Ui {
